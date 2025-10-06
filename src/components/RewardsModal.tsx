@@ -73,7 +73,7 @@ const rewards: RewardType[] = [
     description: "Extra rewards points for you",
     image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     color: "#D32F2F",
-    value: "500 bonus reward points",
+    value: "500 bonus rewards points",
     brand: "Axis Bank",
     brandLogo: "https://www.axisbank.com/assets/images/logo.png"
   },
