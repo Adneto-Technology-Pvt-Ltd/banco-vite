@@ -154,7 +154,7 @@ export const BannerCarousel = ({
                 Unlock Exclusive Banking Rewards
               </h1>
               <p className="text-white/95 text-lg md:text-xl mb-8 md:mb-10 max-w-2xl leading-relaxed">
-                Earn rewards on every transaction, enjoy exclusive benefits, and build your financial future.
+                Experience premium banking with Axis Bank. Earn rewards on every transaction, enjoy exclusive benefits, and build your financial future.
               </p>
 
               {/* Buttons */}
