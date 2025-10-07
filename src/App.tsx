@@ -19,7 +19,7 @@ import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { RewardsJourneyModal } from "./components/RewardsJourneyModal";
 import { RewardsShowcase } from "./components/RewardsShowcase";
 import { HomeGamesSection } from "./components/HomeGamesSection";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Utensils, Plane, ShoppingBag, Film, CreditCard, Star } from "lucide-react";
 import AIChatbot from "./components/AIChatbot";
 
 // Import stylesheets
@@ -57,7 +57,21 @@ const PageWrapper = ({
   onStageChange, 
   onLogin, 
   onLogout, 
-  onNavigate 
+  onNavigate,
+  handleSearch,
+  searchResults,
+  handleSearchResultSelect 
+}: {
+  children: React.ReactNode;
+  userData: UserData;
+  journeyStage: string;
+  onStageChange: (stage: string) => void;
+  onLogin: () => void;
+  onLogout: () => void;
+  onNavigate: (destination: string) => void;
+  handleSearch?: (query: string) => void;
+  searchResults?: any[];
+  handleSearchResultSelect?: (rewardId: string) => void;
 }) => (
   <div className="flex flex-col min-h-screen">
     <AxisBankHeader 
@@ -66,6 +80,9 @@ const PageWrapper = ({
       onStageChange={onStageChange}
       onLogin={onLogin}
       onLogout={onLogout}
+      onSearch={handleSearch}
+      searchResults={searchResults}
+      onSearchResultSelect={handleSearchResultSelect}
     />
     {children}
     <AxisFooter onNavigate={onNavigate} />
@@ -81,7 +98,67 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<PageType>(null);
   const [selectedRewardId, setSelectedRewardId] = useState<string | null>(null);
   const [showRewardsModal, setShowRewardsModal] = useState(false);
-  
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Add the activationOffers data that's missing
+  const activationOffers = [
+    {
+      id: "dining", // This now matches mockRewardData key
+      title: "15% Offer applicable on total bill",
+      description: "Enjoy 15% off your total bill at Vietnom, great serving authentic Vietnamese pho and traditional cuisine in a vibrant setting.",
+      points: 250,
+      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      category: "Dining",
+      icon: <Utensils className="h-5 w-5" />
+    },
+    {
+      id: "lounge", // This now matches mockRewardData key
+      title: "Save 20% on IHG Hotel Stays",
+      description: "Enjoy 20% off on stays at IHG's global luxury and business hotels. Experience premium comfort and world-class hospitality worldwide.",
+      points: 500,
+      image: "https://www.businesstoday.com.my/wp-content/uploads/2022/06/IHG-Danang-Sun-Peninsula-Resort-1280x666.jpg",
+      category: "Travel",
+      icon: <Plane className="h-5 w-5" />
+    },
+    {
+      id: "shopping", // This now matches mockRewardData key
+      title: "Additional 20% off",
+      description: "Get an additional 20% off at Marks & Spencer, the iconic British retailer for stylish clothing. Shop the latest trends and timeless classics.",
+      points: 400,
+      image: "https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      category: "Shopping",
+      icon: <ShoppingBag className="h-5 w-5" />
+    },
+    {
+      id: "movie", // This now matches mockRewardData key
+      title: "25% Off Sony LIV Premium Packs",
+      description: "Enjoy 25% off on all Sony LIV Premium packs. Stream top shows, movies, and sports with unlimited entertainment online.",
+      points: 300,
+      image: "https://etimg.etb2bimg.com/photo/76029910.cms",
+      category: "Entertainment",
+      icon: <Film className="h-5 w-5" />
+    },
+    {
+      id: "cashback", // This now matches mockRewardData key
+      title: "Get 10% off on subscription",
+      description: "Get 10% off on BUSY subscription accounting software designed for small businesses to manage finances, billing, and GST efficiently.",
+      points: 350,
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      category: "Financial",
+      icon: <CreditCard className="h-5 w-5" />
+    },
+    {
+      id: "wellness", // This now matches mockRewardData key
+      title: "Flat 10% Off on Prescribed Medicines",
+      description: "Get flat 10% off on prescription medicines at Apollo Pharmacy, your trusted destination for genuine medicines and essential healthcare products.",
+      points: 600,
+      image: "https://media.istockphoto.com/id/156292188/photo/doctor-holding-out-several-packs-of-a-variety-of-pills.jpg?s=612x612&w=0&k=20&c=WEYtSbG6FM0WDbm7E_3QT8ZCqIEwQ9tDnGakyg5hhIw=",
+      category: "Wellness",
+      icon: <Star className="h-5 w-5" />
+    }
+  ];
+
   // Show welcome modal on first visit
   // useEffect(() => {
   //   // In a real app, you'd use localStorage or a cookie to check if this is the first visit
@@ -94,12 +171,61 @@ export default function App() {
   //     }, 1500);
   //   }
   // }, [journeyStage]);
+
+  // Update the handleSearch function
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    // Filter activation offers based on search query
+    const filtered = activationOffers.filter(offer =>
+      offer.title.toLowerCase().includes(query.toLowerCase()) ||
+      offer.description.toLowerCase().includes(query.toLowerCase()) ||
+      offer.category.toLowerCase().includes(query.toLowerCase()) ||
+      offer.brand?.toLowerCase().includes(query.toLowerCase())
+    );
+    setSearchResults(filtered);
+    
+    // If there are results, handle navigation based on authentication
+    if (query.trim() && filtered.length > 0) {
+      if (userData.isLoggedIn) {
+        // User is logged in, go to rewards page
+        setJourneyStage('rewards');
+        navigate(null);
+      } else {
+        // User not logged in, redirect to login but remember the search
+        setCurrentPage('login');
+      }
+    }
+  };
+
+  // Update handleSearchResultSelect function
+  const handleSearchResultSelect = (rewardId: string) => {
+    setSelectedRewardId(rewardId);
+    
+    if (userData.isLoggedIn) {
+      // User is logged in, go directly to reward detail
+      setCurrentPage('reward-detail');
+    } else {
+      // User not logged in, redirect to login but remember the reward
+      setCurrentPage('login');
+    }
+  };
+
+  // Add this function after the existing functions
+  const clearSearchResults = () => {
+    setSearchResults([]);
+    setSearchQuery("");
+  };
   
   // Navigation helper
   const navigate = (page: PageType, rewardId?: string) => {
     setCurrentPage(page);
     if (rewardId) {
       setSelectedRewardId(rewardId);
+    }
+
+    // Clear search results when navigating to non-search pages
+    if (page !== null && page !== "reward-detail") {
+      clearSearchResults();
     }
     
     // If navigating away from a page, reset the journey stage if needed
@@ -108,17 +234,32 @@ export default function App() {
     }
   };
   
-  // Handle login
+  // Update the handleLogin function to handle post-login navigation
   const handleLogin = (newUserData: UserData) => {
     setUserData(newUserData);
-    navigate(null);
     
     if (newUserData.isLoggedIn) {
-      setJourneyStage("rewards");
+      // If there's a selected reward from search, go to detail page
+      if (selectedRewardId) {
+        setCurrentPage('reward-detail');
+      } 
+      // If there are search results, go to rewards page
+      else if (searchResults.length > 0) {
+        setJourneyStage("rewards");
+        navigate(null);
+      }
+      // Default: go to rewards page
+      else {
+        setJourneyStage("rewards");
+        navigate(null);
+      }
+      
       // Show welcome rewards modal after login
       setTimeout(() => {
         setShowRewardsModal(true);
       }, 1000);
+    } else {
+      navigate(null);
     }
   };
   
@@ -142,6 +283,7 @@ export default function App() {
   // Handle stage change - NO AUTHENTICATION RESTRICTIONS
   const handleStageChange = (stage: string) => {
     setJourneyStage(stage);
+    clearSearchResults();
     navigate(null);
   };
   
@@ -206,6 +348,9 @@ export default function App() {
         onLogin={() => navigate("login")}
         onLogout={handleLogout}
         onNavigate={handleFooterNavigation}
+        handleSearch={handleSearch}
+        searchResults={searchResults}
+        handleSearchResultSelect={handleSearchResultSelect}
       >
         <RewardDetailPage 
           userData={userData}
@@ -237,6 +382,9 @@ export default function App() {
         onLogin={() => navigate("login")}
         onLogout={handleLogout}
         onNavigate={handleFooterNavigation}
+        handleSearch={handleSearch}
+        searchResults={searchResults}
+        handleSearchResultSelect={handleSearchResultSelect}
       >
         <RewardsGalleryPage 
           userData={userData}
@@ -255,6 +403,9 @@ export default function App() {
         onLogin={() => navigate("login")}
         onLogout={handleLogout}
         onNavigate={handleFooterNavigation}
+        handleSearch={handleSearch}
+        searchResults={searchResults}
+        handleSearchResultSelect={handleSearchResultSelect}
       >
         <MiniGames userData={userData} />
       </PageWrapper>
@@ -270,6 +421,9 @@ export default function App() {
         onLogin={() => navigate("login")}
         onLogout={handleLogout}
         onNavigate={handleFooterNavigation}
+        handleSearch={handleSearch}
+        searchResults={searchResults}
+        handleSearchResultSelect={handleSearchResultSelect}
       >
         <ComponentsPage />
       </PageWrapper>
@@ -285,6 +439,9 @@ export default function App() {
         onLogin={() => navigate("login")}
         onLogout={handleLogout}
         onNavigate={handleFooterNavigation}
+        handleSearch={handleSearch}
+        searchResults={searchResults}
+        handleSearchResultSelect={handleSearchResultSelect}
       >
         <div className="pt-[88px] flex flex-col items-center justify-center p-8">
           <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6">
@@ -400,6 +557,9 @@ export default function App() {
         onLogin={() => navigate("login")}
         onLogout={handleLogout}
         onNavigate={handleFooterNavigation}
+        handleSearch={handleSearch}
+        searchResults={searchResults}
+        handleSearchResultSelect={handleSearchResultSelect}
       >
         <div className="pt-[88px] px-4 py-8 max-w-7xl mx-auto">
           <h1 className="text-3xl font-bold mb-6 text-[#97144D]">{page.title}</h1>
@@ -419,6 +579,9 @@ export default function App() {
         onLogin={() => navigate("login")}
         onLogout={handleLogout}
         onNavigate={handleFooterNavigation}
+        handleSearch={handleSearch}
+        searchResults={searchResults}
+        handleSearchResultSelect={handleSearchResultSelect}
       >
         <div className="pt-[88px]">
           {/* Hero banner with image background */}
@@ -583,6 +746,9 @@ export default function App() {
         onLogin={() => navigate("login")}
         onLogout={handleLogout}
         onNavigate={handleFooterNavigation}
+        handleSearch={handleSearch}
+        searchResults={searchResults}
+        handleSearchResultSelect={handleSearchResultSelect}
       >
         {(() => {
           switch (journeyStage) {
@@ -599,7 +765,9 @@ export default function App() {
                   <RewardActivationPage 
                     onExploreRewards={() => navigate("rewards-gallery")} 
                     userData={userData} 
-                    onRewardSelect={handleRewardSelect} 
+                    onRewardSelect={handleRewardSelect}
+                    searchResults={searchResults}
+                    searchQuery={searchQuery}
                   />
                    {/* Full-width stacked rewards showcase with integrated login CTA */}
                   <RewardsShowcase 
@@ -708,6 +876,9 @@ export default function App() {
       onLogin={() => navigate("login")}
       onLogout={handleLogout}
       onNavigate={handleFooterNavigation}
+      handleSearch={handleSearch}
+      searchResults={searchResults}
+      handleSearchResultSelect={handleSearchResultSelect}
     >
       <main className="flex-grow">
         <HomeBanner 

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Crown, TrendingUp, Zap, Shield, CreditCard, Star, Menu, X, User, LogOut, Home, Gift, HeadphonesIcon, Users } from "lucide-react";
+import { ChevronDown, Crown, TrendingUp, Zap, Shield, CreditCard, Star, Menu, X, User, LogOut, Home, Gift, HeadphonesIcon, Users, Search } from "lucide-react";
 import svgPaths from "../imports/svg-6it17n7v1m";
 import { AxisButton } from "./AxisButton";
 
@@ -18,7 +18,23 @@ type AxisBankHeaderProps = {
   onStageChange: (stage: string) => void;
   onLogin: () => void;
   onLogout: () => void;
+  onSearch?: (query: string) => void; // Add search callback
+  searchResults?: any[]; // Add search results
+  onSearchResultSelect?: (rewardId: string) => void; // Add search result selection
+
 };
+
+// Search suggestions data
+const searchSuggestions = [
+  { id: "dining", title: "15% Offer applicable on total bill", category: "Dining", brand: "Vietnom Restaurant" },
+  { id: "lounge", title: "Save 20% on IHG Hotel Stays", category: "Travel", brand: "IHG Hotels" },
+  { id: "shopping", title: "Additional 20% off", category: "Shopping", brand: "Marks & Spencer" },
+  { id: "movie", title: "25% Off Sony LIV Premium Packs", category: "Entertainment", brand: "Sony LIV" },
+  { id: "cashback", title: "Get 10% off on subscription", category: "Financial", brand: "BUSY Software" },
+  { id: "wellness", title: "Flat 10% Off on Medicines", category: "Wellness", brand: "Apollo Pharmacy" },
+  { id: "luxury-watch", title: "Get Flat 25% Off", category: "Entertainment", brand: "Sony LIV" },
+  { id: "premium-jewelry", title: "Flat 25% off on making charges", category: "Jewelry", brand: "Kalyan Jewellers" }
+];
 
 // Account segment data for dropdown
 const accountSegments = [
@@ -84,8 +100,263 @@ const accountSegments = [
   // }
 ];
 
+// Desktop Search Component
+function DesktopSearch({ 
+  onSearch, 
+  searchResults, 
+  onSearchResultSelect 
+}: { 
+  onSearch?: (query: string) => void;
+  searchResults?: any[];
+  onSearchResultSelect?: (rewardId: string) => void;
+}) {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredSuggestions, setFilteredSuggestions] = useState<any[]>([]);
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  // Filter suggestions based on search query
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      const filtered = searchSuggestions.filter(item =>
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.brand.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredSuggestions(filtered);
+    } else {
+      setFilteredSuggestions([]);
+    }
+  }, [searchQuery]);
+
+  // Close search when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsSearchOpen(false);
+      }
+    }
+
+    if (isSearchOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isSearchOpen]);
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    onSearch?.(query);
+  };
+
+  const handleResultSelect = (rewardId: string) => {
+    onSearchResultSelect?.(rewardId);
+    setIsSearchOpen(false);
+    setSearchQuery("");
+  };
+
+  return (
+    <div className="relative" ref={searchRef}>
+      <motion.button
+        onClick={() => setIsSearchOpen(true)}
+        className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <Search className="h-5 w-5 text-gray-600" />
+      </motion.button>
+
+      <AnimatePresence>
+        {isSearchOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 z-50 overflow-hidden"
+          >
+            {/* Search Input */}
+            <div className="p-4 border-b border-gray-100">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search rewards, categories..."
+                  value={searchQuery}
+                  onChange={(e) => handleSearch(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#97144D]/30 focus:border-[#97144D]"
+                  autoFocus
+                />
+              </div>
+            </div>
+
+            {/* Search Results */}
+            <div className="max-h-80 overflow-y-auto">
+              {filteredSuggestions.length > 0 ? (
+                <div>
+                  <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    Search Results
+                  </div>
+                  {filteredSuggestions.map((item, index) => (
+                    <motion.button
+                      key={item.id}
+                      onClick={() => handleResultSelect(item.id)}
+                      className="w-full flex items-start gap-3 p-4 hover:bg-gray-50 transition-colors text-left"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      whileHover={{ x: 4 }}
+                    >
+                      <div className="p-2 bg-[#97144D]/10 rounded-lg flex-shrink-0">
+                        <Gift className="h-4 w-4 text-[#97144D]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium text-sm text-gray-900 truncate">{item.title}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="text-xs px-2 py-1 bg-gray-100 rounded-full text-gray-600">
+                            {item.category}
+                          </span>
+                          <span className="text-xs text-gray-500">{item.brand}</span>
+                        </div>
+                      </div>
+                    </motion.button>
+                  ))}
+                </div>
+              ) : searchQuery.trim() ? (
+                <div className="p-8 text-center text-gray-500">
+                  <Search className="h-8 w-8 mx-auto mb-2 text-gray-300" />
+                  <p className="text-sm">No rewards found for "{searchQuery}"</p>
+                </div>
+              ) : (
+                <div className="p-4">
+                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                    Popular Categories
+                  </div>
+                  {["Dining", "Travel", "Shopping", "Entertainment", "Wellness"].map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => handleSearch(category)}
+                      className="w-full flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors text-left"
+                    >
+                      <Gift className="h-4 w-4 text-[#97144D]" />
+                      <span className="text-sm text-gray-700">{category}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// Mobile Search Component
+function MobileSearch({ 
+  onSearch, 
+  onSearchResultSelect 
+}: { 
+  onSearch?: (query: string) => void;
+  onSearchResultSelect?: (rewardId: string) => void;
+}) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredSuggestions, setFilteredSuggestions] = useState<any[]>([]);
+
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      const filtered = searchSuggestions.filter(item =>
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.brand.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredSuggestions(filtered);
+    } else {
+      setFilteredSuggestions([]);
+    }
+  }, [searchQuery]);
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    onSearch?.(query);
+  };
+
+  const handleResultSelect = (rewardId: string) => {
+    onSearchResultSelect?.(rewardId);
+    setSearchQuery("");
+  };
+
+  return (
+    <div className="pt-4 border-t border-gray-200">
+      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Search Rewards</p>
+      
+      {/* Search Input */}
+      <div className="relative mb-4">
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+        <input
+          type="text"
+          placeholder="Search rewards, categories..."
+          value={searchQuery}
+          onChange={(e) => handleSearch(e.target.value)}
+          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#97144D]/30 focus:border-[#97144D]"
+        />
+      </div>
+
+      {/* Search Results */}
+      {filteredSuggestions.length > 0 ? (
+        <div className="bg-gray-50 rounded-lg p-2 max-h-48 overflow-y-auto">
+          {filteredSuggestions.map((item, index) => (
+            <motion.button
+              key={item.id}
+              onClick={() => handleResultSelect(item.id)}
+              className="w-full flex items-start gap-3 p-3 rounded-lg text-left hover:bg-white transition-colors"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.05 }}
+              whileHover={{ x: 4 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="p-2 bg-[#97144D]/10 rounded-lg flex-shrink-0">
+                <Gift className="h-4 w-4 text-[#97144D]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-medium text-sm text-gray-900 line-clamp-1">{item.title}</p>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-xs px-2 py-1 bg-gray-100 rounded-full text-gray-600">
+                    {item.category}
+                  </span>
+                </div>
+              </div>
+            </motion.button>
+          ))}
+        </div>
+      ) : searchQuery.trim() ? (
+        <div className="text-center py-4 text-gray-500">
+          <Search className="h-6 w-6 mx-auto mb-2 text-gray-300" />
+          <p className="text-sm">No rewards found</p>
+        </div>
+      ) : (
+        <div className="bg-gray-50 rounded-lg p-2">
+          <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+            Popular Categories
+          </div>
+          {["Dining", "Travel", "Shopping", "Entertainment"].map((category) => (
+            <button
+              key={category}
+              onClick={() => handleSearch(category)}
+              className="w-full flex items-center gap-3 p-2 hover:bg-white rounded-lg transition-colors text-left"
+            >
+              <Gift className="h-4 w-4 text-[#97144D]" />
+              <span className="text-sm text-gray-700">{category}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 // Mobile Menu Component
-function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, onLogin, onLogout }: {
+function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, onLogin, onLogout, onSearch, onSearchResultSelect }: {
   isOpen: boolean;
   onClose: () => void;
   userData: UserData;
@@ -93,6 +364,8 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
   onStageChange: (stage: string) => void;
   onLogin: () => void;
   onLogout: () => void;
+  onSearch?: (query: string) => void;
+  onSearchResultSelect?: (rewardId: string) => void;
 }) {
   const [showPersonaDropdown, setShowPersonaDropdown] = useState(false);
 
@@ -218,6 +491,12 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
                   );
                 })}
               </div>
+
+              {/* Mobile Search */}
+              <MobileSearch 
+                onSearch={onSearch}
+                onSearchResultSelect={onSearchResultSelect}
+              />
 
               {/* Persona Type Dropdown */}
               <div className="pt-4 border-t border-gray-200">
@@ -628,7 +907,10 @@ export const AxisBankHeader = ({
   currentStage,
   onStageChange,
   onLogin,
-  onLogout
+  onLogout,
+  onSearch,
+  searchResults,
+  onSearchResultSelect
 }: AxisBankHeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   // Define top navigation links with dropdown support
@@ -711,6 +993,7 @@ export const AxisBankHeader = ({
             {/* Enhanced Journey stage navigation */}
             <div className="absolute bottom-[13.636%] left-[50.833%] right-[4.236%] top-[47.727%]">
               <div className="box-border content-stretch flex flex-row gap-[30px] items-center justify-end p-0 relative size-full">
+                {/* search bar
                 <div className="relative shrink-0 size-5" data-name="Group">
                   <svg
                     className="block size-full"
@@ -727,7 +1010,13 @@ export const AxisBankHeader = ({
                       />
                     </g>
                   </svg>
-                </div>
+                </div> */}
+                {/* Desktop Search */}
+                <DesktopSearch
+                  onSearch={onSearch}
+                  searchResults={searchResults}
+                  onSearchResultSelect={onSearchResultSelect}
+                />
                 
                 {journeyStages.map((stage) => (
                   <motion.div 
@@ -804,6 +1093,8 @@ export const AxisBankHeader = ({
         onStageChange={onStageChange}
         onLogin={onLogin}
         onLogout={onLogout}
+        onSearch={onSearch}
+        onSearchResultSelect={onSearchResultSelect}
       />
     </> 
   );
