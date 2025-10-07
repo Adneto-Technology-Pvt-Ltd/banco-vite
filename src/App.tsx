@@ -220,6 +220,9 @@ export default function App() {
             }
           }}
           onRedeem={handleRewardRedemption}
+          onRewardSelect={(rewardId) => {
+            setSelectedRewardId(rewardId);
+          }}
         />
       </PageWrapper>
     );
@@ -614,14 +617,14 @@ export default function App() {
                   />
                   
                   {/* Rewards Journey Modal */}
-                  <RewardsJourneyModal 
+                  {/* <RewardsJourneyModal 
                     isOpen={showRewardsModal}
                     onClose={() => setShowRewardsModal(false)}
                     onExplore={() => {
                       setShowRewardsModal(false);
                       navigate("rewards-gallery");
                     }}
-                  />
+                  /> */}
                 </main>
               );
             case 'redemption':
@@ -680,14 +683,14 @@ export default function App() {
                   />
                   
                   {/* Rewards Journey Modal */}
-                  <RewardsJourneyModal 
+                  {/* <RewardsJourneyModal 
                     isOpen={showRewardsModal}
                     onClose={() => setShowRewardsModal(false)}
                     onExplore={() => {
                       setShowRewardsModal(false);
                       navigate("rewards-gallery");
                     }}
-                  />
+                  /> */}
                 </main>
               );
           }
@@ -756,14 +759,14 @@ export default function App() {
         />
         
         {/* Rewards Journey Modal */}
-        <RewardsJourneyModal 
+        {/* <RewardsJourneyModal 
           isOpen={showRewardsModal}
           onClose={() => setShowRewardsModal(false)}
           onExplore={() => {
             setShowRewardsModal(false);
             navigate("rewards-gallery");
           }}
-        />
+        /> */}
       </main>
     </PageWrapper>
   );

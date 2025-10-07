@@ -47,10 +47,10 @@ export const RewardActivationPage = ({ userData, onExploreRewards, onRewardSelec
     activatedRewards: 3
   };
   
-  // Sample activation offers
+  // Update the activationOffers array to use IDs that match mockRewardData
   const activationOffers = [
     {
-      id: "dining",
+      id: "dining", // This now matches mockRewardData key
       title: "15% Offer applicable on total bill",
       description: "Enjoy 15% off your total bill at Vietnom, great serving authentic Vietnamese pho and traditional cuisine in a vibrant setting.",
       points: 250,
@@ -59,37 +59,34 @@ export const RewardActivationPage = ({ userData, onExploreRewards, onRewardSelec
       icon: <Utensils className="h-5 w-5" />
     },
     {
-      id: "lounge",
+      id: "lounge", // This now matches mockRewardData key
       title: "Save 20% on IHG Hotel Stays",
-      description: "Enjoy 20% off on stays at IHG’s global luxury and business hotels. Experience premium comfort and world-class hospitality worldwide.",
+      description: "Enjoy 20% off on stays at IHG's global luxury and business hotels. Experience premium comfort and world-class hospitality worldwide.",
       points: 500,
-      // image: "https://images.unsplash.com/photo-1627750673161-02af15c7c722?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWlycG9ydCUyMGxvdW5nZXxlbnwwfHwwfHx8MA%3D%3D",
       image: "https://www.businesstoday.com.my/wp-content/uploads/2022/06/IHG-Danang-Sun-Peninsula-Resort-1280x666.jpg",
       category: "Travel",
       icon: <Plane className="h-5 w-5" />
     },
     {
-      id: "shopping",
+      id: "shopping", // This now matches mockRewardData key
       title: "Additional 20% off",
       description: "Get an additional 20% off at Marks & Spencer, the iconic British retailer for stylish clothing. Shop the latest trends and timeless classics.",
       points: 400,
       image: "https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      // image: "https://media.licdn.com/dms/image/v2/C5112AQEajNTUscBwuQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1558104728646?e=2147483647&v=beta&t=BnPypkzNsyRXmFspQczXAt1x1Ch2NgIVrK40mC5heJ8",
       category: "Shopping",
       icon: <ShoppingBag className="h-5 w-5" />
     },
     {
-      id: "movie",
+      id: "movie", // This now matches mockRewardData key
       title: "25% Off Sony LIV Premium Packs",
       description: "Enjoy 25% off on all Sony LIV Premium packs. Stream top shows, movies, and sports with unlimited entertainment online.",
       points: 300,
       image: "https://etimg.etb2bimg.com/photo/76029910.cms",
-      // image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
       category: "Entertainment",
       icon: <Film className="h-5 w-5" />
     },
     {
-      id: "cashback",
+      id: "cashback", // This now matches mockRewardData key
       title: "Get 10% off on subscription",
       description: "Get 10% off on BUSY subscription accounting software designed for small businesses to manage finances, billing, and GST efficiently.",
       points: 350,
@@ -98,35 +95,34 @@ export const RewardActivationPage = ({ userData, onExploreRewards, onRewardSelec
       icon: <CreditCard className="h-5 w-5" />
     },
     {
-      id: "wellness",
+      id: "wellness", // This now matches mockRewardData key
       title: "Flat 10% Off on Prescribed Medicines",
       description: "Get flat 10% off on prescription medicines at Apollo Pharmacy, your trusted destination for genuine medicines and essential healthcare products.",
       points: 600,
-      // image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
       image: "https://media.istockphoto.com/id/156292188/photo/doctor-holding-out-several-packs-of-a-variety-of-pills.jpg?s=612x612&w=0&k=20&c=WEYtSbG6FM0WDbm7E_3QT8ZCqIEwQ9tDnGakyg5hhIw=",
       category: "Wellness",
       icon: <Star className="h-5 w-5" />
     }
   ];
-  
-  // Recently activated rewards
+
+  // Update recentlyActivated to use IDs that match mockRewardData
   const recentlyActivated = [
     {
-      id: "activated-1",
+      id: "activated-1", // This now matches mockRewardData key
       title: "Amazon Gift Card",
       date: "May 28, 2025",
       points: 100,
       image: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
     },
     {
-      id: "activated-2",
+      id: "activated-2", // This now matches mockRewardData key
       title: "Coffee Shop Voucher",
       date: "May 20, 2025",
       points: 50,
       image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
     },
     {
-      id: "activated-3",
+      id: "activated-3", // This now matches mockRewardData key
       title: "Movie Ticket Discount",
       date: "May 15, 2025",
       points: 200,
