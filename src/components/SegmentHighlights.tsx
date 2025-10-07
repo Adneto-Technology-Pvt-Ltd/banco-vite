@@ -40,7 +40,7 @@ const segmentData = [
 export const SegmentHighlights = () => {
   return (
     <section className="py-12 px-6 max-w-7xl mx-auto">
-      <h2 className="mb-8 text-center">Banking Tailored To Your Needs</h2>
+      <h2 className="mb-8 text-center">Benefits Tailored To Your Account Type</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {segmentData.map((segment) => (

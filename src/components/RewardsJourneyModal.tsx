@@ -2,8 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import confetti from 'canvas-confetti';
+
 import { RewardWheel } from './RewardWheel';
 import { RewardResult } from './RewardResult';
+
 import '../styles/rewards-animations.css';
 
 // Define reward types
@@ -27,58 +29,58 @@ type RewardsJourneyModalProps = {
 // Sample reward data
 const rewards: RewardType[] = [
   {
-    title: "Dining Voucher",
-    description: "Enjoy a discount on your favorite meals",
+    title: "Swiggy Instamart Discount",
+    value: "Discount on your favorite meals",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     color: "#FF5A5F",
-    value: "10% off on Zomato",
-    brand: "Zomato",
-    brandLogo: "https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png"
+    description: "Get Rs.100 off on a minimum order value of Rs.399",
+    brand: "Swiggy",
+    brandLogo: "https://static.businessworld.in/Swiggy%20Instamart%20Orange-20%20(1)_20240913021826_original_image_44.webp"
   },
   {
-    title: "Shopping Voucher",
-    description: "Save on your next purchase",
-    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    title: "Subscription Offer",
+    value: "3 months of Jio Saavan Pro FREE",
+    image: "https://www.myhoardings.com/blog/wp-content/uploads/2021/12/JioSavnn-Ads.png",
     color: "#F9A825",
-    value: "₹500 off on Amazon",
-    brand: "Amazon",
-    brandLogo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+    description: "Get 3 months of Pro benefits worth Rs 299 for FREE!",
+    brand: "Jio Saavan",
+    brandLogo: "https://storage.googleapis.com/shy-pub/345733/1704713503478_1702290820624SKU00970.jpeg"
   },
   {
     title: "Travel Discount",
-    description: "Get away for less",
+    description: "15% off on your next trip",
     image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     color: "#4CAF50",
-    value: "15% off on MakeMyTrip",
-    brand: "MakeMyTrip",
-    brandLogo: "https://static.businessworld.in/article/article_extra_large_image/1609147522_O4YGnA_Logo_3x.png"
+    value: "15% off on EaseMyTrip",
+    brand: "EaseMyTrip",
+    brandLogo: "https://images.emtcontent.com/brandlogo/emtlogo_new8.svg"
   },
   {
     title: "Entertainment Pass",
-    description: "Enjoy movies and shows",
+    value: "15% OFF on ZEE5 Premium Annual Pack",
     image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     color: "#8E24AA",
-    value: "1 month free on Hotstar",
-    brand: "Hotstar",
-    brandLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Disney%2B_Hotstar_logo.svg/1200px-Disney%2B_Hotstar_logo.svg.png"
+    description: "FLAT 15% OFF on ZEE5 Premium HD and Zee5 Premium 4K Annual Pack",
+    brand: "ZEE5",
+    brandLogo: "https://logos-world.net/wp-content/uploads/2021/11/ZEE5-Logo.png"
   },
   {
-    title: "Lounge Access",
-    description: "Relax before your flight",
-    image: "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    title: "Lenskart Gold Membership",
+    description: "Free Lenskart Gold Max 1 year membership worth Rs 800/-",
+    image: "https://images.unsplash.com/photo-1608539733292-190446b22b83?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3VuZ2xhc3Nlc3xlbnwwfHwwfHx8MA%3D%3D",
     color: "#1E88E5",
-    value: "Complimentary airport lounge access",
-    brand: "Axis Bank Burgundy",
-    brandLogo: "https://www.axisbank.com/assets/images/logo.png"
+    value: "Rs 800/- Lenskart Gold Max 1 year membership",
+    brand: "Lenskart",
+    brandLogo: "https://1000logos.net/wp-content/uploads/2022/10/Lenskart-Logo-2013.png"
   },
   {
-    title: "Bonus Points",
-    description: "Extra rewards points for you",
-    image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    title: "LinekedIn Premium Offer",
+    description: "LinekedIn Premium Professional networking and career platform. Get 1 month free trial.",
+    image: "https://www.shutterstock.com/image-illustration/marketing-background-image-illustration-linkedin-260nw-2539004113.jpg",
     color: "#D32F2F",
-    value: "500 bonus reward points",
-    brand: "Axis Bank",
-    brandLogo: "https://www.axisbank.com/assets/images/logo.png"
+    value: "Get 1 Month Free",
+    brand: "LinkedIn",
+    brandLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png"
   },
 ];
 
@@ -160,11 +162,11 @@ export const RewardsJourneyModal = ({
           >
             <X size={20} />
           </button>
-          <h2 className="text-xl font-bold">Welcome to Your Rewards Journey!</h2>
+          <h2 className="text-xl font-bold">Welcome to Your Benefits Platform!</h2>
           <p className="opacity-90 text-sm mt-1">
             {showReward 
-              ? 'Congratulations on your exclusive reward!' 
-              : 'Spin the wheel to win an exclusive reward to start your experience.'}
+              ? 'Congratulations on your exclusive benefit!' 
+              : 'Spin the wheel to win an exclusive benefit to start your experience.'}
           </p>
         </div>
         

@@ -36,8 +36,8 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
     },
     {
       icon: Gift,
-      title: "Personalized Rewards",
-      description: "Enjoy rewards and offers tailored to your spending habits and lifestyle.",
+      title: "Personalized Benefits",
+      description: "Enjoy benefits and offers tailored to your spending habits and lifestyle.",
       color: "#12877F"
     },
     {
@@ -62,7 +62,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
     {
       name: "Arise",
       color: "#97144D", 
-      description: "Enhanced everyday banking with digital convenience and attractive rewards."
+      description: "Enhanced everyday banking with digital convenience and attractive benefits."
     },
     {
       name: "Liberty",
@@ -95,7 +95,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
               className="text-gray-700 mb-6 leading-relaxed"
             >
               An Axis Bank Savings Account offers you more than just a place to keep your money. 
-              Enjoy a comprehensive banking experience with personalized rewards, digital convenience, and exclusive benefits.
+              Enjoy a comprehensive banking experience with personalized benefits, digital convenience, and exclusive benefits.
             </motion.p>
             
             {/* Features List with Micro-interactions */}
@@ -149,7 +149,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                     variant="primary"
                     className="w-full btn-micro"
                   >
-                    <span>Explore Your Rewards</span>
+                    <span>Explore Your Benefits</span>
                     <motion.div
                       animate={{ x: [0, 4, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
@@ -170,10 +170,10 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                       variant="outline"
                       className="w-full btn-micro"
                     >
-                      Explore Rewards
+                      Explore Benefits
                     </AxisButton>
                   </motion.div>
-                  <motion.div
+                  {/* <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="flex-1"
@@ -191,7 +191,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </motion.div>
                     </AxisButton>
-                  </motion.div>
+                  </motion.div> */}
                 </>
               )}
             </motion.div>
@@ -301,7 +301,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                     variant="outline" 
                     className="w-full btn-micro text-sm"
                   >
-                    Compare Account Types
+                    Explore Benefits
                   </AxisButton>
                 </motion.div>
               </div>

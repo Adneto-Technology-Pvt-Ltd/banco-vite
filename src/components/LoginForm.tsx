@@ -32,10 +32,10 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     customerId: "adneto",
     password: "adneto",
-    dateOfBirth: "1980-05-10", // Format for input type="date" is YYYY-MM-DD
-    accountType: "Burgundy",
-    occupation: "Banking",
-    gender: "Female",
+    // dateOfBirth: "1980-05-10", // Format for input type="date" is YYYY-MM-DD
+    // accountType: "Burgundy",
+    // occupation: "Banking",
+    // gender: "Female",
     agreeTerms: true
   });
 
@@ -138,13 +138,13 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
       newErrors.password = "Password is required";
     }
     
-    if (!formData.dateOfBirth) {
-      newErrors.dateOfBirth = "Date of Birth is required";
-    }
+    // if (!formData.dateOfBirth) {
+    //   newErrors.dateOfBirth = "Date of Birth is required";
+    // }
 
-    if (!formData.accountType) {
-      newErrors.accountType = "Account Type is required";
-    }
+    // if (!formData.accountType) {
+    //   newErrors.accountType = "Account Type is required";
+    // }
     
     // Terms agreement validation
     if (!formData.agreeTerms) {
@@ -169,7 +169,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
     <div className="w-full">
       <div className="w-full mb-8">
         <h1 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-2">Welcome Back</h1>
-        <p className="text-gray-600">Access your rewards and exclusive benefits</p>
+        <p className="text-gray-600">Access your benefits and exclusive benefits</p>
       </div>
       
       <form className="w-full" onSubmit={handleSubmit}>
@@ -200,7 +200,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
           />
           
           {/* Date of Birth Field */}
-          <AxisDateInput
+          {/* <AxisDateInput
             name="dateOfBirth"
             label="Date of Birth"
             value={formData.dateOfBirth}
@@ -208,10 +208,10 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
             hasTooltip={true}
             error={formSubmitted ? errors.dateOfBirth : undefined}
             required={true}
-          />
+          /> */}
 
           {/* Account Type Dropdown */}
-          <AxisDropdown
+          {/* <AxisDropdown
             name="accountType"
             label="Account Type"
             value={formData.accountType}
@@ -221,26 +221,26 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
             hasTooltip={true}
             error={formSubmitted ? errors.accountType : undefined}
             required={true}
-          />
+          /> */}
           
           {/* Occupation Field */}
-          <AxisTextInput
+          {/* <AxisTextInput
             name="occupation"
             label="Occupation"
             value={formData.occupation}
             placeholder="Enter your occupation"
             onChange={handleChange}
-          />
+          /> */}
           
           {/* Gender Dropdown */}
-          <AxisDropdown
+          {/* <AxisDropdown
             name="gender"
             label="Gender"
             value={formData.gender}
             placeholder="Select gender"
             options={["Male", "Female", "Other", "Prefer not to say"]}
             onChange={handleGenderSelect}
-          />
+          /> */}
           
           {/* Terms and Conditions Checkbox */}
           <AxisCheckbox

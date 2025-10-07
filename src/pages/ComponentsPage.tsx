@@ -99,7 +99,7 @@ export const ComponentsPage = () => {
         <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
           <div className="border-b px-6 py-4">
             <h2 className="text-xl font-bold">Tab Components</h2>
-            <p className="text-gray-600">Various tab styles and variants used throughout the Axis Bank rewards platform.</p>
+            <p className="text-gray-600">Various tab styles and variants used throughout the Axis Bank Benefits platform.</p>
           </div>
           <TabsDemo />
         </div>

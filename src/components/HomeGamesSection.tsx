@@ -22,21 +22,21 @@ export const HomeGamesSection = ({ userData, onPlayGame, onViewGames }: HomeGame
     {
       id: "wheel",
       title: "Spin the Wheel",
-      description: "Spin to win additional rewards and points",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      description: "Spin to win additional benefits",
+      image: "https://media.istockphoto.com/id/2177986993/photo/wheel-of-fortune.webp?a=1&b=1&s=612x612&w=0&k=20&c=wZMJ91xOKoZoSxWbjbBTVlAWha81jhT_s3MQjHfWBII=",
       maxReward: 500
     },
     {
       id: "quiz",
       title: "Financial Quiz",
-      description: "Test your financial knowledge to earn bonus points",
+      description: "Test your financial knowledge to earn benefits",
       image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       maxReward: 300
     },
     {
       id: "match",
       title: "Match & Earn",
-      description: "Match the pairs to unlock surprise rewards",
+      description: "Match the pairs to unlock surprise benefits",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       maxReward: 400
     }
@@ -55,15 +55,15 @@ export const HomeGamesSection = ({ userData, onPlayGame, onViewGames }: HomeGame
         {/* Header Section */}
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-4">
-            Earn Rewards Through Fun Games
+            Earn Benefits Through Fun Games
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto mb-2">
-            Play interactive games and challenges to earn extra reward points. Each game offers unique rewards 
+            Play interactive games and challenges to earn extra benefits. Each game offers unique benefits
             and helps you learn more about financial wellness while having fun.
           </p>
-          <p className="text-sm font-medium text-[#12877F]">
+          {/* <p className="text-sm font-medium text-[#12877F]">
             Earn up to 1,200 additional points monthly
-          </p>
+          </p> */}
         </div>
         
         {/* Games Grid */}
@@ -82,9 +82,9 @@ export const HomeGamesSection = ({ userData, onPlayGame, onViewGames }: HomeGame
                   alt={game.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute top-3 right-3 bg-[#97144D] text-white text-xs font-medium px-2 py-1 rounded-full">
+                {/* <div className="absolute top-3 right-3 bg-[#97144D] text-white text-xs font-medium px-2 py-1 rounded-full">
                   Up to {game.maxReward} pts
-                </div>
+                </div> */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               
@@ -113,7 +113,7 @@ export const HomeGamesSection = ({ userData, onPlayGame, onViewGames }: HomeGame
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto mb-6">
               Games and challenges refresh every month. Complete all three to receive a special achievement badge 
-              and unlock bonus rewards. Track your progress and compete with other Axis Bank customers.
+              and unlock bonus benefits. Track your progress and compete with other Axis Bank customers.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -143,7 +143,7 @@ export const HomeGamesSection = ({ userData, onPlayGame, onViewGames }: HomeGame
                     Explore Games
                   </AxisButton>
                   <p className="text-sm text-gray-500">
-                    Login to track your progress and earn rewards
+                    Login to track your progress and earn benefits
                   </p>
                 </>
               )}
@@ -158,7 +158,7 @@ export const HomeGamesSection = ({ userData, onPlayGame, onViewGames }: HomeGame
               <div className="flex items-center justify-between">
                 <div>
                   <h4 className="font-bold text-[#97144D] mb-1">Monthly Challenge Progress</h4>
-                  <p className="text-sm text-gray-600">Complete all games to unlock special rewards</p>
+                  <p className="text-sm text-gray-600">Complete all games to unlock special benefits</p>
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-[#12877F]">2/3</div>

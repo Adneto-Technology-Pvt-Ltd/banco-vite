@@ -167,7 +167,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
     <div className="w-full">
       <div className="w-full mb-8">
         <h1 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-2">Welcome Back</h1>
-        <p className="text-gray-600">Access your rewards and exclusive benefits</p>
+        <p className="text-gray-600">Access your benefits and exclusive benefits</p>
       </div>
       
       <form className="w-full" onSubmit={handleSubmit}>

@@ -81,27 +81,25 @@ export const LoginPage = ({ onLogin }: LoginPageProps) => {
       
       if (user) {
         // Check credentials including account type
-        if (user.password === formData.password && 
-            user.dateOfBirth === formData.dateOfBirth &&
-            user.accountType === formData.accountType) {
+        if (user.password === formData.password ) {
           onLogin({
             isLoggedIn: true,
             customerId: formData.customerId,
-            name: user.name,
-            segment: user.segment,
-            persona: user.persona
+            // name: user.name,
+            // segment: user.segment,
+            // persona: user.persona
           });
         } else {
           // More specific error messages
-          if (user.password !== formData.password) {
-            setLoginError("Invalid password");
-          } else if (user.dateOfBirth !== formData.dateOfBirth) {
-            setLoginError("Invalid date of birth");
-          } else if (user.accountType !== formData.accountType) {
-            setLoginError("Account type does not match our records");
-          } else {
-            setLoginError("Invalid credentials");
-          }
+          // if (user.password !== formData.password) {
+          //   setLoginError("Invalid password");
+          // } else if (user.dateOfBirth !== formData.dateOfBirth) {
+          //   setLoginError("Invalid date of birth");
+          // } else if (user.accountType !== formData.accountType) {
+          //   setLoginError("Account type does not match our records");
+          // } else {
+          //   setLoginError("Invalid credentials");
+          // }
         }
       } else {
         setLoginError("Customer ID not found");
@@ -138,16 +136,16 @@ export const LoginPage = ({ onLogin }: LoginPageProps) => {
               <h2 className="text-2xl md:text-3xl font-bold">Axis Bank</h2>
             </div>
             <div className="mt-2 md:mt-4 text-white">
-              <p className="text-sm md:text-base">Rewards Portal | Axis Bank</p>
+              <p className="text-sm md:text-base">Benefits Portal | Axis Bank</p>
             </div>
           </div>
           
           {/* Value proposition */}
           {!isMobile && (
             <div className="absolute top-60 left-12 max-w-md text-white">
-              <h2 className="text-3xl font-bold mb-4">Exclusive rewards await you</h2>
+              <h2 className="text-3xl font-bold mb-4">Exclusive benefits await you</h2>
               <p className="text-lg opacity-90 mb-6">
-                Access tailored rewards designed specifically for your financial journey.
+                Access tailored benefits designed specifically for your financial journey.
               </p>
             </div>
           )}
@@ -186,7 +184,7 @@ export const LoginPage = ({ onLogin }: LoginPageProps) => {
             {/* Default credentials hint */}
             <div className="mt-4 text-center p-3 bg-[#EBF9F8] rounded-lg border border-[#12877F]/20">
               <p className="text-xs text-gray-600">
-                <strong>Default credentials:</strong> Customer ID: adneto | Password: adneto | DOB: 10/05/1980 | Account: Burgundy
+                <strong>Default credentials:</strong> Customer ID: adneto | Password: adneto
               </p>
             </div>
           </div>

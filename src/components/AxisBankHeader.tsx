@@ -184,7 +184,7 @@ function AccountsDropdown({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
           </div>
 
           {/* Footer */}
-          <div className="bg-gray-50 p-4 border-t border-gray-100">
+          {/* <div className="bg-gray-50 p-4 border-t border-gray-100">
             <div className="flex gap-2">
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -209,7 +209,7 @@ function AccountsDropdown({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                 Compare All
               </motion.button>
             </div>
-          </div>
+          </div> */}
         </motion.div>
       )}
     </AnimatePresence>
@@ -384,7 +384,7 @@ export const AxisBankHeader = ({
   // Define top navigation links with dropdown support
   const topNavLinks = [
     { text: "Persona Type", key: "accounts", hasDropdown: true },
-    { text: "Rewards", key: "rewards", hasDropdown: false },
+    { text: "Benefit", key: "rewards", hasDropdown: false },
     { text: "Support", key: "support", hasDropdown: false }
   ];
 
@@ -403,7 +403,7 @@ export const AxisBankHeader = ({
     ? [
         { text: "Home", key: "home" },
         // { text: "Discovery", key: "discovery" },
-        { text: "Rewards", key: "rewards" },
+        { text: "Benefits", key: "rewards" },
         // { text: "Redemption", key: "redemption" },
         { text: "Post Redemption", key: "post-redemption" },
       ]

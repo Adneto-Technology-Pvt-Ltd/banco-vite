@@ -55,7 +55,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
       title: "Airport Lounge Access",
       date: "May 28, 2025",
       points: 3500,
-      image: "https://images.unsplash.com/photo-1583418007992-a8e33a92e7ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
+      image: "https://images.unsplash.com/photo-1627750673161-02af15c7c722?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWlycG9ydCUyMGxvdW5nZXxlbnwwfHwwfHx8MA%3D%3D"
     }
   };
 
@@ -88,7 +88,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
       date: "May 28, 2025",
       points: 3500,
       status: "Redeemed",
-      image: "https://images.unsplash.com/photo-1583418007992-a8e33a92e7ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+      image: "https://images.unsplash.com/photo-1627750673161-02af15c7c722?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWlycG9ydCUyMGxvdW5nZXxlbnwwfHwwfHx8MA%3D%3D"
     },
     {
       title: "Premium Dining Voucher",
@@ -176,7 +176,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                 </h1>
                 
                 <p className="opacity-90 mb-6 max-w-lg">
-                  Welcome back, {enhancedUserData.name}! Your Burgundy reward has been successfully redeemed. 
+                  Welcome back, {enhancedUserData.name}! Your Burgundy benefits has been successfully redeemed. 
                   Discover more exclusive experiences and continue your premium journey.
                 </p>
                 
@@ -197,7 +197,8 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                           🏆 Redemption Complete!
                         </p>
                         <p className="text-white/80 text-sm">
-                          {enhancedUserData.lastRedemption.title} • {enhancedUserData.lastRedemption.points.toLocaleString()} points
+                          {enhancedUserData.lastRedemption.title}
+                           {/* • {enhancedUserData.lastRedemption.points.toLocaleString()} points */}
                         </p>
                       </div>
                     </div>
@@ -206,7 +207,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
 
                 {/* Stats grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                  <motion.div
+                  {/* <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
@@ -221,7 +222,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                         <div className="text-2xl font-bold">{formatNumber(enhancedUserData.availablePoints)}</div>
                       </div>
                     </div>
-                  </motion.div>
+                  </motion.div> */}
                   
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -234,7 +235,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                         <Check className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <p className="text-sm opacity-80">Rewards Redeemed</p>
+                        <p className="text-sm opacity-80">Benefits Redeemed</p>
                         <div className="text-2xl font-bold">{enhancedUserData.rewardsRedeemed}</div>
                       </div>
                     </div>
@@ -270,7 +271,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                     onClick={() => {/* Navigate to discovery */}}
                     className="flex items-center justify-center"
                   >
-                    Explore More Rewards <ArrowRight className="ml-2 h-4 w-4" />
+                    Explore More Benefits <ArrowRight className="ml-2 h-4 w-4" />
                   </AxisButton>
                   
                   <AxisButton 
@@ -311,9 +312,9 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                         <h4 className="font-bold text-lg mb-1">{enhancedUserData.lastRedemption.title}</h4>
                         <p className="text-sm text-gray-600 mb-2">{enhancedUserData.lastRedemption.date}</p>
                         <div className="flex items-center justify-between">
-                          <span className="text-[#97144D] font-medium">
+                          {/* <span className="text-[#97144D] font-medium">
                             {enhancedUserData.lastRedemption.points.toLocaleString()} points
-                          </span>
+                          </span> */}
                           <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
                             ✓ Redeemed
                           </span>
@@ -323,7 +324,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                   </div>
                   
                   <div className="text-center text-sm text-gray-600">
-                    Thank you for choosing Burgundy rewards! 
+                    Thank you for choosing Burgundy Benefits! 
                     Your experience matters to us.
                   </div>
                 </div>
@@ -344,7 +345,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
               <div>
                 <h3 className="font-bold text-lg mb-1">Share Your Experience</h3>
                 <p className="text-gray-600 max-w-md">
-                  Tell us about your redemption experience and earn 5 bonus points!
+                  Tell us about your redemption experience.
                 </p>
               </div>
             </div>
@@ -397,7 +398,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
               }`}
             >
               <Calendar className="h-4 w-4 mr-2" />
-              Upcoming Rewards
+              Upcoming Benefits
             </button>
           </div>
           
@@ -434,9 +435,9 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                           <h4 className="font-medium text-lg mb-1">{item.title}</h4>
                           <p className="text-sm text-gray-600 mb-2">{item.date}</p>
                           <div className="flex items-center justify-between">
-                            <span className="text-[#97144D] font-medium">
+                            {/* <span className="text-[#97144D] font-medium">
                               {item.points.toLocaleString()} points
-                            </span>
+                            </span> */}
                             <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">
                               {item.status}
                             </span>
@@ -498,7 +499,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                       </div>
                       
                       <AxisButton variant="primary" fullWidth>
-                        Submit Feedback (+5 bonus points)
+                        Submit Feedback (+5 benefit added)
                       </AxisButton>
                     </div>
                     
@@ -555,7 +556,7 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="bg-white rounded-xl shadow-sm p-6">
-                  <h3 className="text-xl font-bold mb-6 text-[#97144D]">Upcoming Burgundy Rewards</h3>
+                  <h3 className="text-xl font-bold mb-6 text-[#97144D]">Upcoming Burgundy Benefits</h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {upcomingRewards.map((reward, index) => (

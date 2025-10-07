@@ -53,7 +53,7 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
   const rewardCategories = [
     {
       id: "all",
-      label: "All Rewards",
+      label: "All Benefits",
       icon: <Gift className="h-[18px] w-[18px]" />
     },
     {
@@ -240,8 +240,8 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
             <div>
               <h2 className="text-2xl font-bold text-[#97144D] mb-2">Redemption Center</h2>
               <p className="text-gray-600 max-w-2xl">
-                Browse and redeem your rewards with our easy redemption process. Burgundy members enjoy 
-                exclusive rewards and expedited fulfillment.
+                Browse and redeem your benefits with our easy redemption process. Burgundy members enjoy 
+                exclusive benefits and expedited fulfillment.
               </p>
             </div>
             
@@ -250,7 +250,7 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
               <div className="relative w-full md:w-64">
                 <input
                   type="text"
-                  placeholder="Search rewards..."
+                  placeholder="Search benefits..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#97144D]/20"
@@ -274,7 +274,7 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
           <div className="flex justify-between items-center mb-6">
             <div>
               <span className="text-sm text-gray-500">
-                {filteredRewards.length} rewards available
+                {filteredRewards.length} benefits available
               </span>
             </div>
             
@@ -305,7 +305,7 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
                   />
                   <div className="absolute top-4 left-4">
                     <div className="bg-[#97144D] text-white text-xs font-medium px-3 py-1 rounded-full">
-                      Featured Reward
+                      Featured Benefit
                     </div>
                   </div>
                 </div>
@@ -328,7 +328,7 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
                     <div className="flex items-center mb-4">
                       <div className="flex items-center mr-4">
                         <Gift className="h-4 w-4 text-[#97144D] mr-1" />
-                        <span className="text-sm font-medium">{featuredReward.pointsRequired.toLocaleString()} points</span>
+                        {/* <span className="text-sm font-medium">{featuredReward.pointsRequired.toLocaleString()} points</span> */}
                       </div>
                       <div className="flex items-center">
                         <Clock className="h-4 w-4 text-[#12877F] mr-1" />
@@ -361,9 +361,9 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
                 <div className="text-gray-400 mb-4">
                   <Filter className="h-12 w-12 mx-auto" />
                 </div>
-                <h3 className="text-lg font-medium text-gray-700 mb-2">No rewards found</h3>
+                <h3 className="text-lg font-medium text-gray-700 mb-2">No <b>Benefits</b> found</h3>
                 <p className="text-gray-500 max-w-md mx-auto">
-                  We couldn't find any rewards matching your search criteria. 
+                  We couldn't find any benefits matching your search criteria. 
                   Try changing your category or search terms.
                 </p>
               </div>
@@ -374,7 +374,7 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
           {sortedRewards.length > 0 && (
             <div className="mt-8 text-center">
               <AxisButton variant="outline" className="mx-auto">
-                Load More Rewards
+                Load More Benefits
               </AxisButton>
             </div>
           )}
@@ -443,14 +443,14 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <ProcessCard 
               number={1}
-              title="Select Your Reward"
-              description="Browse through our curated collection of premium rewards"
+              title="Select Your Benefit"
+              description="Browse through our curated collection of premium benefits"
               icon={<Gift className="h-6 w-6" />}
             />
             <ProcessCard 
               number={2}
               title="Confirm Redemption"
-              description="Verify details and confirm with your reward points"
+              description="Verify details and confirm with your benefit points"
               icon={<CreditCard className="h-6 w-6" />}
             />
             <ProcessCard 
@@ -463,8 +463,8 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
           
           <div className="text-center">
             <p className="text-gray-600 max-w-2xl mx-auto mb-6">
-              Burgundy members receive priority redemption processing, with digital rewards fulfilled instantly 
-              and physical rewards shipped within 24 hours. Track your redemptions in real-time.
+              Burgundy members receive priority redemption processing, with digital benefits fulfilled instantly 
+              and physical benefits shipped within 24 hours. Track your redemptions in real-time.
             </p>
             <AxisButton variant="outline" className="mx-auto">
               View Redemption FAQ

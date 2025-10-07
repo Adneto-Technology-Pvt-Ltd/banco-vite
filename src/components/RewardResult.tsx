@@ -54,13 +54,13 @@ export const RewardResult = ({ reward, onExplore }: RewardResultProps) => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           <div className="absolute bottom-3 left-3 text-white">
-            <h4 className="font-bold text-lg">{reward.title}</h4>
-            <p className="text-sm text-white/90">{reward.description}</p>
+            <h4 className="font-bold text-lg text-left">{reward.title}</h4>
+            <p className="text-sm text-left w-[90%] text-white/90">{reward.description}</p>
           </div>
         </div>
         
         <div className="flex items-center justify-between py-3 px-4 bg-white rounded-lg shadow-sm mb-3">
-          <span className="text-sm font-medium text-gray-700">Reward Status</span>
+          <span className="text-sm font-medium text-gray-700">Benfit Status</span>
           <span className="text-sm font-medium text-[#12877F] flex items-center">
             <span className="h-2 w-2 rounded-full bg-[#12877F] mr-1"></span>
             Active
@@ -69,7 +69,7 @@ export const RewardResult = ({ reward, onExplore }: RewardResultProps) => {
         
         <div className="text-sm text-gray-600 flex items-center justify-center">
           <Award size={14} className="mr-1 text-[#97144D]" />
-          <span>Your reward has been added to your account</span>
+          <span>Your Benefits has been added to your account</span>
         </div>
       </div>
       
@@ -78,7 +78,7 @@ export const RewardResult = ({ reward, onExplore }: RewardResultProps) => {
         onClick={onExplore}
         className="w-full flex items-center justify-center group"
       >
-        <span>Explore More Rewards</span>
+        <span>Explore More Benefits</span>
         <ChevronRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
       </AxisButton>
     </motion.div>

@@ -225,9 +225,9 @@ export const FeedbackModal = ({
                       <CheckCircle size={16} />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-[#12877F]">
+                      {/* <p className="text-sm font-medium text-[#12877F]">
                         Earn 5 bonus points!
-                      </p>
+                      </p> */}
                       <p className="text-xs text-gray-600">
                         You'll receive bonus points for sharing your feedback
                       </p>

@@ -20,6 +20,7 @@ import { RewardsJourneyModal } from "./components/RewardsJourneyModal";
 import { RewardsShowcase } from "./components/RewardsShowcase";
 import { HomeGamesSection } from "./components/HomeGamesSection";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import AIChatbot from "./components/AIChatbot";
 
 // Import stylesheets
 import "./styles/globals.css";
@@ -219,6 +220,9 @@ export default function App() {
             }
           }}
           onRedeem={handleRewardRedemption}
+          onRewardSelect={(rewardId) => {
+            setSelectedRewardId(rewardId);
+          }}
         />
       </PageWrapper>
     );
@@ -592,7 +596,11 @@ export default function App() {
             case 'rewards':
               return (
                 <main>
-                  <RewardActivationPage userData={userData} onRewardSelect={handleRewardSelect} />
+                  <RewardActivationPage 
+                    onExploreRewards={() => navigate("rewards-gallery")} 
+                    userData={userData} 
+                    onRewardSelect={handleRewardSelect} 
+                  />
                    {/* Full-width stacked rewards showcase with integrated login CTA */}
                   <RewardsShowcase 
                     onPlayGames={() => {
@@ -605,17 +613,18 @@ export default function App() {
                     onExploreRewards={() => navigate("rewards-gallery")}
                     onLogin={() => navigate("login")}
                     onRewardSelect={handleRewardSelect}
+                    isLoggedIn={userData.isLoggedIn}
                   />
                   
                   {/* Rewards Journey Modal */}
-                  <RewardsJourneyModal 
+                  {/* <RewardsJourneyModal 
                     isOpen={showRewardsModal}
                     onClose={() => setShowRewardsModal(false)}
                     onExplore={() => {
                       setShowRewardsModal(false);
                       navigate("rewards-gallery");
                     }}
-                  />
+                  /> */}
                 </main>
               );
             case 'redemption':
@@ -640,7 +649,7 @@ export default function App() {
                   <PersonaOffers selectedPersona="senior-citizens" />
                   
                   {/* Home Games Section */}
-                  <HomeGamesSection 
+                  {/* <HomeGamesSection 
                     userData={userData}
                     onPlayGame={(gameId) => {
                       if (userData.isLoggedIn) {
@@ -656,7 +665,7 @@ export default function App() {
                         setShowRewardsModal(true);
                       }
                     }}
-                  />
+                  /> */}
                   
                   {/* Full-width stacked rewards showcase with integrated login CTA */}
                   <RewardsShowcase 
@@ -670,17 +679,18 @@ export default function App() {
                     onExploreRewards={() => navigate("rewards-gallery")}
                     onLogin={() => navigate("login")}
                     onRewardSelect={handleRewardSelect}
+                    isLoggedIn={userData.isLoggedIn}
                   />
                   
                   {/* Rewards Journey Modal */}
-                  <RewardsJourneyModal 
+                  {/* <RewardsJourneyModal 
                     isOpen={showRewardsModal}
                     onClose={() => setShowRewardsModal(false)}
                     onExplore={() => {
                       setShowRewardsModal(false);
                       navigate("rewards-gallery");
                     }}
-                  />
+                  /> */}
                 </main>
               );
           }
@@ -713,9 +723,9 @@ export default function App() {
         />
         <SegmentShowcase />
         <PersonaOffers selectedPersona="senior-citizens" />
-        
+        {/* <AIChatbot /> */}
         {/* Home Games Section */}
-        <HomeGamesSection 
+        {/* <HomeGamesSection 
           userData={userData}
           onPlayGame={(gameId) => {
             if (userData.isLoggedIn) {
@@ -731,7 +741,7 @@ export default function App() {
               setShowRewardsModal(true);
             }
           }}
-        />
+        /> */}
         
         {/* Full-width stacked rewards showcase with integrated login CTA */}
         <RewardsShowcase 
@@ -745,17 +755,18 @@ export default function App() {
           onExploreRewards={() => navigate("rewards-gallery")}
           onLogin={() => navigate("login")}
           onRewardSelect={handleRewardSelect}
+          isLoggedIn={userData.isLoggedIn}
         />
         
         {/* Rewards Journey Modal */}
-        <RewardsJourneyModal 
+        {/* <RewardsJourneyModal 
           isOpen={showRewardsModal}
           onClose={() => setShowRewardsModal(false)}
           onExplore={() => {
             setShowRewardsModal(false);
             navigate("rewards-gallery");
           }}
-        />
+        /> */}
       </main>
     </PageWrapper>
   );

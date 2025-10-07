@@ -219,6 +219,9 @@ export default function App() {
             }
           }}
           onRedeem={handleRewardRedemption}
+          onRewardSelect={(rewardId) => {
+            setSelectedRewardId(rewardId);
+          }}
         />
       </PageWrapper>
     );

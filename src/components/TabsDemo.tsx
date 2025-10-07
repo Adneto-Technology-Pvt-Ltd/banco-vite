@@ -6,14 +6,14 @@ export const TabsDemo = () => {
   // Default tabs
   const defaultTabs: TabItem[] = [
     {
-      id: "rewards",
-      label: "Rewards",
+      id: "Benefits",
+      label: "Benefits",
       icon: <Gift className="h-4 w-4" />,
       content: (
         <div className="rounded-lg border p-6">
-          <h3 className="text-lg font-medium">Rewards Content</h3>
+          <h3 className="text-lg font-medium">Benefits Content</h3>
           <p className="mt-2 text-muted-foreground">
-            Discover your exclusive rewards and offers tailored for your Axis Bank account.
+            Discover your exclusive Benefits and offers tailored for your Axis Bank account.
           </p>
         </div>
       )
@@ -136,7 +136,7 @@ export const TabsDemo = () => {
     <div className="space-y-12 p-8">
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-[#97144D]">Default Tabs</h2>
-        <AxisTabs tabs={defaultTabs} defaultTabId="rewards" />
+        <AxisTabs tabs={defaultTabs} defaultTabId="Benefits" />
       </div>
 
       <div className="space-y-4">
@@ -151,7 +151,7 @@ export const TabsDemo = () => {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-[#97144D]">Full Width Tabs</h2>
-        <AxisTabs tabs={defaultTabs.slice(0, 3)} defaultTabId="rewards" fullWidth />
+        <AxisTabs tabs={defaultTabs.slice(0, 3)} defaultTabId="Benefits" fullWidth />
       </div>
 
       <div className="space-y-4">

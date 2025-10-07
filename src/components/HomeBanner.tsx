@@ -63,16 +63,16 @@ export const HomeBanner = ({
               {/* Main Heading */}
               <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
                 {isLoggedIn 
-                  ? "Your Rewards Journey Continues"
-                  : "Unlock Exclusive Banking Rewards"
+                  ? "Your Benefits Journey Continues"
+                  : "Unlock Exclusive Banking Benefits"
                 }
               </h1>
 
               {/* Subheading */}
               <p className="text-white/95 text-lg md:text-xl mb-8 md:mb-10 max-w-2xl leading-relaxed">
                 {isLoggedIn
-                  ? "Discover personalized rewards and premium benefits designed just for you. Explore new offers and maximize your savings."
-                  : "Experience premium banking with Axis Bank. Earn rewards on every transaction, enjoy exclusive benefits, and build your financial future."
+                  ? "Discover personalized benefits and premium benefits designed just for you. Explore new offers and maximize your savings."
+                  : "Experience premium banking with Axis Bank. Earn benefits on every transaction, enjoy exclusive benefits, and build your financial future."
                 }
               </p>
 
@@ -95,14 +95,14 @@ export const HomeBanner = ({
                     focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#97144D]
                     font-['Arial'] font-style-normal
                   "
-                  aria-label="Explore Your Rewards"
+                  aria-label="Explore Your Benefits"
                 >
                   <Gift className="h-5 w-5 flex-shrink-0" />
-                  <span>Explore Your Rewards</span>
+                  <span>Explore Your Benefits</span>
                 </button>
                 
                 {/* Secondary Action Button - Enhanced outline with better contrast */}
-                {!isLoggedIn && (
+                {/* {!isLoggedIn && (
                   <button
                     onClick={handleOpenAccount}
                     className="
@@ -125,7 +125,7 @@ export const HomeBanner = ({
                     <CreditCard className="h-5 w-5 flex-shrink-0" />
                     <span>Open Savings Account</span>
                   </button>
-                )}
+                )} */}
               </div>
 
               {/* Additional info for non-logged-in users */}
@@ -134,7 +134,7 @@ export const HomeBanner = ({
                   <div className="flex flex-wrap gap-6 text-white/95">
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                      <span className="text-sm md:text-base font-medium">Zero balance account</span>
+                      <span className="text-sm md:text-base font-medium">Exclusive benefits</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
@@ -142,7 +142,7 @@ export const HomeBanner = ({
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                      <span className="text-sm md:text-base font-medium">Rewards on every transaction</span>
+                      <span className="text-sm md:text-base font-medium">Benefits on every transaction</span>
                     </div>
                   </div>
                 </div>

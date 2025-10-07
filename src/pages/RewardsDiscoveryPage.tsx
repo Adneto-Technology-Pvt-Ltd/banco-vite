@@ -34,7 +34,7 @@ export const RewardsDiscoveryPage = ({ userData, onRewardSelect }: RewardsDiscov
   const rewardCategories = [
     {
       id: "all",
-      label: "All Rewards",
+      label: "All Benefits",
       icon: <Gift className="h-[18px] w-[18px]" />
     },
     {

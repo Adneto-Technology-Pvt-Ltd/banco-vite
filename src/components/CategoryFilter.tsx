@@ -11,7 +11,8 @@ import {
   Coffee, 
   CreditCard,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  HeartPulse
 } from "lucide-react";
 
 export type CategoryItem = {
@@ -24,7 +25,7 @@ export type CategoryItem = {
 export const defaultCategories: CategoryItem[] = [
   {
     id: "all",
-    label: "All Rewards",
+    label: "All Benefits",
     icon: <Gift className="h-[18px] w-[18px]" />
   },
   {
@@ -48,9 +49,9 @@ export const defaultCategories: CategoryItem[] = [
     icon: <ShoppingBag className="h-[18px] w-[18px]" />
   },
   {
-    id: "music",
-    label: "Music",
-    icon: <Music className="h-[18px] w-[18px]" />
+    id: "wellness",
+    label: "Wellness",
+    icon: <HeartPulse className="h-[18px] w-[18px]" />
   },
   {
     id: "cafe",

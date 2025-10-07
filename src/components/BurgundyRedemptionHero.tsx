@@ -185,17 +185,17 @@ export const BurgundyRedemptionHero = ({
                 
                 <h1 className="text-3xl md:text-4xl font-bold mb-3">
                   Redeem Your<br />
-                  Exclusive Rewards
+                  Exclusive Benefits
                 </h1>
                 
                 <p className="opacity-90 mb-6 max-w-lg">
                   As a valued Burgundy member, you have access to premium redemption options and 
-                  expedited fulfillment. Explore tailored rewards based on your preferences.
+                  expedited fulfillment. Explore tailored benefits based on your preferences.
                 </p>
                 
                 {/* Key stats */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-                  <motion.div
+                  {/* <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
@@ -203,7 +203,7 @@ export const BurgundyRedemptionHero = ({
                   >
                     <p className="text-sm opacity-80">Available Points</p>
                     <div className="text-2xl font-bold">{formatNumber(userData.rewardsBalance)}</div>
-                  </motion.div>
+                  </motion.div> */}
                   
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -272,7 +272,7 @@ export const BurgundyRedemptionHero = ({
                     isActive={activeTab === "trending"} 
                     onClick={() => setActiveTab("trending")}
                   >
-                    Trending Rewards
+                    Trending Benefits
                   </TabButton>
                   <TabButton 
                     isActive={activeTab === "expiring"} 
@@ -401,7 +401,7 @@ export const BurgundyRedemptionHero = ({
                         
                         <div className="mt-4 text-center">
                           <button className="text-sm text-[#97144D] font-medium flex items-center mx-auto">
-                            Explore all trending rewards <ChevronRight className="h-4 w-4" />
+                            Explore all trending benefits <ChevronRight className="h-4 w-4" />
                           </button>
                         </div>
                       </motion.div>
@@ -434,9 +434,9 @@ export const BurgundyRedemptionHero = ({
                             <p className="text-sm text-gray-600">in {userData.expiryDays || 30} days</p>
                           </div>
                         </div>
-                        
-                        <p className="text-sm text-gray-600 mb-4">Recommended rewards you can redeem before your points expire:</p>
-                        
+
+                        <p className="text-sm text-gray-600 mb-4">Recommended benefits you can redeem before your points expire:</p>
+
                         <div className="space-y-4">
                           {expiringRewards.map((reward, index) => (
                             <motion.div

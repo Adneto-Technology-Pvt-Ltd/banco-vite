@@ -98,7 +98,7 @@ const personaData = [
       },
       {
         id: "st3",
-        title: "Zero Balance Account",
+        title: "Exclusive benefits",
         description: "No minimum balance requirement for student accounts",
         imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
       }

@@ -115,7 +115,7 @@ const segmentData = [
     minBalance: "Zero Balance",
     customerType: "New to Banking",
     benefits: [
-      "Zero balance account option",
+      "Exclusive benefits option",
       "Basic digital banking",
       "Debit card features",
       "Essential account services",
@@ -185,13 +185,13 @@ export const SegmentShowcase = () => {
             variants={itemVariants}
             className="text-2xl md:text-3xl font-bold mb-4 text-gray-900"
           >
-            Banking Tailored to Your Needs
+            Benefits Tailored To Your Account Type
           </motion.h2>
           <motion.p 
             variants={itemVariants}
             className="text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Choose the perfect account type for your financial journey
+            Choose the perfect account type for your best benefits. Each account offers unique features and rewards designed to enhance your banking experience.
           </motion.p>
         </motion.div>
 
@@ -416,7 +416,7 @@ export const SegmentShowcase = () => {
                     </motion.div>
 
                     {/* CTA Button */}
-                    <motion.div 
+                    {/* <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8 }}
@@ -436,7 +436,7 @@ export const SegmentShowcase = () => {
                           </motion.div>
                         </Button>
                       </motion.div>
-                    </motion.div>
+                    </motion.div> */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -493,7 +493,7 @@ export const SegmentShowcase = () => {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -534,7 +534,7 @@ export const SegmentShowcase = () => {
               </motion.div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

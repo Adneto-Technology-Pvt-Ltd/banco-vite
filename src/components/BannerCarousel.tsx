@@ -33,16 +33,16 @@ export const BannerCarousel = ({
   const bannerData: BannerItem[] = [
     {
       id: 1,
-      title: "Unlock Exclusive Rewards with Axis Bank Savings Account",
-      description: "Enjoy special benefits, cashback offers, and personalized rewards based on your banking relationship.",
+      title: "Unlock Exclusive Benefits with Axis Bank Savings Account",
+      description: "Enjoy special benefits, cashback offers, and personalized benefits based on your banking relationship.",
       image: "https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?q=80&w=2069&auto=format&fit=crop",
       align: "left",
       bgColor: "bg-[#97144D]"
     },
     {
       id: 2,
-      title: "Banking Rewards Tailored to Your Lifestyle",
-      description: "From travel benefits to shopping discounts, discover rewards that match your preferences.",
+      title: "Banking Benefits Tailored to Your Lifestyle",
+      description: "From travel benefits to shopping discounts, discover benefits that match your preferences.",
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop",
       align: "right",
       bgColor: "bg-[#12877F]"
@@ -137,7 +137,7 @@ export const BannerCarousel = ({
         <div className="absolute inset-0">
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-            alt="Axis Bank Rewards and Banking Services"
+            alt="Axis Bank Benefits and Banking Services"
             className="w-full h-full object-cover"
             fallbackSrc="/banner-placeholder.jpg"
           />
@@ -151,10 +151,10 @@ export const BannerCarousel = ({
           <div className="container mx-auto px-4 md:px-8 lg:px-12">
             <div className="max-w-4xl">
               <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-                Unlock Exclusive Banking Rewards
+                Unlock Exclusive Banking Benefits
               </h1>
               <p className="text-white/95 text-lg md:text-xl mb-8 md:mb-10 max-w-2xl leading-relaxed">
-                Experience premium banking with Axis Bank. Earn rewards on every transaction, enjoy exclusive benefits, and build your financial future.
+                Experience premium banking with Axis Bank. Earn benefits on every transaction, enjoy exclusive benefits, and build your financial future.
               </p>
 
               {/* Buttons */}
@@ -176,12 +176,12 @@ export const BannerCarousel = ({
                     focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#97144D]
                     font-['Arial'] font-style-normal
                   "
-                  aria-label="Explore Your Rewards"
+                  aria-label="Explore Your Benefits"
                 >
                   <Gift className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
-                  <span>Explore Your Rewards</span>
+                  <span>Explore Your Benefits</span>
                 </button>
-                <button
+                {/* <button
                   variant="outline"
                   onClick={onOpenAccount}
                   className="
@@ -203,7 +203,7 @@ export const BannerCarousel = ({
                 >
                   <CreditCard className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
                   <span>Open Savings Account</span>
-                </button>
+                </button> */}
               </div>
 
               {/* Features List */}
@@ -211,7 +211,7 @@ export const BannerCarousel = ({
                 <div className="flex flex-wrap gap-6 text-white/95">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                    <span className="text-sm md:text-base font-medium">Zero balance account</span>
+                    <span className="text-sm md:text-base font-medium">Exclusive benefits</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
@@ -219,7 +219,7 @@ export const BannerCarousel = ({
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                    <span className="text-sm md:text-base font-medium">Rewards on every transaction</span>
+                    <span className="text-sm md:text-base font-medium">Benefits on every transaction</span>
                   </div>
                 </div>
               </div>

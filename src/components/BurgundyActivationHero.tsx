@@ -38,7 +38,8 @@ export const BurgundyActivationHero = ({
   onActivateMore
 }: BurgundyActivationHeroProps) => {
   const [isAnimating, setIsAnimating] = useState(false);
-  const [activeTab, setActiveTab] = useState<"progress" | "benefits" | "achievements">("progress");
+  // const [activeTab, setActiveTab] = useState<"progress" | "benefits" | "achievements">("progress");
+  const [activeTab, setActiveTab] = useState< "benefits" | "achievements">("benefits");
   
   // Start animation when component mounts
   useEffect(() => {
@@ -47,9 +48,9 @@ export const BurgundyActivationHero = ({
     // Auto-rotate tabs every 8 seconds
     const tabInterval = setInterval(() => {
       setActiveTab(prev => {
-        if (prev === "progress") return "benefits";
+        // if (prev === "progress") return "benefits";
         if (prev === "benefits") return "achievements";
-        return "progress";
+        return "benefits";
       });
     }, 8000);
     
@@ -103,19 +104,19 @@ export const BurgundyActivationHero = ({
   // Recent achievements
   const achievements = [
     {
-      title: "First Reward Activated",
+      title: "First Benefits Activated",
       description: "Unlocked Amazon Gift Card",
       date: "May 12, 2025",
       points: 100,
       completed: true
     },
-    {
-      title: "Consecutive Transactions",
-      description: "Used Axis card 5 days in a row",
-      date: "May 25, 2025",
-      points: 250,
-      completed: true
-    },
+    // {
+    //   title: "Consecutive Transactions",
+    //   description: "Used Axis card 5 days in a row",
+    //   date: "May 25, 2025",
+    //   points: 250,
+    //   completed: true
+    // },
     {
       title: "3 Premium Activations",
       description: "1 more activation needed",
@@ -169,17 +170,17 @@ export const BurgundyActivationHero = ({
                 
                 <h1 className="text-3xl md:text-4xl font-bold mb-3">
                   Welcome to Your<br />
-                  Rewards Activation
+                  Benefits Activation
                 </h1>
                 
                 <p className="opacity-90 mb-6 max-w-lg">
-                  You're on your way to unlocking premium Burgundy rewards. Activate exclusive offers, 
+                  You're on your way to unlocking premium Burgundy benefits. Activate exclusive offers, 
                   earn points faster, and enjoy tailored benefits designed for your lifestyle.
                 </p>
                 
                 {/* Stats row */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-                  <motion.div
+                  {/* <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
@@ -187,7 +188,7 @@ export const BurgundyActivationHero = ({
                   >
                     <p className="text-sm opacity-80">Total Points</p>
                     <div className="text-2xl font-bold">{formattedPoints}</div>
-                  </motion.div>
+                  </motion.div> */}
                   
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -205,7 +206,7 @@ export const BurgundyActivationHero = ({
                     transition={{ delay: 0.4, duration: 0.4 }}
                     className="bg-white/10 backdrop-blur-sm rounded-lg p-4 col-span-2 md:col-span-1"
                   >
-                    <p className="text-sm opacity-80">Activated Rewards</p>
+                    <p className="text-sm opacity-80">Activated Benefits</p>
                     <div className="text-2xl font-bold">{userData.activatedRewards}</div>
                   </motion.div>
                 </div>
@@ -221,7 +222,7 @@ export const BurgundyActivationHero = ({
                     onClick={onActivateMore}
                     className="flex items-center"
                   >
-                    Activate More Rewards <Rocket className="ml-2 h-4 w-4" />
+                    Activate More Benefits <Rocket className="ml-2 h-4 w-4" />
                   </AxisButton>
                 </motion.div>
               </motion.div>
@@ -237,12 +238,12 @@ export const BurgundyActivationHero = ({
               >
                 {/* Tabs header */}
                 <div className="flex border-b">
-                  <TabButton 
+                  {/* <TabButton 
                     isActive={activeTab === "progress"} 
                     onClick={() => setActiveTab("progress")}
                   >
                     Your Progress
-                  </TabButton>
+                  </TabButton> */}
                   <TabButton 
                     isActive={activeTab === "benefits"} 
                     onClick={() => setActiveTab("benefits")}
@@ -260,7 +261,7 @@ export const BurgundyActivationHero = ({
                 {/* Tab content */}
                 <div className="p-5 h-[320px]">
                   <AnimatePresence mode="wait">
-                    {activeTab === "progress" && (
+                    {/* {activeTab === "progress" && (
                       <motion.div 
                         key="progress"
                         initial={{ opacity: 0 }}
@@ -276,9 +277,7 @@ export const BurgundyActivationHero = ({
                           </div>
                         </div>
                         
-                        {/* Tier progress visualization */}
                         <div className="relative pt-4 pb-8">
-                          {/* Progress bar */}
                           <div className="h-2 bg-gray-100 rounded-full w-full mb-8">
                             <motion.div 
                               className="h-2 bg-[#97144D] rounded-full"
@@ -288,7 +287,6 @@ export const BurgundyActivationHero = ({
                             />
                           </div>
                           
-                          {/* Tier markers */}
                           <div className="flex justify-between relative">
                             {tiers.map((tier, index) => {
                               const isActive = index <= currentTierIndex;
@@ -315,7 +313,6 @@ export const BurgundyActivationHero = ({
                                     <p className={`text-sm font-medium ${isCurrent ? "text-[#97144D]" : "text-gray-700"}`}>
                                       {tier.name}
                                     </p>
-                                    <p className="text-xs text-gray-500">{tier.pointsRequired}+ pts</p>
                                   </div>
                                 </div>
                               );
@@ -323,22 +320,18 @@ export const BurgundyActivationHero = ({
                           </div>
                         </div>
                         
-                        {/* Next tier info */}
                         <div className="bg-[#f9f3f6] p-4 rounded-lg flex items-center justify-between">
                           <div>
                             <p className="text-sm text-gray-600">Next Tier</p>
                             <p className="font-bold text-[#97144D]">{nextTier.name}</p>
-                            <p className="text-sm text-gray-600">
-                              {userData.pointsToNextTier.toLocaleString()} points needed
-                            </p>
                           </div>
                           <div className="text-center">
-                            <p className="text-xs text-gray-500 mb-1">Exclusive Rewards</p>
+                            <p className="text-xs text-gray-500 mb-1">Exclusive Benefits</p>
                             <p className="text-xl font-bold text-[#97144D]">{nextTier.exclusive}</p>
                           </div>
                         </div>
                       </motion.div>
-                    )}
+                    )} */}
                     
                     {activeTab === "benefits" && (
                       <motion.div 
@@ -374,7 +367,7 @@ export const BurgundyActivationHero = ({
                         </div>
                         
                         {/* Featured benefits */}
-                        <div className="space-y-3">
+                        <div className="space-y-3 overflow-y-auto">
                           <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -421,7 +414,7 @@ export const BurgundyActivationHero = ({
                       >
                         <h3 className="text-[#97144D] font-bold mb-4">Your Achievements</h3>
                         
-                        <div className="space-y-4">
+                        <div className="space-y-4 overflow-y-auto">
                           {achievements.map((achievement, index) => (
                             <motion.div
                               key={achievement.title}
@@ -449,11 +442,11 @@ export const BurgundyActivationHero = ({
                                 <p className="text-sm text-gray-600">{achievement.description}</p>
                                 <p className="text-xs text-gray-500">{achievement.date}</p>
                               </div>
-                              <div className={`text-sm font-medium ${
+                              {/* <div className={`text-sm font-medium ${
                                 achievement.completed ? "text-[#97144D]" : "text-gray-500"
                               }`}>
                                 {achievement.points} pts
-                              </div>
+                              </div> */}
                             </motion.div>
                           ))}
                         </div>

@@ -63,7 +63,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
       icon: <Gift className="h-6 w-6" />,
       color: 'from-[#97144D] to-[#b01d5c]',
       component: FortuneWheel,
-      cover: "https://images.unsplash.com/photo-1592981207904-fb448c267838?q=80&w=1080&auto=format&fit=crop",
+      cover: "https://media.istockphoto.com/id/2177986993/photo/wheel-of-fortune.webp?a=1&b=1&s=612x612&w=0&k=20&c=wZMJ91xOKoZoSxWbjbBTVlAWha81jhT_s3MQjHfWBII=",
       points: "Up to 500",
       rewards: ["Points", "Gift Cards", "Discounts"],
       playtime: "1 min",
@@ -76,7 +76,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
       icon: <BrainCircuit className="h-6 w-6" />,
       color: 'from-[#12877F] to-[#16a096]',
       component: FinancialMatch,
-      cover: "https://images.unsplash.com/photo-1611067280570-5466bd7c2155?q=80&w=1080&auto=format&fit=crop",
+      cover: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       points: "10-250",
       rewards: ["Points", "Knowledge Badges"],
       playtime: "2-5 mins",
@@ -85,7 +85,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
     {
       id: 'quiz',
       name: 'Burgundy Quiz',
-      description: 'Test your financial knowledge and earn rewards',
+      description: 'Test your financial knowledge and earn benefits',
       icon: <BookOpen className="h-6 w-6" />,
       color: 'from-[#404040] to-[#606060]',
       component: BurgundyQuiz,
@@ -193,15 +193,15 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Axis Bank Reward Games
+                Axis Bank Benefits Games
               </h1>
               <p className="text-lg md:text-xl text-white/90 max-w-2xl mb-8">
-                Play, learn, and earn exciting rewards. Boost your Axis Bank benefits with fun mini-games!
+                Play, learn, and earn exciting benefits. Boost your Axis Bank benefits with fun mini-games!
               </p>
               
               {userData.isLoggedIn ? (
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
+                  {/* <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
                     <div className="flex items-center gap-3">
                       <Trophy className="h-8 w-8 text-yellow-300" />
                       <div>
@@ -209,7 +209,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
                         <div className="text-2xl font-bold">{totalPoints} Points</div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
                     <div className="flex items-center gap-3">
@@ -289,9 +289,9 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
                         </p>
                         
                         <div className="flex items-center gap-2 mb-4">
-                          <Badge className="bg-[#97144D] text-white">
+                          {/* <Badge className="bg-[#97144D] text-white">
                             <Star className="h-3 w-3 mr-1" /> {game.points} pts
-                          </Badge>
+                          </Badge> */}
                           
                           <div className="text-xs text-gray-500">
                             {game.rewards.join(' • ')}

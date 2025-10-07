@@ -136,16 +136,16 @@ export const LoginPage = ({ onLogin }: LoginPageProps) => {
               <h2 className="text-2xl md:text-3xl font-bold">Axis Bank</h2>
             </div>
             <div className="mt-2 md:mt-4 text-white">
-              <p className="text-sm md:text-base">Rewards Portal | Axis Bank</p>
+              <p className="text-sm md:text-base">Benefits Portal | Axis Bank</p>
             </div>
           </div>
           
           {/* Value proposition */}
           {!isMobile && (
             <div className="absolute bottom-16 left-12 max-w-md text-white">
-              <h2 className="text-3xl font-bold mb-4">Exclusive rewards await you</h2>
+              <h2 className="text-3xl font-bold mb-4">Exclusive benefits await you</h2>
               <p className="text-lg opacity-90 mb-6">
-                Access tailored rewards designed specifically for your financial journey.
+                Access tailored benefits designed specifically for your financial journey.
               </p>
             </div>
           )}

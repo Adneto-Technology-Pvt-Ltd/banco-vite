@@ -349,7 +349,7 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({ userData, onComplete
               }}
             >
               <img 
-                src="https://www.axisbank.com/assets/images/logo-icon.svg" 
+                src={"/../../../../public/axis_bank.svg"} 
                 alt="Axis" 
                 className="w-8 h-8"
               />

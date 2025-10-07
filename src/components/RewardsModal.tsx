@@ -48,7 +48,7 @@ const rewards: RewardType[] = [
     color: "#4CAF50",
     value: "15% off on MakeMyTrip",
     brand: "MakeMyTrip",
-    brandLogo: "https://static.businessworld.in/article/article_extra_large_image/1609147522_O4YGnA_Logo_3x.png"
+    brandLogo: "https://promos.makemytrip.com/Growth/Images/1x/mmt_dt_top_icon.png"
   },
   {
     title: "Entertainment Pass",
@@ -57,7 +57,7 @@ const rewards: RewardType[] = [
     color: "#8E24AA",
     value: "1 month free on Hotstar",
     brand: "Hotstar",
-    brandLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Disney%2B_Hotstar_logo.svg/1200px-Disney%2B_Hotstar_logo.svg.png"
+    brandLogo: "https://img.indiaforums.com/media/640x0/48/0321-disney-originals-live-in-india-on-hotstar-now.jpg"
   },
   {
     title: "Lounge Access",

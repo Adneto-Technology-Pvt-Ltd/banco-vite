@@ -81,7 +81,7 @@ export const Header = ({
   // Top red band items
   const topMenuItems = [
     { id: "accounts", label: "Accounts", left: "calc(83.3333% - 24px)" },
-    { id: "rewards", label: "Rewards", left: "calc(91.6667% - 67px)" },
+    { id: "rewards", label: "Benefits", left: "calc(91.6667% - 67px)" },
     { id: "support", label: "Support", left: "calc(91.6667% + 4.99997px)" }
   ];
 
