@@ -647,7 +647,7 @@ function AccountsDropdown({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.95 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="absolute top-full left-[-100px] mt-2 w-[380px] bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden"
+          className="absolute top-full left-[-180px] mt-2 w-[380px] bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden"
           style={{ transform: "translateX(-50%)" }}
         >
           {/* Header */}
@@ -916,7 +916,7 @@ export const AxisBankHeader = ({
   // Define top navigation links with dropdown support
   const topNavLinks = [
     { text: "Persona Type", key: "accounts", hasDropdown: true },
-    { text: "Benefit", key: "rewards", hasDropdown: false },
+    // { text: "Benefit", key: "rewards", hasDropdown: false },
     { text: "Support", key: "support", hasDropdown: false }
   ];
 

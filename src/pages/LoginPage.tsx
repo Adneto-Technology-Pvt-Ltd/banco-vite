@@ -110,7 +110,7 @@ export const LoginPage = ({ onLogin }: LoginPageProps) => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col">
+    <div className="min-h-[90dvh] w-full flex flex-col">
       <AxisBankHeader 
         userData={{ isLoggedIn: false }}
         currentStage="awareness"
@@ -131,14 +131,14 @@ export const LoginPage = ({ onLogin }: LoginPageProps) => {
           />
           
           {/* Bank logo watermark and text */}
-          <div className={`absolute ${isMobile ? 'top-28 left-6' : 'top-12 left-12'}`}>
+          {/* <div className={`absolute ${isMobile ? 'top-28 left-6' : 'top-12 left-12'}`}>
             <div className="bg-[#97144D] p-4 md:p-6 text-white inline-block">
               <h2 className="text-2xl md:text-3xl font-bold">Axis Bank</h2>
             </div>
             <div className="mt-2 md:mt-4 text-white">
               <p className="text-sm md:text-base">Benefits Portal | Axis Bank</p>
             </div>
-          </div>
+          </div> */}
           
           {/* Value proposition */}
           {!isMobile && (
@@ -153,15 +153,15 @@ export const LoginPage = ({ onLogin }: LoginPageProps) => {
         
         {/* Login form (right side) */}
         <div className={`
-          w-full md:w-2/5 min-h-screen 
-          flex flex-col justify-center items-center 
+          w-full md:w-2/5 min-h-[90dvh] 
+          flex flex-col justify-start md:justify-center items-center 
           py-16 px-4 md:px-8 lg:px-12
           bg-white relative z-10
           ${isMobile ? 'bg-opacity-95' : ''}
         `}>
           <div className="w-full max-w-md">
             {/* Logo for mobile */}
-            {isMobile && (
+            {/* {isMobile && (
               <div className="flex justify-center mb-8">
                 <img 
                   src="https://www.axisbank.com/assets/images/logo.png" 
@@ -169,7 +169,7 @@ export const LoginPage = ({ onLogin }: LoginPageProps) => {
                   className="h-10"
                 />
               </div>
-            )}
+            )} */}
             
             {/* Main Login Form */}
             <LoginForm onSubmit={handleLogin} isLoading={isLoading} />

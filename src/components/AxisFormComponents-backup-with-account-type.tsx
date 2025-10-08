@@ -241,7 +241,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
         </div>
         
         {/* Virtual Keyboard Button */}
-        {onVirtualKeyboard && (
+        {/* {onVirtualKeyboard && (
           <div className="flex flex-row gap-1 items-center">
             <button
               type="button"
@@ -274,7 +274,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
               </div>
             </button>
           </div>
-        )}
+        )} */}
       </div>
     );
   }

@@ -292,7 +292,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                 ))}
               </div>
               
-              <div className="mt-4 pt-4 border-t border-gray-100">
+              {/* <div className="mt-4 pt-4 border-t border-gray-100">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -304,7 +304,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                     Explore Benefits
                   </AxisButton>
                 </motion.div>
-              </div>
+              </div> */}
             </motion.div>
           </motion.div>
         </motion.div>

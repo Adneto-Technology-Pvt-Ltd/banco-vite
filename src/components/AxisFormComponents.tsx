@@ -44,7 +44,7 @@ export const AxisTextInput = forwardRef<HTMLInputElement, TextInputProps>(
                   </div>
                   
                   {/* Tooltip */}
-                  {hasTooltip && (
+                  {/* {hasTooltip && (
                     <div className="relative">
                       <div className="size-5">
                         <svg
@@ -60,7 +60,7 @@ export const AxisTextInput = forwardRef<HTMLInputElement, TextInputProps>(
                         </svg>
                       </div>
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
                     </div>
                     
                     {/* Tooltip */}
-                    {hasTooltip && (
+                    {/* {hasTooltip && (
                       <div className="relative">
                         <div className="size-5">
                           <svg
@@ -170,7 +170,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
                           </svg>
                         </div>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
         </div>
         
         {/* Virtual Keyboard Button */}
-        {onVirtualKeyboard && (
+        {/* {onVirtualKeyboard && (
           <div className="flex flex-row gap-1 items-center">
             <button
               type="button"
@@ -274,7 +274,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
               </div>
             </button>
           </div>
-        )}
+        )} */}
       </div>
     );
   }
