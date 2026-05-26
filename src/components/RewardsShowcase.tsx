@@ -195,10 +195,10 @@ export const RewardsShowcase = ({ onPlayGames, onExploreRewards, onLogin, onRewa
                 <div className="md:flex items-center">
                   <div className="md:w-1/2 p-8 md:p-10">
                     <h2 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-3">
-                      Ready to access your personalized benefits?
+                      Your Personalized Offers Await
                     </h2>
                     <p className="text-gray-700 mb-6 max-w-lg">
-                      Login to unlock your exclusive Axis Bank benefits tailored to your profile and banking habits. Enjoy special offers and premium benefits waiting just for you.
+                      Login to explore curated offers and privileges tailored to your lifestyle. Enjoy premium savings, exclusive deals and experiences designed just for you.
                     </p>
                     <AxisButton
                       variant="primary"
@@ -206,7 +206,7 @@ export const RewardsShowcase = ({ onPlayGames, onExploreRewards, onLogin, onRewa
                       className="w-full md:w-auto"
                     >
                       <span className="flex items-center justify-center">
-                        Login to Benefit Portal
+                        Login to Explore Now →
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </span>
                     </AxisButton>

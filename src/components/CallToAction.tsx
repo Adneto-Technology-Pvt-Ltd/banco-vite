@@ -30,20 +30,20 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
   const features = [
     {
       icon: Shield,
-      title: "Curated for You",
-      description: "Offers tailored to your lifestyle and spend patterns ",
+      title: "Safe & Secure Banking",
+      description: "Enhanced security features to protect your money and transactions.",
       color: "#97144d"
     },
     {
       icon: Gift,
-      title: "Trusted Partners",
-      description: "Access deals from leading brands across categories",
+      title: "Personalized Benefits",
+      description: "Enjoy benefits and offers tailored to your spending habits and lifestyle.",
       color: "#12877F"
     },
     {
       icon: CreditCard,
-      title: "Seamless Experience",
-      description: "Easy discovery, simple redemption, instant benefits",
+      title: "Seamless Digital Banking",
+      description: "Access your account anytime, anywhere with our award-winning digital platform.",
       color: "#97144d"
     }
   ];
@@ -103,7 +103,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
               variants={itemVariants}
               className="text-2xl md:text-3xl font-bold mb-4 text-gray-900"
             >
-              Why Explore Axis Offers?
+              Why Choose Axis Bank Savings Account?
             </motion.h2>
             <motion.p
               variants={itemVariants}
@@ -222,7 +222,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
               whileHover={{ scale: 1.02 }}
               className="relative mb-6"
             >
-              <div className="relative h-72 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative min-h-[360px] rounded-2xl overflow-hidden shadow-xl">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                   alt="Modern banking and financial services"
@@ -237,28 +237,32 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
                   whileHover={{ y: -5, scale: 1.02 }}
-                  className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20"
+                  className="absolute inset-x-4 bottom-4 bg-white/95 backdrop-blur-md rounded-xl p-5 shadow-lg border border-white/20"
                 >
-                  <div className="grid grid-cols-3 gap-4 text-center">
+                  <div className="font-bold text-base md:text-lg mb-4 text-gray-900">Why Explore Axis Offers?</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
                     {[
-                      { value: "4M+", label: "Happy Customers", color: "#97144D" },
-                      { value: "500+", label: "Reward Partners", color: "#12877F" },
-                      { value: "24/7", label: "Digital Support", color: "#97144D" }
+                      { value: "Curated for You", label: "", color: "#97144D" },
+                      { value: "Trusted Partners", label: "", color: "#12877F" },
+                      { value: "Seamless Experience", label: "", color: "#97144D" }
+                      // { value: "Curated for You", label: "Enhanced security features to protect your money and transactions.", color: "#97144D" },
+                      // { value: "Trusted Partners", label: "Enjoy benefits and offers tailored to your spending habits and lifestyle.", color: "#12877F" },
+                      // { value: "Seamless Experience", label: "Access your account anytime, anywhere with our award-winning digital platform.", color: "#97144D" }
                     ].map((stat, index) => (
                       <motion.div
                         key={stat.label}
-                        whileHover={{ scale: 1.1 }}
-                        className="cursor-pointer"
+                        whileHover={{ y: -2 }}
+                        className="cursor-pointer text-center px-2"
                       >
                         <motion.div
                           animate={{ scale: [1, 1.05, 1] }}
                           transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
-                          className="font-bold text-lg"
+                          className="font-bold text-xl md:text-2xl leading-tight"
                           style={{ color: stat.color }}
                         >
                           {stat.value}
                         </motion.div>
-                        <div className="text-xs text-gray-600">{stat.label}</div>
+                        <div className="text-sm text-gray-600 leading-snug mt-2 max-w-[16rem] mx-auto">{stat.label}</div>
                       </motion.div>
                     ))}
                   </div>

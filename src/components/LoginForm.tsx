@@ -162,10 +162,8 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
   return (
     <div className="w-full">
       <div className="w-full mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-2">Your Personalized Offers Await</h1>
-        <p className="text-gray-600">Login to explore curated offers and privileges tailored to your lifestyle. Enjoy premium savings, exclusive deals and experiences designed just for you.</p>
-        {/* <h1 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-2">Welcome Back</h1>
-        <p className="text-gray-600">Unlock exclusive rewards and privileges with Axis Bank</p> */}
+        <h1 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-2">Welcome Back</h1>
+        <p className="text-gray-600">Unlock exclusive rewards and privileges with Axis Bank</p>
       </div>
       
       <form className="w-full" onSubmit={handleSubmit}>
@@ -268,7 +266,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
               loading={isLoading}
               className="py-3"
             >
-              Login to Explore Now →
+              Login to Your Account
             </AxisButton>
           </div>
         </div>

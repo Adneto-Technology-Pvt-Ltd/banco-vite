@@ -863,6 +863,20 @@ export default function App() {
           isLoggedIn={userData.isLoggedIn}
           onOpenAccount={() => navigate("open-account")}
           onExploreRewards={navigateToExploreRewards}
+        />     
+        {/* Full-width stacked rewards showcase with integrated login CTA */}
+        <RewardsShowcase
+          onPlayGames={() => {
+            if (userData.isLoggedIn) {
+              navigate("mini-games");
+            } else {
+              navigate("login");
+            }
+          }}
+          onExploreRewards={() => navigate("rewards-gallery")}
+          onLogin={() => navigate("login")}
+          onRewardSelect={handleRewardSelect}
+          isLoggedIn={userData.isLoggedIn}
         />
         <SegmentShowcase />
         {/* <PersonaOffers selectedPersona="senior-citizens" /> */}
@@ -883,31 +897,6 @@ export default function App() {
             } else {
               setShowRewardsModal(true);
             }
-          }}
-        /> */}
-        
-        {/* Full-width stacked rewards showcase with integrated login CTA */}
-        <RewardsShowcase
-          onPlayGames={() => {
-            if (userData.isLoggedIn) {
-              navigate("mini-games");
-            } else {
-              navigate("login");
-            }
-          }}
-          onExploreRewards={() => navigate("rewards-gallery")}
-          onLogin={() => navigate("login")}
-          onRewardSelect={handleRewardSelect}
-          isLoggedIn={userData.isLoggedIn}
-        />
-        
-        {/* Rewards Journey Modal */}
-        {/* <RewardsJourneyModal 
-          isOpen={showRewardsModal}
-          onClose={() => setShowRewardsModal(false)}
-          onExplore={() => {
-            setShowRewardsModal(false);
-            navigate("rewards-gallery");
           }}
         /> */}
       </main>
