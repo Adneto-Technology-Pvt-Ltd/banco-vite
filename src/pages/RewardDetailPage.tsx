@@ -1054,10 +1054,7 @@ export const RewardDetailPage = ({ userData, rewardId, onBack, onRedeem, onRewar
                       <AxisButton 
                         variant="outline" 
                         size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation(); // Prevent card click
-                          onRewardSelect?.(relatedId);
-                        }}
+                        onClick={() => onRewardSelect?.(relatedId)}
                       >
                         View Details
                       </AxisButton>

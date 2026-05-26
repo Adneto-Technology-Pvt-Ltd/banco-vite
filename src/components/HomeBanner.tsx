@@ -64,7 +64,7 @@ export const HomeBanner = ({
               <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
                 {isLoggedIn 
                   ? "Your Benefits Journey Continues"
-                  : "Unlock Exclusive Banking Benefits"
+                  : "Unlock Exclusive Offers & Privileges"
                 }
               </h1>
 
@@ -72,7 +72,7 @@ export const HomeBanner = ({
               <p className="text-white/95 text-lg md:text-xl mb-8 md:mb-10 max-w-2xl leading-relaxed">
                 {isLoggedIn
                   ? "Discover personalized benefits and premium benefits designed just for you. Explore new offers and maximize your savings."
-                  : "Experience premium banking with Axis Bank. Earn benefits on every transaction, enjoy exclusive benefits, and build your financial future."
+                  : "Discover curated lifestyle, travel, dining, shopping offers and much more designed for Axis Bank customers."
                 }
               </p>
 
@@ -98,7 +98,7 @@ export const HomeBanner = ({
                   aria-label="Explore Your Benefits"
                 >
                   <Gift className="h-5 w-5 flex-shrink-0" />
-                  <span>Explore Your Benefits</span>
+                  <span>Explore Offers</span>
                 </button>
                 
                 {/* Secondary Action Button - Enhanced outline with better contrast */}
@@ -133,16 +133,13 @@ export const HomeBanner = ({
                 <div className="mt-8 md:mt-10">
                   <div className="flex flex-wrap gap-6 text-white/95">
                     <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                      <span className="text-sm md:text-base font-medium">Exclusive benefits</span>
+                      ✔ Curated Premium Brands
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                      <span className="text-sm md:text-base font-medium">Instant digital banking</span>
+                      ✔ Exclusive Savings & Experiences
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                      <span className="text-sm md:text-base font-medium">Benefits on every transaction</span>
+                      ✔ Seamless Redemption
                     </div>
                   </div>
                 </div>

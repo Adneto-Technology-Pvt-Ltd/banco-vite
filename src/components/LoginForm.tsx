@@ -1,11 +1,7 @@
 import { useState, useRef } from "react";
 import { AxisButton } from "./AxisButton";
 import { 
-  AxisTextInput, 
-  AxisPasswordInput, 
-  AxisDateInput, 
-  AxisDropdown,
-  AxisCheckbox 
+  AxisTextInput,  AxisPasswordInput,  AxisDateInput,  AxisDropdown, AxisCheckbox 
 } from "./AxisFormComponents";
 
 // Form data type
@@ -14,8 +10,6 @@ type FormData = {
   password: string;
   dateOfBirth: string;
   accountType: string;
-  occupation: string;
-accountType: string;
   occupation: string;
   gender: string;
   agreeTerms: boolean;
@@ -32,10 +26,10 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     customerId: "adneto",
     password: "adneto",
-    // dateOfBirth: "1980-05-10", // Format for input type="date" is YYYY-MM-DD
-    // accountType: "Burgundy",
-    // occupation: "Banking",
-    // gender: "Female",
+    dateOfBirth: "",
+    accountType: "",
+    occupation: "",
+    gender: "",
     agreeTerms: true
   });
 
@@ -168,8 +162,10 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
   return (
     <div className="w-full">
       <div className="w-full mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-2">Welcome Back</h1>
-        <p className="text-gray-600">Access your benefits and exclusive benefits</p>
+        <h1 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-2">Your Personalized Offers Await</h1>
+        <p className="text-gray-600">Login to explore curated offers and privileges tailored to your lifestyle. Enjoy premium savings, exclusive deals and experiences designed just for you.</p>
+        {/* <h1 className="text-2xl md:text-3xl font-bold text-[#97144D] mb-2">Welcome Back</h1>
+        <p className="text-gray-600">Unlock exclusive rewards and privileges with Axis Bank</p> */}
       </div>
       
       <form className="w-full" onSubmit={handleSubmit}>
@@ -272,7 +268,7 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
               loading={isLoading}
               className="py-3"
             >
-              Login to Your Account
+              Login to Explore Now →
             </AxisButton>
           </div>
         </div>

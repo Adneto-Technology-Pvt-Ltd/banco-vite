@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { CreditCard, Landmark, Coins, PiggyBank, Banknote, Wallet, Receipt, Clock, Plus, Minus, RotateCw, Award, Trophy, Medal, Zap, AlertCircle, CheckCircle, XCircle, ArrowRight } from 'lucide-react';
+import { CreditCard, Landmark, Coins, PiggyBank, Banknote, Wallet, Receipt, Clock, Plus, Minus, RotateCw, Award, Trophy, Medal, Zap, AlertCircle, CheckCircle, XCircle, ArrowRight, BrainCircuit } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Progress } from '../ui/progress';

@@ -1,4 +1,4 @@
-import { useState, useRef, forwardRef, useEffect } from "react";
+import { useState, useRef, forwardRef, useEffect, type MutableRefObject } from "react";
 import { Eye, EyeOff, Calendar, ChevronDown, Info } from "lucide-react";
 
 // SVG paths for icons
@@ -44,7 +44,7 @@ export const AxisTextInput = forwardRef<HTMLInputElement, TextInputProps>(
                   </div>
                   
                   {/* Tooltip */}
-                  {hasTooltip && (
+                  {/* {hasTooltip && (
                     <div className="relative">
                       <div className="size-5">
                         <svg
@@ -60,7 +60,7 @@ export const AxisTextInput = forwardRef<HTMLInputElement, TextInputProps>(
                         </svg>
                       </div>
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
                     </div>
                     
                     {/* Tooltip */}
-                    {hasTooltip && (
+                    {/* {hasTooltip && (
                       <div className="relative">
                         <div className="size-5">
                           <svg
@@ -170,7 +170,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
                           </svg>
                         </div>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
         </div>
         
         {/* Virtual Keyboard Button */}
-        {onVirtualKeyboard && (
+        {/* {onVirtualKeyboard && (
           <div className="flex flex-row gap-1 items-center">
             <button
               type="button"
@@ -274,7 +274,7 @@ export const AxisPasswordInput = forwardRef<HTMLInputElement, PasswordInputProps
               </div>
             </button>
           </div>
-        )}
+        )} */}
       </div>
     );
   }
@@ -294,7 +294,7 @@ interface DateInputProps {
 
 export const AxisDateInput = forwardRef<HTMLInputElement, DateInputProps>(
   ({ name, label, value, onChange, hasTooltip = false, error, required = false }, ref) => {
-    const dateInputRef = useRef<HTMLInputElement>(null);
+    const dateInputRef = useRef<HTMLInputElement | null>(null);
     
     const handleCalendarClick = () => {
       if (dateInputRef.current) {
@@ -371,7 +371,7 @@ export const AxisDateInput = forwardRef<HTMLInputElement, DateInputProps>(
                     if (typeof ref === 'function') {
                       ref(node);
                     } else if (ref) {
-                      ref.current = node;
+                      (ref as MutableRefObject<HTMLInputElement | null>).current = node;
                     }
                     dateInputRef.current = node;
                   }}
