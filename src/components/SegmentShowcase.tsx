@@ -76,7 +76,8 @@ const segmentData: Segment[] = [
     useCase: "Enjoy a more rewarding everyday banking experience with added privileges and preferential treatment.",
     ctaLabel: "Explore Priority Benefits",
     ctaUrl: "https://www.axis.bank.in/priority-banking-program",
-    imageUrl: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=1200&q=80",
+    // imageUrl: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: AxisBurgandyImage,
     imageLabel: "Priority Account",
     icon: BadgeCheck
   },
@@ -104,7 +105,8 @@ const segmentData: Segment[] = [
     useCase: "Earn rewards on your everyday spending while enjoying a seamless and feature-rich banking experience.",
     ctaLabel: "Explore Prestige Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/prestige-savings-account",
-    imageUrl: "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=1200&q=80",
+    // imageUrl: "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: AxisBurgandyImage,
     imageLabel: "Prestige Account",
     icon: Gem
   },
@@ -132,7 +134,8 @@ const segmentData: Segment[] = [
     useCase: "Meet your everyday financial needs while earning rewards and accessing essential banking benefits.",
     ctaLabel: "Explore Sampann Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/sampann-savings-account",
-    imageUrl: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=1200&q=80",
+    // imageUrl: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: AxisBurgandyImage,
     imageLabel: "Sampann Account",
     icon: TrendingUp
   },
@@ -160,7 +163,8 @@ const segmentData: Segment[] = [
     useCase: "Enjoy the flexibility to bank your way while earning rewards on your everyday spending.",
     ctaLabel: "Explore Liberty Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/liberty-savings-account",
-    imageUrl: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=1200&q=80",
+    // imageUrl: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: AxisBurgandyImage,
     imageLabel: "Liberty Account",
     icon: WalletCards
   },
@@ -188,7 +192,8 @@ const segmentData: Segment[] = [
     useCase: "Manage your daily banking needs easily with a simple and convenient account.",
     ctaLabel: "Explore Easy Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/easy-access-digital-savings-account",
-    imageUrl: "https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&w=1200&q=80",
+    // imageUrl: "https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: AxisBurgandyImage,
     imageLabel: "Easy Account",
     icon: Shield
   },
@@ -220,7 +225,7 @@ export const SegmentShowcase = () => {
                   }`}
                 >
                   <div className="flex h-full flex-col items-center justify-center gap-2 text-center">
-                    <TabIcon className={`h-5 w-5 ${isActive ? "text-white" : "text-[#5d4650]"}`} />
+                    {/* <TabIcon className={`h-5 w-5 ${isActive ? "text-white" : "text-[#5d4650]"}`} /> */}
                     <div className="text-sm font-bold">{segment.name}</div>
                     <div className={`text-[11px] font-medium ${isActive ? "text-white/90" : "text-gray-500"}`}>
                       {segment.tagline}
