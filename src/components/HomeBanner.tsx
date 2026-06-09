@@ -1,6 +1,5 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { AxisButton } from "./AxisButton";
-import { Gift, CreditCard } from "lucide-react";
+import { Gift } from "lucide-react";
 
 type HomeBannerProps = {
   isLoggedIn?: boolean;
@@ -16,19 +15,12 @@ type HomeBannerProps = {
 export const HomeBanner = ({ 
   isLoggedIn, 
   userData, 
-  onExploreRewards, 
-  onOpenAccount 
+  onExploreRewards
 }: HomeBannerProps) => {
   
   const handleExploreRewards = () => {
     if (onExploreRewards) {
       onExploreRewards();
-    }
-  };
-
-  const handleOpenAccount = () => {
-    if (onOpenAccount) {
-      onOpenAccount();
     }
   };
 
@@ -64,7 +56,7 @@ export const HomeBanner = ({
               <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
                 {isLoggedIn 
                   ? "Your Benefits Journey Continues"
-                  : "Unlock Exclusive Banking Benefits"
+                  : "Unlock Exclusive Offers & Privileges"
                 }
               </h1>
 
@@ -72,13 +64,11 @@ export const HomeBanner = ({
               <p className="text-white/95 text-lg md:text-xl mb-8 md:mb-10 max-w-2xl leading-relaxed">
                 {isLoggedIn
                   ? "Discover personalized benefits and premium benefits designed just for you. Explore new offers and maximize your savings."
-                  : "Experience premium banking with Axis Bank. Earn benefits on every transaction, enjoy exclusive benefits, and build your financial future."
+                  : "Discover curated lifestyle, travel, dining, shopping offers and much more designed for Axis Bank customers."
                 }
               </p>
 
-              {/* Action Buttons - Enhanced for maximum readability */}
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-                {/* Primary Action Button - White background for maximum contrast */}
                 <button
                   onClick={handleExploreRewards}
                   className="
@@ -93,39 +83,13 @@ export const HomeBanner = ({
                     shadow-xl hover:shadow-2xl
                     transition-all duration-200 ease-in-out
                     focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#97144D]
-                    font-['Arial'] font-style-normal
+                    font-['Lato'] font-style-normal
                   "
                   aria-label="Explore Your Benefits"
                 >
                   <Gift className="h-5 w-5 flex-shrink-0" />
-                  <span>Explore Your Benefits</span>
+                  <span>Explore Offers</span>
                 </button>
-                
-                {/* Secondary Action Button - Enhanced outline with better contrast */}
-                {/* {!isLoggedIn && (
-                  <button
-                    onClick={handleOpenAccount}
-                    className="
-                      bg-transparent 
-                      border-3 border-white text-white
-                      hover:bg-white hover:text-[#97144D] hover:border-white
-                      active:bg-gray-100 active:text-[#7d1041]
-                      px-8 py-4 rounded-lg
-                      text-lg font-bold
-                      flex items-center justify-center gap-3 
-                      min-w-[220px] min-h-[56px]
-                      shadow-xl hover:shadow-2xl
-                      transition-all duration-200 ease-in-out
-                      focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#97144D]
-                      font-['Arial'] font-style-normal
-                      backdrop-blur-sm
-                    "
-                    aria-label="Open Savings Account"
-                  >
-                    <CreditCard className="h-5 w-5 flex-shrink-0" />
-                    <span>Open Savings Account</span>
-                  </button>
-                )} */}
               </div>
 
               {/* Additional info for non-logged-in users */}
@@ -133,16 +97,13 @@ export const HomeBanner = ({
                 <div className="mt-8 md:mt-10">
                   <div className="flex flex-wrap gap-6 text-white/95">
                     <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                      <span className="text-sm md:text-base font-medium">Exclusive benefits</span>
+                      ✔ Curated Premium Brands
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                      <span className="text-sm md:text-base font-medium">Instant digital banking</span>
+                      ✔ Exclusive Savings & Experiences
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
-                      <span className="text-sm md:text-base font-medium">Benefits on every transaction</span>
+                      ✔ Seamless Redemption
                     </div>
                   </div>
                 </div>
@@ -164,10 +125,6 @@ export const HomeBanner = ({
             </div>
           </div>
         </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#12877F]/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-20 right-20 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
       </div>
     </div>
   );

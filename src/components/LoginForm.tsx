@@ -1,11 +1,7 @@
 import { useState, useRef } from "react";
 import { AxisButton } from "./AxisButton";
 import { 
-  AxisTextInput, 
-  AxisPasswordInput, 
-  AxisDateInput, 
-  AxisDropdown,
-  AxisCheckbox 
+  AxisTextInput,  AxisPasswordInput,  AxisDateInput,  AxisDropdown, AxisCheckbox 
 } from "./AxisFormComponents";
 
 // Form data type
@@ -14,8 +10,6 @@ type FormData = {
   password: string;
   dateOfBirth: string;
   accountType: string;
-  occupation: string;
-accountType: string;
   occupation: string;
   gender: string;
   agreeTerms: boolean;
@@ -32,10 +26,10 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     customerId: "adneto",
     password: "adneto",
-    // dateOfBirth: "1980-05-10", // Format for input type="date" is YYYY-MM-DD
-    // accountType: "Burgundy",
-    // occupation: "Banking",
-    // gender: "Female",
+    dateOfBirth: "",
+    accountType: "",
+    occupation: "",
+    gender: "",
     agreeTerms: true
   });
 
@@ -45,12 +39,11 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
   // Account type options based on Axis Bank segments
   const accountTypeOptions = [
     "Burgundy",
+    "Priority",
     "Prestige", 
-    "Arise",
     "Sampann",
     "Liberty",
-    "Easy",
-    "Prime"
+    "Easy"
   ];
 
   // Handle input change

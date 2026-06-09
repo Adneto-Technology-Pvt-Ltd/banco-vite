@@ -64,8 +64,8 @@ const accountSegments = [
     // tagline: "Rising Professionals",
     // minBalance: "₹2 Lakh",
     icon: Zap,
-    color: "#12877F",
-    bgGradient: "from-[#12877F] to-[#0e6e67]",
+    color: "#ED1164",
+    bgGradient: "from-[#ED1164] to-[#C70D53]",
     description: "For business owners and entrepreneurs."
   },
   {
@@ -101,11 +101,11 @@ const accountSegments = [
 ];
 
 // Desktop Search Component
-function DesktopSearch({ 
-  onSearch, 
-  searchResults, 
-  onSearchResultSelect 
-}: { 
+function DesktopSearch({
+  onSearch,
+  searchResults,
+  onSearchResultSelect
+}: {
   onSearch?: (query: string) => void;
   searchResults?: any[];
   onSearchResultSelect?: (rewardId: string) => void;
@@ -252,10 +252,10 @@ function DesktopSearch({
 }
 
 // Mobile Search Component
-function MobileSearch({ 
-  onSearch, 
-  onSearchResultSelect 
-}: { 
+function MobileSearch({
+  onSearch,
+  onSearchResultSelect
+}: {
   onSearch?: (query: string) => void;
   onSearchResultSelect?: (rewardId: string) => void;
 }) {
@@ -288,7 +288,6 @@ function MobileSearch({
   return (
     <div className="pt-4 border-t border-gray-200">
       <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Search Rewards</p>
-      
       {/* Search Input */}
       <div className="relative mb-4">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -393,7 +392,7 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
     ? [
         { text: "Home", key: "home", icon: Home },
         { text: "Benefits", key: "rewards", icon: Gift },
-        { text: "Post Redemption", key: "post-redemption", icon: Gift },
+        { text: "Redemption Status", key: "post-redemption", icon: Gift },
       ]
     : [
         { text: "Home", key: "home", icon: Home }
@@ -422,7 +421,6 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
             className="fixed inset-0 bg-black/50 z-40 lg:hidden"
             onClick={onClose}
           />
-          
           {/* Menu */}
           <motion.div
             ref={menuRef}
@@ -493,7 +491,7 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
               </div>
 
               {/* Mobile Search */}
-              <MobileSearch 
+              <MobileSearch
                 onSearch={onSearch}
                 onSearchResultSelect={onSearchResultSelect}
               />
@@ -546,8 +544,8 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
                                 className="p-2 rounded-lg flex-shrink-0"
                                 style={{ backgroundColor: `${segment.color}20` }}
                               >
-                                <IconComponent 
-                                  className="h-4 w-4" 
+                                <IconComponent
+                                  className="h-4 w-4"
                                   style={{ color: segment.color }}
                                 />
                               </div>
@@ -681,28 +679,27 @@ function AccountsDropdown({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                       className="p-2 rounded-xl"
                       style={{ backgroundColor: `${segment.color}15` }}
                     >
-                      <IconComponent 
-                        className="h-5 w-5" 
+                      <IconComponent
+                        className="h-5 w-5"
                         style={{ color: segment.color }}
                       />
                     </motion.div>
-                    
+
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-1">
                         <h4 className="font-bold text-gray-900 group-hover:text-[#97144D] transition-colors">
                           {segment.name}
                         </h4>
-                        {/* <span 
+                        {/* <span
                           className="text-xs font-medium px-2 py-1 rounded-full"
-                          style={{ 
+                          style={{
                             backgroundColor: `${segment.color}15`,
-                            color: segment.color 
+                            color: segment.color
                           }}
                         >
                           {segment.minBalance}
                         </span> */}
                       </div>
-                      <p className="text-xs text-gray-500 mb-1">{segment.tagline}</p>
                       <p className="text-xs text-gray-600 leading-relaxed">{segment.description}</p>
                     </div>
                   </div>
@@ -744,14 +741,9 @@ function AccountsDropdown({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
   );
 }
 
-function NavLink({ 
-  text, 
-  onClick, 
-  active, 
-  hasDropdown = false 
-}: { 
-  text: string; 
-  onClick: () => void; 
+function NavLink({ text, onClick, active, hasDropdown = false }: {
+  text: string;
+  onClick: () => void;
   active: boolean;
   hasDropdown?: boolean;
 }) {
@@ -767,7 +759,7 @@ function NavLink({
 
   return (
     <div className="relative">
-      <motion.div 
+      <motion.div
         className={`relative shrink-0 cursor-pointer transition-all duration-200 hover:opacity-90 ${active ? 'font-bold' : ''} ${hasDropdown ? 'flex items-center gap-1' : ''}`}
         onClick={handleClick}
         whileHover={{ y: -1 }}
@@ -785,17 +777,17 @@ function NavLink({
           </motion.div>
         )}
         {active && (
-          <motion.div 
+          <motion.div
             layoutId="activeNavIndicator"
             className="h-0.5 bg-white absolute -bottom-1 left-0 right-0 rounded-full"
           />
         )}
       </motion.div>
-      
+
       {hasDropdown && (
-        <AccountsDropdown 
-          isOpen={isDropdownOpen} 
-          onClose={() => setIsDropdownOpen(false)} 
+        <AccountsDropdown
+          isOpen={isDropdownOpen}
+          onClose={() => setIsDropdownOpen(false)}
         />
       )}
     </div>
@@ -920,15 +912,11 @@ export const AxisBankHeader = ({
     { text: "Support", key: "support", hasDropdown: false }
   ];
 
-  // Define journey stage links - show only "Home" if not logged in,
-  // and "Home", "Rewards", "Post Redemption" if logged in
   const journeyStages = userData.isLoggedIn
     ? [
         { text: "Home", key: "home" },
-        // { text: "Discovery", key: "discovery" },
         { text: "Benefits", key: "rewards" },
-        // { text: "Redemption", key: "redemption" },
-        { text: "Post Redemption", key: "post-redemption" },
+        { text: "Redemption Status", key: "post-redemption" },
       ]
     : [
         { text: "Home", key: "home" }
@@ -977,56 +965,36 @@ export const AxisBankHeader = ({
           <div className="hidden lg:block">
             {/* Enhanced Top navigation links with dropdown */}
             <div className="absolute bottom-3/4 left-[81.667%] right-[4.931%] top-[4.545%]">
-              <div className="box-border content-stretch flex flex-row font-['Arial'] gap-[25px] items-center justify-end leading-[0] p-0 relative size-full text-[#ffffff] text-[12px] text-left text-nowrap tracking-[0.32px]">
+              <div className="box-border content-stretch flex flex-row font-['Lato'] gap-[25px] items-center justify-end leading-[0] p-0 relative size-full text-[#ffffff] text-[12px] text-left text-nowrap tracking-[0.32px]">
                 {topNavLinks.map((link) => (
-                  <NavLink 
-                    key={link.key} 
-                    text={link.text} 
-                    onClick={() => handleTopNavClick(link.key)} 
+                  <NavLink
+                    key={link.key}
+                    text={link.text}
+                    onClick={() => handleTopNavClick(link.key)}
                     active={false}
                     hasDropdown={link.hasDropdown}
                   />
                 ))}
               </div>
             </div>
-            
-            {/* Enhanced Journey stage navigation */}
+
             <div className="absolute bottom-[13.636%] left-[50.833%] right-[4.236%] top-[47.727%]">
               <div className="box-border content-stretch flex flex-row gap-[30px] items-center justify-end p-0 relative size-full">
-                {/* search bar
-                <div className="relative shrink-0 size-5" data-name="Group">
-                  <svg
-                    className="block size-full"
-                    fill="none"
-                    preserveAspectRatio="none"
-                    viewBox="0 0 20 20"
-                  >
-                    <g id="Group">
-                      <g id="Vector"></g>
-                      <path
-                        d={svgPaths.p2c0f3700}
-                        fill="var(--fill-0, #282828)"
-                        id="Vector_2"
-                      />
-                    </g>
-                  </svg>
-                </div> */}
-                {/* Desktop Search */}
                 <DesktopSearch
                   onSearch={onSearch}
                   searchResults={searchResults}
                   onSearchResultSelect={onSearchResultSelect}
                 />
-                
+
                 {journeyStages.map((stage) => (
-                  <motion.div 
+                  <motion.div
                     key={stage.key}
                     onClick={() => handleStageClick(stage.key)}
                     whileHover={{ y: -1, scale: 1.02 }}
                     whileTap={{ y: 0, scale: 0.98 }}
-                    className={`cursor-pointer font-['Arial'] leading-[0] relative shrink-0 text-left text-nowrap tracking-[0.24px] transition-all duration-200 ${
-                      currentStage === stage.key 
-                        ? "css-6rx6jg text-[#97144d]" 
+                    className={`cursor-pointer font-['Lato'] leading-[0] relative shrink-0 text-left text-nowrap tracking-[0.24px] transition-all duration-200 ${
+                      currentStage === stage.key
+                        ? "css-6rx6jg text-[#97144d]"
                         : "css-4cnz3l text-[#000000] hover:text-[#97144d]"
                     } text-[14px]`}
                   >
@@ -1043,7 +1011,6 @@ export const AxisBankHeader = ({
                     )}
                   </motion.div>
                 ))}
-                
                 {/* Enhanced Login/Logout Button */}
                 <motion.div
                   className="bg-[#97144d] relative rounded shrink-0 cursor-pointer"
@@ -1056,7 +1023,7 @@ export const AxisBankHeader = ({
                     <div className="box-border content-stretch flex flex-row gap-2 items-center justify-center px-4 py-2 relative">
                       <div className="relative shrink-0">
                         <div className="box-border content-stretch flex flex-row gap-1 items-center justify-center overflow-clip p-0 relative">
-                          <div className="flex flex-col font-['Arial'] font-bold justify-center leading-[0] relative shrink-0 text-[#ffffff] text-[12px] text-center text-nowrap tracking-[0.32px]">
+                          <div className="flex flex-col font-['Lato'] font-bold justify-center leading-[0] relative shrink-0 text-[#ffffff] text-[12px] text-center text-nowrap tracking-[0.32px]">
                             <p className="adjustLetterSpacing block leading-[18px] whitespace-pre">
                               {userData.isLoggedIn ? "Logout" : "Login"}
                             </p>
@@ -1096,6 +1063,6 @@ export const AxisBankHeader = ({
         onSearch={onSearch}
         onSearchResultSelect={onSearchResultSelect}
       />
-    </> 
+    </>
   );
 };

@@ -1,3 +1,3 @@
 import LoginBgImage from './loginBgImage.jpg';
-
-export { LoginBgImage };
+import AxisBurgandyImage from './axissalandingpage.jpg';
+export { LoginBgImage, AxisBurgandyImage };

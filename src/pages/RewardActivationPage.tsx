@@ -1,23 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  Trophy, 
-  Gift, 
-  Rocket, 
-  Sparkles, 
-  ChevronRight, 
-  Check, 
-  Star,
-  ShoppingBag,
-  CreditCard,
-  Utensils,
-  Plane,
-  Film
+import {
+  Trophy, Gift, Rocket, Sparkles, ChevronRight, Check, Star, ShoppingBag, CreditCard, Utensils, Plane, Film, Search
 } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { AxisButton } from "../components/AxisButton";
 import { BurgundyActivationHero } from "../components/BurgundyActivationHero";
-import { useNavigation } from "react-day-picker";
 
 type RewardActivationPageProps = {
   userData: {
@@ -32,12 +20,8 @@ type RewardActivationPageProps = {
   searchQuery?: string;
 };
 
-export const RewardActivationPage = ({ 
-  userData, 
-  onExploreRewards, 
-  onRewardSelect, 
-  searchResults, 
-  searchQuery 
+export const RewardActivationPage = ({
+  userData, onExploreRewards, onRewardSelect, searchResults, searchQuery
 }: RewardActivationPageProps) => {
   // State for which game section is active (if any)
   const [activeGameSection, setActiveGameSection] = useState<string | null>(null);
@@ -54,7 +38,7 @@ export const RewardActivationPage = ({
     memberSince: "January 2025",
     activatedRewards: 3
   };
-  
+
   // Update the activationOffers array to use IDs that match mockRewardData
   const activationOffers = [
     {
@@ -137,7 +121,7 @@ export const RewardActivationPage = ({
       image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
     }
   ];
-  
+
   // Bonus games data
   const bonusGames = [
     {
@@ -173,7 +157,7 @@ export const RewardActivationPage = ({
       {/* Enhanced Burgundy Activation Hero */}
       {!showingSearchResults && (
         <>
-          <BurgundyActivationHero 
+          <BurgundyActivationHero
             userData={enhancedUserData}
             onActivateMore={() => window.scrollTo({ top: 500, behavior: 'smooth' })}
           />
@@ -181,7 +165,7 @@ export const RewardActivationPage = ({
           {/* Featured Reward */}
           <div className="bg-white py-10 border-t">
             <div className="max-w-7xl mx-auto px-4">
-              <div className="flex flex-col md:flex-row bg-gradient-to-r from-[#97144D]/10 to-[#12877F]/5 rounded-xl overflow-hidden">
+              <div className="flex flex-col md:flex-row bg-gradient-to-r from-[#97144D]/10 to-[#ED1164]/5 rounded-xl overflow-hidden">
                 <div className="md:w-1/2 p-8">
                   <div className="inline-block px-3 py-1 bg-[#97144D] text-white text-xs font-medium rounded-full mb-4">
                     FEATURED BURGUNDY BENEFITS
@@ -192,20 +176,18 @@ export const RewardActivationPage = ({
                   <p className="text-gray-600 mb-6">
                     Get flat 25% off on making charges at Kalyan Jewellers with a minimum purchase of ₹75,000 on exquisite gold jewellery. Discover timeless designs and unmatched craftsmanship while availing this exclusive limited-time offer. Perfect for every special occasion.
                   </p>
-                  
                   {/* <div className="flex items-center mb-6">
                     <div className="w-full bg-gray-200 rounded-full h-2.5">
                       <div className="bg-[#97144D] h-2.5 rounded-full" style={{ width: "70%" }}></div>
                     </div>
                     <div className="ml-3 text-sm font-medium text-[#97144D]">17,500 / 25,000 pts</div>
                   </div> */}
-                  
                   <AxisButton variant="primary">
                     Learn More
                   </AxisButton>
                 </div>
                 <div className="md:w-1/2">
-                  <ImageWithFallback 
+                  <ImageWithFallback
                     src="https://images.unsplash.com/photo-1652375152241-d3e62ab52b57?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGluZGlhbiUyMGpld2Vscnl8ZW58MHx8MHx8fDA%3D"
                     alt="Private Yacht Experience"
                     className="w-full h-[400px] object-cover"
@@ -216,15 +198,14 @@ export const RewardActivationPage = ({
           </div>
         </>
       )}
-      
       {/* Activation Offers Section */}
       <div className="bg-gray-50 py-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
             <div>
               <h2 className="text-2xl font-bold text-[#97144D] mb-2">
-                {showingSearchResults 
-                  ? `Search Results for "${searchQuery}"` 
+                {showingSearchResults
+                  ? `Search Results for "${searchQuery}"`
                   : "Benefits Ready for Activation"
                 }
               </h2>
@@ -235,7 +216,7 @@ export const RewardActivationPage = ({
                 }
               </p>
             </div>
-            
+
             <div className="mt-4 md:mt-0">
               <span className="text-sm font-medium text-gray-500 mr-2">Filter by:</span>
               <select className="px-3 py-2 border border-gray-200 rounded-lg bg-white text-sm">
@@ -249,12 +230,12 @@ export const RewardActivationPage = ({
               </select>
             </div>
           </div>
-          
+
           {/* Show search results or no results message */}
           {displayOffers.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {displayOffers.map((offer, index) => (
-                <ActivationCard 
+                <ActivationCard
                   key={offer.id}
                   offer={offer}
                   index={index}
@@ -269,8 +250,8 @@ export const RewardActivationPage = ({
               <p className="text-gray-600 mb-6">
                 We couldn't find any rewards matching "{searchQuery}". Try searching with different keywords.
               </p>
-              <AxisButton 
-                variant="outline" 
+              <AxisButton
+                variant="outline"
                 onClick={() => window.location.reload()}
               >
                 View All Rewards
@@ -288,12 +269,12 @@ export const RewardActivationPage = ({
           )}
         </div>
       </div>
-      
+
       {/* Recently Activated Section */}
       {!showingSearchResults && (<div className="bg-white py-10 border-t border-b">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-[#97144D] mb-6">Recently Activated Benefits</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {recentlyActivated.map((reward, index) => (
               <motion.div
@@ -305,7 +286,7 @@ export const RewardActivationPage = ({
                 onClick={() => onRewardSelect?.(reward.id)}
               >
                 <div className="h-40 relative">
-                  <ImageWithFallback 
+                  <ImageWithFallback
                     src={reward.image}
                     alt={reward.title}
                     className="w-full h-full object-cover"
@@ -319,7 +300,7 @@ export const RewardActivationPage = ({
                     <span className="text-sm text-gray-500">{reward.date}</span>
                     {/* <span className="text-sm font-medium text-[#97144D]">{reward.points} points</span> */}
                   </div>
-                  <div className="flex items-center text-[#12877F]">
+                  <div className="flex items-center text-[#ED1164]">
                     <Check className="h-4 w-4 mr-1" />
                     <span className="text-sm font-medium">Successfully Activated</span>
                   </div>
@@ -332,7 +313,6 @@ export const RewardActivationPage = ({
           </div>
         </div>
       </div>)}
-      
       {/* Bonus Games Section */}
       {/* <div className="bg-[#f9f3f6] py-10">
         <div className="max-w-7xl mx-auto px-4">
@@ -340,7 +320,7 @@ export const RewardActivationPage = ({
             <h2 className="text-2xl font-bold text-[#97144D]">Bonus Games & Challenges</h2>
             <p className="text-sm font-medium text-gray-600">Earn up to 1,200 additional points</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {bonusGames.map((game, index) => (
               <motion.div
@@ -351,7 +331,7 @@ export const RewardActivationPage = ({
                 className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="h-48 relative">
-                  <ImageWithFallback 
+                  <ImageWithFallback
                     src={game.image}
                     alt={game.title}
                     className="w-full h-full object-cover"
@@ -363,8 +343,8 @@ export const RewardActivationPage = ({
                 <div className="p-4">
                   <h3 className="font-bold text-lg mb-1">{game.title}</h3>
                   <p className="text-sm text-gray-600 mb-4">{game.description}</p>
-                  
-                  <AxisButton 
+
+                  <AxisButton
                     variant="outline"
                     onClick={() => setActiveGameSection(game.id)}
                     fullWidth
@@ -375,10 +355,10 @@ export const RewardActivationPage = ({
               </motion.div>
             ))}
           </div>
-          
+
           <div className="mt-8 text-center">
             <p className="text-gray-600 max-w-2xl mx-auto mb-4">
-              Games and challenges refresh every month. Complete all three to receive a special achievement badge 
+              Games and challenges refresh every month. Complete all three to receive a special achievement badge
               and bonus reward.
             </p>
             <AxisButton variant="outline" className="mx-auto">
@@ -394,7 +374,7 @@ export const RewardActivationPage = ({
 // Activation Card Component
 const ActivationCard = ({ offer, index, onSelect }: { offer: any; index: number; onSelect?: (rewardId: string) => void }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -406,7 +386,7 @@ const ActivationCard = ({ offer, index, onSelect }: { offer: any; index: number;
       onClick={() => onSelect?.(offer.id)}
     >
       <div className="relative h-48">
-        <ImageWithFallback 
+        <ImageWithFallback
           src={offer.image}
           alt={offer.title}
           className={`w-full h-full object-cover transition-transform duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}
@@ -421,16 +401,16 @@ const ActivationCard = ({ offer, index, onSelect }: { offer: any; index: number;
             <span className="text-xs font-medium text-gray-800">{offer.category}</span>
           </div>
         </div>
-        
+
         {/* <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white text-sm px-2 py-1 rounded-md">
           {offer.points} points
         </div> */}
       </div>
-      
+
       <div className="p-4 relative">
         <h3 className="font-bold mb-1">{offer.title}</h3>
         <p className="text-sm text-gray-600 mb-4">{offer.description}</p>
-        
+
         <div className="flex justify-between items-center">
           <motion.div
             initial={{ width: 0 }}
@@ -438,15 +418,15 @@ const ActivationCard = ({ offer, index, onSelect }: { offer: any; index: number;
             className="h-0.5 bg-[#97144D] absolute left-0 bottom-0"
             transition={{ duration: 0.3 }}
           />
-          
+
           <button className="text-[#97144D] text-sm font-medium flex items-center hover:text-[#b01d5c] transition-colors">
             View Details <ChevronRight className="h-4 w-4 ml-1" />
           </button>
         </div>
-        
+
         <AxisButton variant="primary" fullWidth className="mt-3">
           <div className="flex items-center justify-center">
-            <Sparkles className="h-4 w-4 mr-2" /> 
+            <Sparkles className="h-4 w-4 mr-2" />
             Activate Benefits
           </div>
         </AxisButton>

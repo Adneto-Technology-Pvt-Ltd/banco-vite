@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AxisBankHeader } from "./components/AxisBankHeader";
 import { HomeBanner } from "./components/HomeBanner";
 import { CallToAction } from "./components/CallToAction";
 import { SegmentShowcase } from "./components/SegmentShowcase";
-import { PersonaOffers } from "./components/PersonaOffers";
+// import { PersonaOffers } from "./components/PersonaOffers";
 import { AxisFooter } from "./components/AxisFooter";
 import { LoginPage } from "./pages/LoginPage";
 import { RewardsDiscoveryPage } from "./pages/RewardsDiscoveryPage";
@@ -16,11 +16,8 @@ import { ComponentsPage } from "./pages/ComponentsPage";
 import { MiniGames } from "./components/MiniGames";
 import { AxisButton } from "./components/AxisButton";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
-import { RewardsJourneyModal } from "./components/RewardsJourneyModal";
 import { RewardsShowcase } from "./components/RewardsShowcase";
-import { HomeGamesSection } from "./components/HomeGamesSection";
 import { Phone, Mail, MapPin, Clock, Send, Utensils, Plane, ShoppingBag, Film, CreditCard, Star } from "lucide-react";
-import AIChatbot from "./components/AIChatbot";
 
 // Import stylesheets
 import "./styles/globals.css";
@@ -37,30 +34,21 @@ type UserData = {
   persona?: string;
 };
 
-type PageType = 
-  | "login" 
-  | "rewards-gallery" 
-  | "reward-detail"
-  | "mini-games" 
-  | "open-account" 
-  | "about" 
-  | "terms" 
-  | "privacy" 
-  | "contact" 
-  | "components"
-  | null;
+type PageType = "login" | "rewards-gallery" | "reward-detail" | "mini-games" | "open-account" | "about" | "terms" | "privacy" | "contact" | "components" | null;
 
-const PageWrapper = ({ 
-  children, 
-  userData, 
-  journeyStage, 
-  onStageChange, 
-  onLogin, 
-  onLogout, 
-  onNavigate,
-  handleSearch,
-  searchResults,
-  handleSearchResultSelect 
+type ActivationOffer = {
+  id: string;
+  title: string;
+  description: string;
+  points: number;
+  image: string;
+  category: string;
+  icon: React.ReactNode;
+  brand?: string;
+};
+
+const PageWrapper = ({
+  children, userData, journeyStage, onStageChange, onLogin, onLogout, onNavigate, handleSearch, searchResults, handleSearchResultSelect
 }: {
   children: React.ReactNode;
   userData: UserData;
@@ -74,7 +62,7 @@ const PageWrapper = ({
   handleSearchResultSelect?: (rewardId: string) => void;
 }) => (
   <div className="flex flex-col min-h-screen">
-    <AxisBankHeader 
+    <AxisBankHeader
       userData={userData}
       currentStage={journeyStage}
       onStageChange={onStageChange}
@@ -97,12 +85,11 @@ export default function App() {
   const [journeyStage, setJourneyStage] = useState<string>("home");
   const [currentPage, setCurrentPage] = useState<PageType>(null);
   const [selectedRewardId, setSelectedRewardId] = useState<string | null>(null);
-  const [showRewardsModal, setShowRewardsModal] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<ActivationOffer[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
   // Add the activationOffers data that's missing
-  const activationOffers = [
+  const activationOffers: ActivationOffer[] = [
     {
       id: "dining", // This now matches mockRewardData key
       title: "15% Offer applicable on total bill",
@@ -159,19 +146,6 @@ export default function App() {
     }
   ];
 
-  // Show welcome modal on first visit
-  // useEffect(() => {
-  //   // In a real app, you'd use localStorage or a cookie to check if this is the first visit
-  //   const hasVisitedBefore = sessionStorage.getItem('hasVisitedBefore');
-    
-  //   if (!hasVisitedBefore && journeyStage === "home") {
-  //     setTimeout(() => {
-  //       setShowRewardsModal(true);
-  //       sessionStorage.setItem('hasVisitedBefore', 'true');
-  //     }, 1500);
-  //   }
-  // }, [journeyStage]);
-
   // Update the handleSearch function
   const handleSearch = (query: string) => {
     setSearchQuery(query);
@@ -183,7 +157,7 @@ export default function App() {
       offer.brand?.toLowerCase().includes(query.toLowerCase())
     );
     setSearchResults(filtered);
-    
+
     // If there are results, handle navigation based on authentication
     if (query.trim() && filtered.length > 0) {
       if (userData.isLoggedIn) {
@@ -200,7 +174,7 @@ export default function App() {
   // Update handleSearchResultSelect function
   const handleSearchResultSelect = (rewardId: string) => {
     setSelectedRewardId(rewardId);
-    
+
     if (userData.isLoggedIn) {
       // User is logged in, go directly to reward detail
       setCurrentPage('reward-detail');
@@ -215,7 +189,7 @@ export default function App() {
     setSearchResults([]);
     setSearchQuery("");
   };
-  
+
   // Navigation helper
   const navigate = (page: PageType, rewardId?: string) => {
     setCurrentPage(page);
@@ -227,22 +201,22 @@ export default function App() {
     if (page !== null && page !== "reward-detail") {
       clearSearchResults();
     }
-    
+
     // If navigating away from a page, reset the journey stage if needed
     if (page === null && !userData.isLoggedIn) {
       setJourneyStage("home");
     }
   };
-  
+
   // Update the handleLogin function to handle post-login navigation
   const handleLogin = (newUserData: UserData) => {
     setUserData(newUserData);
-    
+
     if (newUserData.isLoggedIn) {
       // If there's a selected reward from search, go to detail page
       if (selectedRewardId) {
         setCurrentPage('reward-detail');
-      } 
+      }
       // If there are search results, go to rewards page
       else if (searchResults.length > 0) {
         setJourneyStage("rewards");
@@ -253,45 +227,40 @@ export default function App() {
         setJourneyStage("rewards");
         navigate(null);
       }
-      
-      // Show welcome rewards modal after login
-      setTimeout(() => {
-        setShowRewardsModal(true);
-      }, 1000);
     } else {
       navigate(null);
     }
   };
-  
+
   // Handle logout
   const handleLogout = () => {
     setUserData(initialUserData);
     setJourneyStage("home");
     navigate(null);
   };
-  
+
   // Navigate to explore rewards
   const navigateToExploreRewards = () => {
     if (userData.isLoggedIn) {
       setJourneyStage("rewards");
-      navigate("home");
+      navigate(null);
     } else {
       navigate("login");
     }
   };
-  
+
   // Handle stage change - NO AUTHENTICATION RESTRICTIONS
   const handleStageChange = (stage: string) => {
     setJourneyStage(stage);
     clearSearchResults();
     navigate(null);
   };
-  
+
   // Handle reward selection from any component
   const handleRewardSelect = (rewardId: string) => {
     navigate("reward-detail", rewardId);
   };
-  
+
   // Handle reward redemption
   const handleRewardRedemption = (rewardId: string) => {
     // In a real app, this would process the redemption
@@ -299,7 +268,7 @@ export default function App() {
     setJourneyStage("redemption");
     navigate(null);
   };
-  
+
   // Handle footer navigation
   const handleFooterNavigation = (destination: string) => {
     switch (destination) {
@@ -333,15 +302,15 @@ export default function App() {
         break;
     }
   };
-  
+
   // Special page rendering based on currentPage
   if (currentPage === "login") {
-    return <LoginPage onLogin={handleLogin} />;
+    return <LoginPage onLogin={handleLogin} onHome={() => navigate(null)} />;
   }
-  
+
   if (currentPage === "reward-detail") {
     return (
-      <PageWrapper 
+      <PageWrapper
         userData={userData}
         journeyStage={journeyStage}
         onStageChange={handleStageChange}
@@ -352,7 +321,7 @@ export default function App() {
         searchResults={searchResults}
         handleSearchResultSelect={handleSearchResultSelect}
       >
-        <RewardDetailPage 
+        <RewardDetailPage
           userData={userData}
           rewardId={selectedRewardId || "luxury-watch"}
           onBack={() => {
@@ -372,10 +341,10 @@ export default function App() {
       </PageWrapper>
     );
   }
-  
+
   if (currentPage === "rewards-gallery") {
     return (
-      <PageWrapper 
+      <PageWrapper
         userData={userData}
         journeyStage={journeyStage}
         onStageChange={handleStageChange}
@@ -386,17 +355,17 @@ export default function App() {
         searchResults={searchResults}
         handleSearchResultSelect={handleSearchResultSelect}
       >
-        <RewardsGalleryPage 
+        <RewardsGalleryPage
           userData={userData}
           onRewardSelect={handleRewardSelect}
         />
       </PageWrapper>
     );
   }
-  
+
   if (currentPage === "mini-games") {
     return (
-      <PageWrapper 
+      <PageWrapper
         userData={userData}
         journeyStage={journeyStage}
         onStageChange={handleStageChange}
@@ -411,10 +380,10 @@ export default function App() {
       </PageWrapper>
     );
   }
-  
+
   if (currentPage === "components") {
     return (
-      <PageWrapper 
+      <PageWrapper
         userData={userData}
         journeyStage={journeyStage}
         onStageChange={handleStageChange}
@@ -429,10 +398,10 @@ export default function App() {
       </PageWrapper>
     );
   }
-  
+
   if (currentPage === "open-account") {
     return (
-      <PageWrapper 
+      <PageWrapper
         userData={userData}
         journeyStage={journeyStage}
         onStageChange={handleStageChange}
@@ -477,7 +446,7 @@ export default function App() {
       </PageWrapper>
     );
   }
-  
+
   // Static content pages
   const staticPages = {
     "about": {
@@ -485,7 +454,7 @@ export default function App() {
       content: (
         <div className="prose max-w-none">
           <p className="mb-4">
-            Axis Bank is the third-largest private sector bank in India offering comprehensive retail, corporate, and international banking services. 
+            Axis Bank is the third-largest private sector bank in India offering comprehensive retail, corporate, and international banking services.
             Since its inception in 1993, Axis Bank has consistently leveraged technology and innovation to provide superior banking experiences.
           </p>
           <h2 className="text-2xl font-bold mb-3 mt-6 text-[#97144D]">Our Vision</h2>
@@ -494,7 +463,7 @@ export default function App() {
           </p>
           <h2 className="text-2xl font-bold mb-3 mt-6 text-[#97144D]">The Axis Bank Rewards Program</h2>
           <p>
-            Our rewards program is designed to recognize and appreciate our valuable customers. We offer a comprehensive suite of rewards 
+            Our rewards program is designed to recognize and appreciate our valuable customers. We offer a comprehensive suite of rewards
             tailored to different customer segments, providing exclusive benefits, cashbacks, and special privileges based on your banking relationship with us.
           </p>
         </div>
@@ -545,12 +514,12 @@ export default function App() {
       )
     }
   };
-  
+
   // Render static pages
-  if (["about", "terms", "privacy"].includes(currentPage)) {
+  if (currentPage === "about" || currentPage === "terms" || currentPage === "privacy") {
     const page = staticPages[currentPage];
     return (
-      <PageWrapper 
+      <PageWrapper
         userData={userData}
         journeyStage={journeyStage}
         onStageChange={handleStageChange}
@@ -568,11 +537,11 @@ export default function App() {
       </PageWrapper>
     );
   }
-  
+
   // Contact page with enhanced design and image
   if (currentPage === "contact") {
     return (
-      <PageWrapper 
+      <PageWrapper
         userData={userData}
         journeyStage={journeyStage}
         onStageChange={handleStageChange}
@@ -596,13 +565,13 @@ export default function App() {
               <div className="container mx-auto px-4">
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">Contact Us</h1>
                 <p className="text-white/90 max-w-xl">
-                  We're here to help with any questions about your Axis Bank accounts, 
+                  We're here to help with any questions about your Axis Bank accounts,
                   rewards program, or banking services.
                 </p>
               </div>
             </div>
           </div>
-          
+
           {/* Content section */}
           <div className="container mx-auto px-4 py-12">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -613,17 +582,17 @@ export default function App() {
                   <form className="space-y-5">
                     <div>
                       <label className="block mb-1 text-sm font-medium text-gray-700">Name</label>
-                      <input 
-                        type="text" 
-                        className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#97144D]/20" 
+                      <input
+                        type="text"
+                        className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#97144D]/20"
                         placeholder="Your full name"
                       />
                     </div>
                     <div>
                       <label className="block mb-1 text-sm font-medium text-gray-700">Email</label>
-                      <input 
-                        type="email" 
-                        className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#97144D]/20" 
+                      <input
+                        type="email"
+                        className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#97144D]/20"
                         placeholder="Your email address"
                       />
                     </div>
@@ -640,8 +609,8 @@ export default function App() {
                     </div>
                     <div>
                       <label className="block mb-1 text-sm font-medium text-gray-700">Message</label>
-                      <textarea 
-                        rows={4} 
+                      <textarea
+                        rows={4}
                         className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#97144D]/20"
                         placeholder="How can we help you?"
                       ></textarea>
@@ -653,7 +622,7 @@ export default function App() {
                     </div>
                   </form>
                 </div>
-                
+
                 {/* Contact information with image */}
                 <div className="md:w-1/2 bg-[#f9f3f6]">
                   <div className="h-64 overflow-hidden">
@@ -676,7 +645,7 @@ export default function App() {
                           <p className="text-gray-600">+91-22-2710-6162</p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start">
                         <div className="bg-[#97144D] rounded-full p-2 text-white mr-4 mt-1">
                           <Mail size={18} />
@@ -687,7 +656,7 @@ export default function App() {
                           <p className="text-gray-600">rewards.support@axisbank.com</p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start">
                         <div className="bg-[#97144D] rounded-full p-2 text-white mr-4 mt-1">
                           <MapPin size={18} />
@@ -702,7 +671,7 @@ export default function App() {
                           </p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start">
                         <div className="bg-[#97144D] rounded-full p-2 text-white mr-4 mt-1">
                           <Clock size={18} />
@@ -719,7 +688,7 @@ export default function App() {
                 </div>
               </div>
             </div>
-            
+
             {/* Branch locator section */}
             <div className="mt-12 text-center">
               <h2 className="text-2xl font-bold mb-4 text-[#97144D]">Find a Branch Near You</h2>
@@ -735,11 +704,11 @@ export default function App() {
       </PageWrapper>
     );
   }
-  
+
   // Main journey pages - render based on journey stage
   if (userData.isLoggedIn || journeyStage !== "home") {
     return (
-      <PageWrapper 
+      <PageWrapper
         userData={userData}
         journeyStage={journeyStage}
         onStageChange={handleStageChange}
@@ -754,28 +723,28 @@ export default function App() {
           switch (journeyStage) {
             case 'discovery':
               return (
-                <RewardsDiscoveryPage 
-                  userData={userData} 
+                <RewardsDiscoveryPage
+                  userData={userData}
                   onRewardSelect={handleRewardSelect}
                 />
               );
             case 'rewards':
               return (
                 <main>
-                  <RewardActivationPage 
-                    onExploreRewards={() => navigate("rewards-gallery")} 
-                    userData={userData} 
+                  <RewardActivationPage
+                    onExploreRewards={() => navigate("rewards-gallery")}
+                    userData={userData}
                     onRewardSelect={handleRewardSelect}
                     searchResults={searchResults}
                     searchQuery={searchQuery}
                   />
                    {/* Full-width stacked rewards showcase with integrated login CTA */}
-                  <RewardsShowcase 
+                  <RewardsShowcase
                     onPlayGames={() => {
                       if (userData.isLoggedIn) {
                         navigate("mini-games");
                       } else {
-                        setShowRewardsModal(true);
+                        navigate("login");
                       }
                     }}
                     onExploreRewards={() => navigate("rewards-gallery")}
@@ -783,16 +752,6 @@ export default function App() {
                     onRewardSelect={handleRewardSelect}
                     isLoggedIn={userData.isLoggedIn}
                   />
-                  
-                  {/* Rewards Journey Modal */}
-                  {/* <RewardsJourneyModal 
-                    isOpen={showRewardsModal}
-                    onClose={() => setShowRewardsModal(false)}
-                    onExplore={() => {
-                      setShowRewardsModal(false);
-                      navigate("rewards-gallery");
-                    }}
-                  /> */}
                 </main>
               );
             case 'redemption':
@@ -802,46 +761,27 @@ export default function App() {
             default:
               return (
                 <main className="flex-grow">
-                  <HomeBanner 
+                  <HomeBanner
                     isLoggedIn={userData.isLoggedIn}
                     userData={userData}
                     onExploreRewards={navigateToExploreRewards}
                     onOpenAccount={() => navigate("open-account")}
                   />
-                  <CallToAction 
+                  <CallToAction
                     isLoggedIn={userData.isLoggedIn}
                     onOpenAccount={() => navigate("open-account")}
                     onExploreRewards={navigateToExploreRewards}
                   />
                   <SegmentShowcase />
-                  <PersonaOffers selectedPersona="senior-citizens" />
-                  
-                  {/* Home Games Section */}
-                  {/* <HomeGamesSection 
-                    userData={userData}
-                    onPlayGame={(gameId) => {
-                      if (userData.isLoggedIn) {
-                        navigate("mini-games");
-                      } else {
-                        navigate("login");
-                      }
-                    }}
-                    onViewGames={() => {
-                      if (userData.isLoggedIn) {
-                        navigate("mini-games");
-                      } else {
-                        setShowRewardsModal(true);
-                      }
-                    }}
-                  /> */}
+                  {/* <PersonaOffers selectedPersona="senior-citizens" /> */}
                   
                   {/* Full-width stacked rewards showcase with integrated login CTA */}
-                  <RewardsShowcase 
+                  <RewardsShowcase
                     onPlayGames={() => {
                       if (userData.isLoggedIn) {
                         navigate("mini-games");
                       } else {
-                        setShowRewardsModal(true);
+                        navigate("login");
                       }
                     }}
                     onExploreRewards={() => navigate("rewards-gallery")}
@@ -849,16 +789,6 @@ export default function App() {
                     onRewardSelect={handleRewardSelect}
                     isLoggedIn={userData.isLoggedIn}
                   />
-                  
-                  {/* Rewards Journey Modal */}
-                  {/* <RewardsJourneyModal 
-                    isOpen={showRewardsModal}
-                    onClose={() => setShowRewardsModal(false)}
-                    onExplore={() => {
-                      setShowRewardsModal(false);
-                      navigate("rewards-gallery");
-                    }}
-                  /> */}
                 </main>
               );
           }
@@ -866,10 +796,10 @@ export default function App() {
       </PageWrapper>
     );
   }
-  
+
   // Main home/non-logged-in page
   return (
-    <PageWrapper 
+    <PageWrapper
       userData={userData}
       journeyStage={journeyStage}
       onStageChange={handleStageChange}
@@ -881,46 +811,24 @@ export default function App() {
       handleSearchResultSelect={handleSearchResultSelect}
     >
       <main className="flex-grow">
-        <HomeBanner 
+        <HomeBanner
           isLoggedIn={userData.isLoggedIn}
           userData={userData}
           onExploreRewards={navigateToExploreRewards}
           onOpenAccount={() => navigate("open-account")}
         />
-        <CallToAction 
+        <CallToAction
           isLoggedIn={userData.isLoggedIn}
           onOpenAccount={() => navigate("open-account")}
           onExploreRewards={navigateToExploreRewards}
-        />
-        <SegmentShowcase />
-        <PersonaOffers selectedPersona="senior-citizens" />
-        {/* <AIChatbot /> */}
-        {/* Home Games Section */}
-        {/* <HomeGamesSection 
-          userData={userData}
-          onPlayGame={(gameId) => {
-            if (userData.isLoggedIn) {
-              navigate("mini-games");
-            } else {
-              navigate("login");
-            }
-          }}
-          onViewGames={() => {
-            if (userData.isLoggedIn) {
-              navigate("mini-games");
-            } else {
-              setShowRewardsModal(true);
-            }
-          }}
-        /> */}
-        
+        />     
         {/* Full-width stacked rewards showcase with integrated login CTA */}
-        <RewardsShowcase 
+        <RewardsShowcase
           onPlayGames={() => {
             if (userData.isLoggedIn) {
               navigate("mini-games");
             } else {
-              setShowRewardsModal(true);
+              navigate("login");
             }
           }}
           onExploreRewards={() => navigate("rewards-gallery")}
@@ -928,16 +836,8 @@ export default function App() {
           onRewardSelect={handleRewardSelect}
           isLoggedIn={userData.isLoggedIn}
         />
-        
-        {/* Rewards Journey Modal */}
-        {/* <RewardsJourneyModal 
-          isOpen={showRewardsModal}
-          onClose={() => setShowRewardsModal(false)}
-          onExplore={() => {
-            setShowRewardsModal(false);
-            navigate("rewards-gallery");
-          }}
-        /> */}
+        <SegmentShowcase />
+        {/* <PersonaOffers selectedPersona="senior-citizens" /> */}
       </main>
     </PageWrapper>
   );

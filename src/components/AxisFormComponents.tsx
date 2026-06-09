@@ -1,4 +1,4 @@
-import { useState, useRef, forwardRef, useEffect } from "react";
+import { useState, useRef, forwardRef, useEffect, type MutableRefObject } from "react";
 import { Eye, EyeOff, Calendar, ChevronDown, Info } from "lucide-react";
 
 // SVG paths for icons
@@ -294,7 +294,7 @@ interface DateInputProps {
 
 export const AxisDateInput = forwardRef<HTMLInputElement, DateInputProps>(
   ({ name, label, value, onChange, hasTooltip = false, error, required = false }, ref) => {
-    const dateInputRef = useRef<HTMLInputElement>(null);
+    const dateInputRef = useRef<HTMLInputElement | null>(null);
     
     const handleCalendarClick = () => {
       if (dateInputRef.current) {
@@ -371,7 +371,7 @@ export const AxisDateInput = forwardRef<HTMLInputElement, DateInputProps>(
                     if (typeof ref === 'function') {
                       ref(node);
                     } else if (ref) {
-                      ref.current = node;
+                      (ref as MutableRefObject<HTMLInputElement | null>).current = node;
                     }
                     dateInputRef.current = node;
                   }}

@@ -59,7 +59,7 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({ userData, onComplete
       label: '50 Points', 
       value: '50 pts', 
       icon: <Star />, 
-      color: '#12877F', 
+      color: '#ED1164',
       probability: 0.15,
       points: 50 
     },
@@ -95,7 +95,7 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({ userData, onComplete
       label: '20 Points', 
       value: '20 pts', 
       icon: <Star />, 
-      color: '#16a096', 
+      color: '#F04A86',
       probability: 0.2,
       points: 20 
     },
@@ -113,7 +113,7 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({ userData, onComplete
       label: '5% Off', 
       value: '5% Discount', 
       icon: <ShoppingBag />, 
-      color: '#0e6e67', 
+      color: '#C70D53',
       probability: 0.1,
       points: 50 
     }
@@ -163,7 +163,7 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({ userData, onComplete
           x: x / window.innerWidth, 
           y: y / window.innerHeight 
         },
-        colors: [segment.color, '#97144D', '#12877F', '#ed1164'],
+        colors: [segment.color, '#97144D', '#ED1164', '#ed1164'],
         zIndex: 1000,
         shapes: ['circle', 'square']
       });
@@ -243,8 +243,8 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({ userData, onComplete
           {/* Game Stats */}
           <div className="w-full bg-gray-50 rounded-xl p-4 mb-6 flex flex-wrap justify-between gap-2">
             <div className="flex items-center gap-3">
-              <div className="bg-[#EBF9F8] rounded-full p-2">
-                <Clock className="h-5 w-5 text-[#12877F]" />
+              <div className="bg-[#FFF0F6] rounded-full p-2">
+                <Clock className="h-5 w-5 text-[#ED1164]" />
               </div>
               <div>
                 <div className="text-xs text-gray-500">Spins Left</div>
@@ -440,34 +440,34 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({ userData, onComplete
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white rounded-xl border-2 border-[#EBF9F8] p-6 overflow-hidden"
+                className="bg-white rounded-xl border-2 border-[#FFF0F6] p-6 overflow-hidden"
               >
-                <h3 className="text-xl font-bold mb-4 text-[#12877F] flex items-center">
+                <h3 className="text-xl font-bold mb-4 text-[#ED1164] flex items-center">
                   <Info className="h-5 w-5 mr-2" /> How to Play
                 </h3>
                 
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
-                    <div className="bg-[#EBF9F8] rounded-full p-1.5 mt-0.5">
-                      <span className="text-[#12877F] font-bold text-sm">1</span>
+                    <div className="bg-[#FFF0F6] rounded-full p-1.5 mt-0.5">
+                      <span className="text-[#ED1164] font-bold text-sm">1</span>
                     </div>
                     <span className="text-gray-700">Click the "SPIN" button to rotate the wheel</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="bg-[#EBF9F8] rounded-full p-1.5 mt-0.5">
-                      <span className="text-[#12877F] font-bold text-sm">2</span>
+                    <div className="bg-[#FFF0F6] rounded-full p-1.5 mt-0.5">
+                      <span className="text-[#ED1164] font-bold text-sm">2</span>
                     </div>
                     <span className="text-gray-700">Wait for the wheel to stop spinning to see your reward</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="bg-[#EBF9F8] rounded-full p-1.5 mt-0.5">
-                      <span className="text-[#12877F] font-bold text-sm">3</span>
+                    <div className="bg-[#FFF0F6] rounded-full p-1.5 mt-0.5">
+                      <span className="text-[#ED1164] font-bold text-sm">3</span>
                     </div>
                     <span className="text-gray-700">Each day you get up to three free spins</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="bg-[#EBF9F8] rounded-full p-1.5 mt-0.5">
-                      <span className="text-[#12877F] font-bold text-sm">4</span>
+                    <div className="bg-[#FFF0F6] rounded-full p-1.5 mt-0.5">
+                      <span className="text-[#ED1164] font-bold text-sm">4</span>
                     </div>
                     <span className="text-gray-700">Points are automatically added to your account balance</span>
                   </li>
@@ -647,8 +647,8 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({ userData, onComplete
                           }}
                           className="relative"
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-[#97144D] to-[#12877F] rounded-full opacity-20 blur-md"></div>
-                          <div className="relative w-20 h-20 border-4 border-t-[#97144D] border-r-[#12877F] border-b-[#97144D] border-l-[#12877F] rounded-full"></div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#97144D] to-[#ED1164] rounded-full opacity-20 blur-md"></div>
+                          <div className="relative w-20 h-20 border-4 border-t-[#97144D] border-r-[#ED1164] border-b-[#97144D] border-l-[#ED1164] rounded-full"></div>
                         </motion.div>
                         <p className="mt-4 text-lg font-medium text-gray-600">Good luck!</p>
                         <p className="text-sm text-gray-500">The wheel is spinning...</p>
@@ -660,7 +660,7 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({ userData, onComplete
                         </div>
                         <p className="text-gray-500 mb-4">Spin the wheel to discover your reward</p>
                         <div className="flex justify-center">
-                          <Badge className="bg-[#EBF9F8] text-[#12877F] px-3 py-1">
+                          <Badge className="bg-[#FFF0F6] text-[#ED1164] px-3 py-1">
                             Prizes include points, discounts & more
                           </Badge>
                         </div>

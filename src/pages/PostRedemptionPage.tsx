@@ -335,11 +335,11 @@ export const PostRedemptionPage = ({ userData }: PostRedemptionPageProps) => {
       </div>
 
       {/* Feedback Banner */}
-      <div className="bg-[#EBF9F8] border-y border-[#12877F]/20">
+      <div className="bg-[#FFF0F6] border-y border-[#ED1164]/20">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center mb-4 md:mb-0">
-              <div className="bg-[#12877F] rounded-full p-3 text-white mr-4">
+              <div className="bg-[#ED1164] rounded-full p-3 text-white mr-4">
                 <MessageSquare className="h-6 w-6" />
               </div>
               <div>

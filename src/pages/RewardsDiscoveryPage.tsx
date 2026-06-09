@@ -171,13 +171,13 @@ export const RewardsDiscoveryPage = ({ userData, onRewardSelect }: RewardsDiscov
               </div>
             </div>
             
-            <div className="bg-[#EBF9F8] rounded-lg p-4 flex items-center">
-              <div className="rounded-full bg-[#12877F] p-3 mr-4">
+            <div className="bg-[#FFF0F6] rounded-lg p-4 flex items-center">
+              <div className="rounded-full bg-[#ED1164] p-3 mr-4">
                 <CreditCard className="h-5 w-5 text-white" />
               </div>
               <div>
                 <div className="text-sm text-gray-600">Points Earned This Month</div>
-                <div className="text-2xl font-bold text-[#12877F]">1,850</div>
+                <div className="text-2xl font-bold text-[#ED1164]">1,850</div>
               </div>
             </div>
             
@@ -266,7 +266,7 @@ export const RewardsDiscoveryPage = ({ userData, onRewardSelect }: RewardsDiscov
       {/* Featured Reward */}
       <div className="bg-white py-10 border-t border-b">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row bg-gradient-to-r from-[#97144D]/10 to-[#12877F]/5 rounded-xl overflow-hidden">
+          <div className="flex flex-col md:flex-row bg-gradient-to-r from-[#97144D]/10 to-[#ED1164]/5 rounded-xl overflow-hidden">
             <div className="md:w-1/2 p-8">
               <div className="inline-block px-3 py-1 bg-[#97144D] text-white text-xs font-medium rounded-full mb-4">
                 FEATURED BURGUNDY REWARD
@@ -359,7 +359,7 @@ const RewardCard = ({ reward, onSelect }: { reward: any; onSelect?: (rewardId: s
             </span>
           )}
           {reward.tags.includes("new") && (
-            <span className="bg-[#12877F] text-white text-xs font-medium px-2 py-1 rounded-full">
+            <span className="bg-[#ED1164] text-white text-xs font-medium px-2 py-1 rounded-full">
               New
             </span>
           )}

@@ -331,7 +331,7 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
                         {/* <span className="text-sm font-medium">{featuredReward.pointsRequired.toLocaleString()} points</span> */}
                       </div>
                       <div className="flex items-center">
-                        <Clock className="h-4 w-4 text-[#12877F] mr-1" />
+                        <Clock className="h-4 w-4 text-[#ED1164] mr-1" />
                         <span className="text-sm">{featuredReward.fulfillmentTime} fulfillment</span>
                       </div>
                     </div>
@@ -423,7 +423,7 @@ export const RewardRedemptionPage = ({ userData, onRewardSelect }: RewardRedempt
                     <div className="h-px bg-gray-200 my-2"></div>
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600">Safe Points</span>
-                      <span className="font-medium text-[#12877F]">9,000 points</span>
+                      <span className="font-medium text-[#ED1164]">9,000 points</span>
                     </div>
                   </div>
                 </div>

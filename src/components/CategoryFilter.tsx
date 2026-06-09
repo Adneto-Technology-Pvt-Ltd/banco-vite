@@ -252,14 +252,6 @@ export const CategoryFilter = ({
           </button>
         )}
       </div>
-
-      {/* Decorative elements for the default variant */}
-      {variant === "default" && (
-        <div className="absolute inset-0 -z-10 overflow-hidden rounded-xl">
-          <div className="absolute -top-20 -left-20 w-40 h-40 bg-[#97144D]/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-[#12877F]/5 rounded-full blur-3xl"></div>
-        </div>
-      )}
     </div>
   );
 };

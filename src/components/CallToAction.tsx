@@ -38,7 +38,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
       icon: Gift,
       title: "Personalized Benefits",
       description: "Enjoy benefits and offers tailored to your spending habits and lifestyle.",
-      color: "#12877F"
+      color: "#ED1164"
     },
     {
       icon: CreditCard,
@@ -52,23 +52,33 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
     {
       name: "Burgundy",
       color: "#97144D",
-      description: "Premium banking with personalized wealth management and exclusive lifestyle privileges."
+      description: "Luxury experiences & global privileges"
     },
     {
-      name: "Prestige", 
-      color: "#12877F",
-      description: "Priority banking with relationship manager and special rates on loans and deposits."
+      name: "Priority",
+      color: "#97144D",
+      description: "Premium savings on travel, dining & lifestyle"
     },
     {
-      name: "Arise",
-      color: "#97144D", 
-      description: "Enhanced everyday banking with digital convenience and attractive benefits."
+      name: "Prestige",
+      color: "#97144D",
+      description: "Smart savings on everyday spends"
+    },
+    {
+      name: "Sampann",
+      color: "#97144D",
+      description: "Everyday banking with added rewards"
     },
     {
       name: "Liberty",
-      color: "#12877F",
-      description: "Simple, low-cost banking with essential features and digital access."
-    }
+      color: "#97144D",
+      description: "Flexible banking with choice-based benefits"
+    },
+    {
+      name: "Easy",
+      color: "#97144D",
+      description: "Simple banking with essential savings offers"
+    },
   ];
 
   return (
@@ -84,22 +94,22 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
         >
           {/* Content Section */}
           <motion.div variants={itemVariants}>
-            <motion.h2 
+            <motion.h2
               variants={itemVariants}
               className="text-2xl md:text-3xl font-bold mb-4 text-gray-900"
             >
               Why Choose Axis Bank Savings Account?
             </motion.h2>
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="text-gray-700 mb-6 leading-relaxed"
             >
-              An Axis Bank Savings Account offers you more than just a place to keep your money. 
+              An Axis Bank Savings Account offers you more than just a place to keep your money.
               Enjoy a comprehensive banking experience with personalized benefits, digital convenience, and exclusive benefits.
             </motion.p>
-            
+
             {/* Features List with Micro-interactions */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="space-y-4 mb-6"
             >
@@ -113,7 +123,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                   whileHover={{ x: 5, scale: 1.02 }}
                   className="flex items-start group cursor-pointer"
                 >
-                  <motion.div 
+                  <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.3 }}
                     className="mr-4 p-2 rounded-full"
@@ -132,9 +142,9 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                 </motion.div>
               ))}
             </motion.div>
-            
+
             {/* Action Buttons with Enhanced Micro-interactions */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-3"
             >
@@ -144,7 +154,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                   whileTap={{ scale: 0.98 }}
                   className="flex-1"
                 >
-                  <AxisButton 
+                  <AxisButton
                     onClick={onExploreRewards}
                     variant="primary"
                     className="w-full btn-micro"
@@ -165,7 +175,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                     whileTap={{ scale: 0.98 }}
                     className="flex-1"
                   >
-                    <AxisButton 
+                    <AxisButton
                       onClick={onExploreRewards}
                       variant="outline"
                       className="w-full btn-micro"
@@ -178,7 +188,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                     whileTap={{ scale: 0.98 }}
                     className="flex-1"
                   >
-                    <AxisButton 
+                    <AxisButton
                       onClick={onOpenAccount}
                       variant="primary"
                       className="w-full btn-micro"
@@ -196,54 +206,58 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
               )}
             </motion.div>
           </motion.div>
-          
+
           {/* Visual Section */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="lg:order-2"
           >
             {/* Enhanced Main Image */}
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.02 }}
               className="relative mb-6"
             >
-              <div className="relative h-72 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative min-h-[360px] rounded-2xl overflow-hidden shadow-xl">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                   alt="Modern banking and financial services"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#97144D]/30 to-transparent"></div>
-                
+
                 {/* Enhanced Floating Stats Card */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
                   whileHover={{ y: -5, scale: 1.02 }}
-                  className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-lg border border-white/20"
+                  className="absolute inset-x-4 bottom-4 bg-white/95 backdrop-blur-md rounded-xl p-5 shadow-lg border border-white/20"
                 >
-                  <div className="grid grid-cols-3 gap-4 text-center">
+                  <div className="font-bold text-base md:text-lg mb-4 text-gray-900">Why Explore Axis Offers?</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
                     {[
-                      { value: "4M+", label: "Happy Customers", color: "#97144D" },
-                      { value: "500+", label: "Reward Partners", color: "#12877F" },
-                      { value: "24/7", label: "Digital Support", color: "#97144D" }
+                      { value: "Curated for You", label: "", color: "#97144D" },
+                      { value: "Trusted Partners", label: "", color: "#ED1164" },
+                      { value: "Seamless Experience", label: "", color: "#97144D" }
+                      // { value: "Curated for You", label: "Enhanced security features to protect your money and transactions.", color: "#97144D" },
+                      // { value: "Trusted Partners", label: "Enjoy benefits and offers tailored to your spending habits and lifestyle.", color: "#ED1164" },
+                      // { value: "Seamless Experience", label: "Access your account anytime, anywhere with our award-winning digital platform.", color: "#97144D" }
                     ].map((stat, index) => (
                       <motion.div
                         key={stat.label}
-                        whileHover={{ scale: 1.1 }}
-                        className="cursor-pointer"
+                        whileHover={{ y: -2 }}
+                        className="cursor-pointer text-center px-2"
                       >
-                        <motion.div 
+                        <motion.div
                           animate={{ scale: [1, 1.05, 1] }}
                           transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
-                          className="font-bold text-lg"
+                          className="font-bold text-xl md:text-2xl leading-tight"
                           style={{ color: stat.color }}
                         >
                           {stat.value}
                         </motion.div>
-                        <div className="text-xs text-gray-600">{stat.label}</div>
+                        <div className="text-sm text-gray-600 leading-snug mt-2 max-w-[16rem] mx-auto">{stat.label}</div>
                       </motion.div>
                     ))}
                   </div>
@@ -256,16 +270,16 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
               whileHover={{ scale: 1.01, y: -2 }}
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
             >
-              <motion.h3 
+              <motion.h3
                 whileInView={{ scale: [0.95, 1.05, 1] }}
                 className="text-xl font-bold mb-4 text-[#97144D]"
               >
-                Account Benefits by Segment
+                Unlock Benefits Designed for Every Segment
               </motion.h3>
               <p className="mb-4 text-gray-700 text-sm leading-relaxed">
                 Axis Bank offers different account types to match your unique needs and financial goals.
               </p>
-              
+
               <div className="space-y-3">
                 {segments.map((segment, index) => (
                   <motion.div
@@ -278,7 +292,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                     className="p-3 rounded-lg transition-all duration-200 cursor-pointer"
                   >
                     <h4 className="font-bold text-gray-900 flex items-center mb-1">
-                      <motion.span 
+                      <motion.span
                         whileHover={{ scale: 1.3 }}
                         className="inline-block w-2 h-2 rounded-full mr-3"
                         style={{ backgroundColor: segment.color }}
@@ -291,14 +305,13 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                   </motion.div>
                 ))}
               </div>
-              
               {/* <div className="mt-4 pt-4 border-t border-gray-100">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <AxisButton 
-                    variant="outline" 
+                  <AxisButton
+                    variant="outline"
                     className="w-full btn-micro text-sm"
                   >
                     Explore Benefits

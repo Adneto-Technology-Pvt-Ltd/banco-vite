@@ -788,7 +788,7 @@ export const RewardDetailPage = ({ userData, rewardId, onBack, onRedeem, onRewar
               </div>
               
               {/* Pricing */}
-              <div className="bg-gradient-to-r from-[#97144D]/5 to-[#12877F]/5 p-6 rounded-xl">
+              <div className="bg-gradient-to-r from-[#97144D]/5 to-[#ED1164]/5 p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <div className="text-3xl font-bold text-[#97144D]">
@@ -1054,10 +1054,7 @@ export const RewardDetailPage = ({ userData, rewardId, onBack, onRedeem, onRewar
                       <AxisButton 
                         variant="outline" 
                         size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation(); // Prevent card click
-                          onRewardSelect?.(relatedId);
-                        }}
+                        onClick={() => onRewardSelect?.(relatedId)}
                       >
                         View Details
                       </AxisButton>
