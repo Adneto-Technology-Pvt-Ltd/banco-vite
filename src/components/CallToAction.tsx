@@ -38,7 +38,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
       icon: Gift,
       title: "Personalized Benefits",
       description: "Enjoy benefits and offers tailored to your spending habits and lifestyle.",
-      color: "#12877F"
+      color: "#ED1164"
     },
     {
       icon: CreditCard,
@@ -56,18 +56,13 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
     },
     {
       name: "Priority",
-      color: "#12877F",
+      color: "#97144D",
       description: "Premium savings on travel, dining & lifestyle"
     },
     {
       name: "Prestige",
-      color: "#12877F",
-      description: "Smart savings on everyday spends"
-    },
-    {
-      name: "Arise",
       color: "#97144D",
-      description: "Enhanced savings with lifestyle benefits"
+      description: "Smart savings on everyday spends"
     },
     {
       name: "Sampann",
@@ -76,12 +71,12 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
     },
     {
       name: "Liberty",
-      color: "#12877F",
+      color: "#97144D",
       description: "Flexible banking with choice-based benefits"
     },
     {
       name: "Easy",
-      color: "#12877F",
+      color: "#97144D",
       description: "Simple banking with essential savings offers"
     },
   ];
@@ -243,10 +238,10 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
                     {[
                       { value: "Curated for You", label: "", color: "#97144D" },
-                      { value: "Trusted Partners", label: "", color: "#12877F" },
+                      { value: "Trusted Partners", label: "", color: "#ED1164" },
                       { value: "Seamless Experience", label: "", color: "#97144D" }
                       // { value: "Curated for You", label: "Enhanced security features to protect your money and transactions.", color: "#97144D" },
-                      // { value: "Trusted Partners", label: "Enjoy benefits and offers tailored to your spending habits and lifestyle.", color: "#12877F" },
+                      // { value: "Trusted Partners", label: "Enjoy benefits and offers tailored to your spending habits and lifestyle.", color: "#ED1164" },
                       // { value: "Seamless Experience", label: "Access your account anytime, anywhere with our award-winning digital platform.", color: "#97144D" }
                     ].map((stat, index) => (
                       <motion.div

@@ -39,12 +39,11 @@ export const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
   // Account type options based on Axis Bank segments
   const accountTypeOptions = [
     "Burgundy",
+    "Priority",
     "Prestige", 
-    "Arise",
     "Sampann",
     "Liberty",
-    "Easy",
-    "Prime"
+    "Easy"
   ];
 
   // Handle input change

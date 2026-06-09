@@ -1,6 +1,5 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { AxisButton } from "./AxisButton";
-import { Gift, CreditCard } from "lucide-react";
+import { Gift } from "lucide-react";
 
 type HomeBannerProps = {
   isLoggedIn?: boolean;
@@ -16,19 +15,12 @@ type HomeBannerProps = {
 export const HomeBanner = ({ 
   isLoggedIn, 
   userData, 
-  onExploreRewards, 
-  onOpenAccount 
+  onExploreRewards
 }: HomeBannerProps) => {
   
   const handleExploreRewards = () => {
     if (onExploreRewards) {
       onExploreRewards();
-    }
-  };
-
-  const handleOpenAccount = () => {
-    if (onOpenAccount) {
-      onOpenAccount();
     }
   };
 
@@ -76,9 +68,7 @@ export const HomeBanner = ({
                 }
               </p>
 
-              {/* Action Buttons - Enhanced for maximum readability */}
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-                {/* Primary Action Button - White background for maximum contrast */}
                 <button
                   onClick={handleExploreRewards}
                   className="
@@ -93,39 +83,13 @@ export const HomeBanner = ({
                     shadow-xl hover:shadow-2xl
                     transition-all duration-200 ease-in-out
                     focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#97144D]
-                    font-['Arial'] font-style-normal
+                    font-['Lato'] font-style-normal
                   "
                   aria-label="Explore Your Benefits"
                 >
                   <Gift className="h-5 w-5 flex-shrink-0" />
                   <span>Explore Offers</span>
                 </button>
-                
-                {/* Secondary Action Button - Enhanced outline with better contrast */}
-                {/* {!isLoggedIn && (
-                  <button
-                    onClick={handleOpenAccount}
-                    className="
-                      bg-transparent 
-                      border-3 border-white text-white
-                      hover:bg-white hover:text-[#97144D] hover:border-white
-                      active:bg-gray-100 active:text-[#7d1041]
-                      px-8 py-4 rounded-lg
-                      text-lg font-bold
-                      flex items-center justify-center gap-3 
-                      min-w-[220px] min-h-[56px]
-                      shadow-xl hover:shadow-2xl
-                      transition-all duration-200 ease-in-out
-                      focus:outline-none focus:ring-4 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#97144D]
-                      font-['Arial'] font-style-normal
-                      backdrop-blur-sm
-                    "
-                    aria-label="Open Savings Account"
-                  >
-                    <CreditCard className="h-5 w-5 flex-shrink-0" />
-                    <span>Open Savings Account</span>
-                  </button>
-                )} */}
               </div>
 
               {/* Additional info for non-logged-in users */}
@@ -161,10 +125,6 @@ export const HomeBanner = ({
             </div>
           </div>
         </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#12877F]/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-20 right-20 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
       </div>
     </div>
   );

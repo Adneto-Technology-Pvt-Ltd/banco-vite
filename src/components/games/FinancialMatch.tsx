@@ -197,7 +197,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
             particleCount: 150,
             spread: 70,
             origin: { y: 0.6 },
-            colors: ['#97144D', '#12877F', '#ed1164', '#7d1041']
+            colors: ['#97144D', '#ED1164', '#ed1164', '#7d1041']
           });
         }
       }, 500);
@@ -306,9 +306,9 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
       {isPlaying && !gameOver && (
         <div className="bg-white rounded-xl border border-gray-200 shadow-md mb-6 overflow-hidden">
           <div className="grid grid-cols-3 md:grid-cols-5 gap-2 p-3">
-            <div className="flex items-center gap-2 bg-[#EBF9F8] rounded-lg p-2 justify-center">
-              <Clock className="h-4 w-4 text-[#12877F]" />
-              <span className={`font-bold ${timer <= 10 ? 'text-red-500 animate-pulse' : 'text-[#12877F]'}`}>
+            <div className="flex items-center gap-2 bg-[#FFF0F6] rounded-lg p-2 justify-center">
+              <Clock className="h-4 w-4 text-[#ED1164]" />
+              <span className={`font-bold ${timer <= 10 ? 'text-red-500 animate-pulse' : 'text-[#ED1164]'}`}>
                 {timer}s
               </span>
             </div>
@@ -350,7 +350,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
           
           <div className="w-full bg-gray-100 h-2">
             <div 
-              className="h-full bg-gradient-to-r from-[#97144D] to-[#12877F]"
+              className="h-full bg-gradient-to-r from-[#97144D] to-[#ED1164]"
               style={{ width: `${(timer / initialTimer) * 100}%` }}
             ></div>
           </div>
@@ -361,7 +361,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
       <div className="relative">
         {!gameStarted ? (
           <Card className="bg-white border-0 shadow-xl overflow-hidden">
-            <div className="bg-gradient-to-r from-[#12877F] to-[#16a096] text-white p-6">
+            <div className="bg-gradient-to-r from-[#ED1164] to-[#F04A86] text-white p-6">
               <h3 className="text-2xl font-bold flex items-center mb-2">
                 <BrainCircuit className="h-6 w-6 mr-2" /> 
                 Financial Match Challenge
@@ -382,13 +382,13 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                       whileTap={{ scale: 0.98 }}
                       className={`relative cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
                         difficulty === level 
-                          ? 'border-[#12877F] shadow-md shadow-[#12877F]/20' 
+                          ? 'border-[#ED1164] shadow-md shadow-[#ED1164]/20'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                       onClick={() => setDifficulty(level)}
                     >
                       <div className={`p-4 text-center ${
-                        difficulty === level ? 'bg-[#EBF9F8]' : 'bg-white'
+                        difficulty === level ? 'bg-[#FFF0F6]' : 'bg-white'
                       }`}>
                         <div className="font-bold mb-1 capitalize">
                           {level}
@@ -400,7 +400,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                       
                       {difficulty === level && (
                         <div className="absolute top-2 right-2">
-                          <CheckCircle className="h-5 w-5 text-[#12877F]" />
+                          <CheckCircle className="h-5 w-5 text-[#ED1164]" />
                         </div>
                       )}
                     </motion.div>
@@ -409,21 +409,21 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
               </div>
               
               <div className="flex flex-col md:flex-row gap-6 mb-6">
-                <div className="flex-1 bg-[#EBF9F8] rounded-lg p-4">
-                  <h4 className="font-bold text-[#12877F] mb-2 flex items-center">
+                <div className="flex-1 bg-[#FFF0F6] rounded-lg p-4">
+                  <h4 className="font-bold text-[#ED1164] mb-2 flex items-center">
                     <Zap className="h-4 w-4 mr-2" /> How to Play
                   </h4>
                   <ul className="text-sm text-gray-700 space-y-2">
                     <li className="flex items-start gap-2">
-                      <ArrowRight className="h-4 w-4 text-[#12877F] mt-0.5 flex-shrink-0" />
+                      <ArrowRight className="h-4 w-4 text-[#ED1164] mt-0.5 flex-shrink-0" />
                       <span>Flip cards to find matching pairs</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <ArrowRight className="h-4 w-4 text-[#12877F] mt-0.5 flex-shrink-0" />
+                      <ArrowRight className="h-4 w-4 text-[#ED1164] mt-0.5 flex-shrink-0" />
                       <span>Match all pairs before time runs out</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <ArrowRight className="h-4 w-4 text-[#12877F] mt-0.5 flex-shrink-0" />
+                      <ArrowRight className="h-4 w-4 text-[#ED1164] mt-0.5 flex-shrink-0" />
                       <span>Fewer moves earn you more points</span>
                     </li>
                   </ul>
@@ -452,7 +452,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
               
               <div className="flex justify-center">
                 <Button 
-                  className="bg-gradient-to-r from-[#12877F] to-[#16a096] hover:opacity-90 text-white px-6 py-6 text-lg"
+                  className="bg-gradient-to-r from-[#ED1164] to-[#F04A86] hover:opacity-90 text-white px-6 py-6 text-lg"
                   onClick={() => initializeGame(difficulty)}
                 >
                   Start Game
@@ -492,7 +492,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0 bg-[#12877F]/20 backdrop-blur-[2px] z-40 flex items-center justify-center rounded-xl"
+                  className="absolute inset-0 bg-[#ED1164]/20 backdrop-blur-[2px] z-40 flex items-center justify-center rounded-xl"
                 >
                   <motion.div
                     initial={{ scale: 0.5, rotate: -10 }}
@@ -500,7 +500,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                     exit={{ scale: 2, opacity: 0 }}
                     transition={{ duration: 0.4, type: 'spring' }}
                   >
-                    <CheckCircle className="h-20 w-20 text-[#12877F]" />
+                    <CheckCircle className="h-20 w-20 text-[#ED1164]" />
                   </motion.div>
                 </motion.div>
               )}
@@ -514,7 +514,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute inset-0 bg-gradient-to-b from-[#12877F]/90 to-[#12877F]/70 backdrop-blur-sm z-30 flex items-center justify-center rounded-xl"
+                  className="absolute inset-0 bg-gradient-to-b from-[#ED1164]/90 to-[#ED1164]/70 backdrop-blur-sm z-30 flex items-center justify-center rounded-xl"
                 >
                   <motion.div
                     initial={{ scale: 0.8, y: 20 }}
@@ -550,7 +550,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                         setShowCelebration(false);
                         setGameStarted(false);
                       }}
-                      className="bg-white text-[#12877F] hover:bg-white/90"
+                      className="bg-white text-[#ED1164] hover:bg-white/90"
                     >
                       Continue
                     </Button>
@@ -568,7 +568,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                 <Card className="overflow-hidden border-0 shadow-xl">
                   <div className={`p-6 text-white ${
                     cards.every(card => card.isMatched)
-                      ? 'bg-gradient-to-r from-[#12877F] to-[#16a096]'
+                      ? 'bg-gradient-to-r from-[#ED1164] to-[#F04A86]'
                       : 'bg-gradient-to-r from-[#97144D] to-[#b01d5c]'
                   }`}>
                     <h3 className="text-xl font-bold mb-2 flex items-center">
@@ -595,7 +595,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                     {cards.every(card => card.isMatched) && (
                       <div className="mb-6">
                         <div className="text-center">
-                          <div className="text-3xl font-bold text-[#12877F] mb-4">
+                          <div className="text-3xl font-bold text-[#ED1164] mb-4">
                             {score} Points
                           </div>
                           
@@ -621,7 +621,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                               </Badge>
                             )}
                             {moves <= difficultyPairs[difficulty] * 2 && (
-                              <Badge className="bg-[#12877F] text-white">
+                              <Badge className="bg-[#ED1164] text-white">
                                 Efficiency Expert
                               </Badge>
                             )}
@@ -638,7 +638,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <Button
                         onClick={() => initializeGame(difficulty)}
-                        className="bg-[#12877F] hover:bg-[#0e6e67] text-white"
+                        className="bg-[#ED1164] hover:bg-[#C70D53] text-white"
                       >
                         Play Again
                       </Button>
@@ -682,7 +682,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                       >
                         {/* Card Back */}
                         <div
-                          className="absolute inset-0 w-full h-full flex items-center justify-center rounded-lg backface-hidden bg-gradient-to-br from-[#12877F] to-[#16a096]"
+                          className="absolute inset-0 w-full h-full flex items-center justify-center rounded-lg backface-hidden bg-gradient-to-br from-[#ED1164] to-[#F04A86]"
                           style={{ backfaceVisibility: 'hidden' }}
                         >
                           <div className="relative w-12 h-12">
@@ -703,14 +703,14 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                           style={{ 
                             backfaceVisibility: 'hidden',
                             transform: 'rotateY(180deg)',
-                            borderColor: card.isMatched ? '#12877F' : '#e5e7eb',
-                            background: card.isMatched ? 'linear-gradient(to bottom, white, #EBF9F8)' : 'white'
+                            borderColor: card.isMatched ? '#ED1164' : '#e5e7eb',
+                            background: card.isMatched ? 'linear-gradient(to bottom, white, #FFF0F6)' : 'white'
                           }}
                         >
                           <div className={`p-3 rounded-full mb-2 ${
                             card.isMatched 
-                              ? 'bg-[#12877F] text-white' 
-                              : 'bg-[#EBF9F8] text-[#12877F]'
+                              ? 'bg-[#ED1164] text-white'
+                              : 'bg-[#FFF0F6] text-[#ED1164]'
                           }`}>
                             {card.icon}
                           </div>
@@ -719,7 +719,7 @@ export const FinancialMatch: React.FC<FinancialMatchProps> = ({ userData, onComp
                               {card.label}
                             </div>
                             {card.isMatched && (
-                              <div className="text-xs text-[#12877F] mt-1">
+                              <div className="text-xs text-[#ED1164] mt-1">
                                 Matched!
                               </div>
                             )}

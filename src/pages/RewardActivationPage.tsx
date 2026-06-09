@@ -165,7 +165,7 @@ export const RewardActivationPage = ({
           {/* Featured Reward */}
           <div className="bg-white py-10 border-t">
             <div className="max-w-7xl mx-auto px-4">
-              <div className="flex flex-col md:flex-row bg-gradient-to-r from-[#97144D]/10 to-[#12877F]/5 rounded-xl overflow-hidden">
+              <div className="flex flex-col md:flex-row bg-gradient-to-r from-[#97144D]/10 to-[#ED1164]/5 rounded-xl overflow-hidden">
                 <div className="md:w-1/2 p-8">
                   <div className="inline-block px-3 py-1 bg-[#97144D] text-white text-xs font-medium rounded-full mb-4">
                     FEATURED BURGUNDY BENEFITS
@@ -303,7 +303,7 @@ export const RewardActivationPage = ({
                     <span className="text-sm text-gray-500">{reward.date}</span>
                     {/* <span className="text-sm font-medium text-[#97144D]">{reward.points} points</span> */}
                   </div>
-                  <div className="flex items-center text-[#12877F]">
+                  <div className="flex items-center text-[#ED1164]">
                     <Check className="h-4 w-4 mr-1" />
                     <span className="text-sm font-medium">Successfully Activated</span>
                   </div>

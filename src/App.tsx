@@ -17,9 +17,6 @@ import { MiniGames } from "./components/MiniGames";
 import { AxisButton } from "./components/AxisButton";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { RewardsShowcase } from "./components/RewardsShowcase";
-// import { RewardsJourneyModal } from "./components/RewardsJourneyModal";
-// import { HomeGamesSection } from "./components/HomeGamesSection";
-// import AIChatbot from "./components/AIChatbot";
 import { Phone, Mail, MapPin, Clock, Send, Utensils, Plane, ShoppingBag, Film, CreditCard, Star } from "lucide-react";
 
 // Import stylesheets
@@ -755,16 +752,6 @@ export default function App() {
                     onRewardSelect={handleRewardSelect}
                     isLoggedIn={userData.isLoggedIn}
                   />
-                  
-                  {/* Rewards Journey Modal */}
-                  {/* <RewardsJourneyModal 
-                    isOpen={showRewardsModal}
-                    onClose={() => setShowRewardsModal(false)}
-                    onExplore={() => {
-                      setShowRewardsModal(false);
-                      navigate("rewards-gallery");
-                    }}
-                  /> */}
                 </main>
               );
             case 'redemption':
@@ -788,25 +775,6 @@ export default function App() {
                   <SegmentShowcase />
                   {/* <PersonaOffers selectedPersona="senior-citizens" /> */}
                   
-                  {/* Home Games Section */}
-                  {/* <HomeGamesSection 
-                    userData={userData}
-                    onPlayGame={(gameId) => {
-                      if (userData.isLoggedIn) {
-                        navigate("mini-games");
-                      } else {
-                        navigate("login");
-                      }
-                    }}
-                    onViewGames={() => {
-                      if (userData.isLoggedIn) {
-                        navigate("mini-games");
-                      } else {
-                        setShowRewardsModal(true);
-                      }
-                    }}
-                  /> */}
-                  
                   {/* Full-width stacked rewards showcase with integrated login CTA */}
                   <RewardsShowcase
                     onPlayGames={() => {
@@ -821,16 +789,6 @@ export default function App() {
                     onRewardSelect={handleRewardSelect}
                     isLoggedIn={userData.isLoggedIn}
                   />
-                  
-                  {/* Rewards Journey Modal */}
-                  {/* <RewardsJourneyModal 
-                    isOpen={showRewardsModal}
-                    onClose={() => setShowRewardsModal(false)}
-                    onExplore={() => {
-                      setShowRewardsModal(false);
-                      navigate("rewards-gallery");
-                    }}
-                  /> */}
                 </main>
               );
           }
@@ -880,25 +838,6 @@ export default function App() {
         />
         <SegmentShowcase />
         {/* <PersonaOffers selectedPersona="senior-citizens" /> */}
-        {/* <AIChatbot /> */}
-        {/* Home Games Section */}
-        {/* <HomeGamesSection 
-          userData={userData}
-          onPlayGame={(gameId) => {
-            if (userData.isLoggedIn) {
-              navigate("mini-games");
-            } else {
-              navigate("login");
-            }
-          }}
-          onViewGames={() => {
-            if (userData.isLoggedIn) {
-              navigate("mini-games");
-            } else {
-              setShowRewardsModal(true);
-            }
-          }}
-        /> */}
       </main>
     </PageWrapper>
   );

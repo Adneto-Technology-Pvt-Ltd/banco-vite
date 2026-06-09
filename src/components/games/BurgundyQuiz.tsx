@@ -63,11 +63,11 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
   
   // Colors for categories
   const categoryColors: Record<string, string> = {
-    savings: '#12877F',
+    savings: '#ED1164',
     investment: '#97144D',
     loans: '#7d1041',
     cards: '#ed1164',
-    digital: '#16a096',
+    digital: '#F04A86',
     general: '#606060'
   };
   
@@ -330,7 +330,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
           particleCount: 30,
           spread: 40,
           origin: { y: 0.5, x: 0.5 },
-          colors: ['#97144D', '#12877F'],
+          colors: ['#97144D', '#ED1164'],
           disableForReducedMotion: true
         });
       }
@@ -405,7 +405,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
             particleCount: 100,
             spread: 70,
             origin: { y: 0.6 },
-            colors: ['#97144D', '#12877F', '#ed1164', '#7d1041']
+            colors: ['#97144D', '#ED1164', '#ed1164', '#7d1041']
           });
         }
       }, 500);
@@ -469,7 +469,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
                 rotate: [0, 5, -5, 0] 
               }}
               transition={{ duration: 1, repeat: 2 }}
-              className="bg-gradient-to-r from-[#97144D] to-[#12877F] text-white p-6 rounded-xl shadow-xl"
+              className="bg-gradient-to-r from-[#97144D] to-[#ED1164] text-white p-6 rounded-xl shadow-xl"
             >
               <Trophy className="h-16 w-16 text-yellow-300 mx-auto mb-4" />
               <h2 className="text-4xl font-bold text-center">Great Job!</h2>
@@ -506,7 +506,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
                     }`}
                     onClick={() => setCategory('all')}
                   >
-                    <div className="bg-gradient-to-r from-[#97144D] to-[#12877F] p-4 text-white text-center">
+                    <div className="bg-gradient-to-r from-[#97144D] to-[#ED1164] p-4 text-white text-center">
                       <BrainCircuit className="h-10 w-10 mx-auto mb-2" />
                       <div className="font-bold">All Topics</div>
                       <div className="text-xs opacity-80">Mixed questions</div>
@@ -563,7 +563,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
                     >
                       <div className={`p-4 text-center ${
                         level === 'all' 
-                          ? 'bg-gradient-to-r from-[#97144D]/10 to-[#12877F]/10' 
+                          ? 'bg-gradient-to-r from-[#97144D]/10 to-[#ED1164]/10'
                           : level === 'easy'
                           ? 'bg-green-50'
                           : level === 'medium'
@@ -614,21 +614,21 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
             </Tabs>
             
             <div className="flex flex-col md:flex-row gap-6 my-6">
-              <div className="flex-1 bg-[#EBF9F8] rounded-lg p-4">
-                <h4 className="font-bold text-[#12877F] mb-2 flex items-center">
+              <div className="flex-1 bg-[#FFF0F6] rounded-lg p-4">
+                <h4 className="font-bold text-[#ED1164] mb-2 flex items-center">
                   <Lightbulb className="h-4 w-4 mr-2" /> Learn While Playing
                 </h4>
                 <ul className="text-sm text-gray-700 space-y-2">
                   <li className="flex items-start gap-2">
-                    <ArrowRight className="h-4 w-4 text-[#12877F] mt-0.5 flex-shrink-0" />
+                    <ArrowRight className="h-4 w-4 text-[#ED1164] mt-0.5 flex-shrink-0" />
                     <span>Test your financial knowledge</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <ArrowRight className="h-4 w-4 text-[#12877F] mt-0.5 flex-shrink-0" />
+                    <ArrowRight className="h-4 w-4 text-[#ED1164] mt-0.5 flex-shrink-0" />
                     <span>Discover new banking concepts</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <ArrowRight className="h-4 w-4 text-[#12877F] mt-0.5 flex-shrink-0" />
+                    <ArrowRight className="h-4 w-4 text-[#ED1164] mt-0.5 flex-shrink-0" />
                     <span>Read detailed explanations</span>
                   </li>
                 </ul>
@@ -704,7 +704,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
                         {quizResult.badges.map((badge, index) => (
                           <Badge 
                             key={index}
-                            className="bg-[#12877F] text-white px-3 py-1.5"
+                            className="bg-[#ED1164] text-white px-3 py-1.5"
                           >
                             {badge}
                           </Badge>
@@ -731,7 +731,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
                       <div className="mb-6">
                         <div className="h-4 w-full bg-gray-100 rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-gradient-to-r from-[#97144D] to-[#12877F]"
+                            className="h-full bg-gradient-to-r from-[#97144D] to-[#ED1164]"
                             style={{ 
                               width: `${(quizResult.correctAnswers / questions.length) * 100}%`,
                               transition: 'width 1s ease-in-out'
@@ -793,7 +793,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
                                 </div>
                                 
                                 <div className="text-xs bg-white p-2 rounded border border-gray-100">
-                                  <div className="font-medium text-[#12877F] mb-1">Explanation:</div>
+                                  <div className="font-medium text-[#ED1164] mb-1">Explanation:</div>
                                   <p className="text-gray-700">{question.explanation}</p>
                                 </div>
                               </div>
@@ -803,15 +803,15 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
                       </TabsContent>
                       
                       <TabsContent value="insights">
-                        <div className="bg-[#EBF9F8] p-4 rounded-lg mb-4">
-                          <h3 className="font-bold text-[#12877F] mb-2">What You've Learned</h3>
+                        <div className="bg-[#FFF0F6] p-4 rounded-lg mb-4">
+                          <h3 className="font-bold text-[#ED1164] mb-2">What You've Learned</h3>
                           <p className="text-sm text-gray-700 mb-3">
                             This quiz covered key concepts in financial literacy, including:
                           </p>
                           <ul className="text-sm text-gray-700 space-y-1">
                             {questions.map((q, i) => (
                               <li key={i} className="flex items-start gap-2">
-                                <Lightbulb className="h-4 w-4 text-[#12877F] mt-0.5 flex-shrink-0" />
+                                <Lightbulb className="h-4 w-4 text-[#ED1164] mt-0.5 flex-shrink-0" />
                                 <span>{q.question.split('?')[0]}?</span>
                               </li>
                             ))}
@@ -855,7 +855,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
               <CardFooter className="p-6 pt-2 flex flex-col sm:flex-row justify-center gap-3">
                 <Button 
                   onClick={startQuiz}
-                  className="bg-[#12877F] hover:bg-[#0e6e67] text-white"
+                  className="bg-[#ED1164] hover:bg-[#C70D53] text-white"
                 >
                   Take Another Quiz
                 </Button>
@@ -879,8 +879,8 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
           <div className="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
             <div className="p-4 flex flex-col sm:flex-row justify-between items-center gap-3">
               <div className="flex items-center gap-4">
-                <div className="bg-[#EBF9F8] rounded-full h-10 w-10 flex items-center justify-center">
-                  <div className="font-bold text-[#12877F]">{currentQuestion + 1}/{questions.length}</div>
+                <div className="bg-[#FFF0F6] rounded-full h-10 w-10 flex items-center justify-center">
+                  <div className="font-bold text-[#ED1164]">{currentQuestion + 1}/{questions.length}</div>
                 </div>
                 
                 <div>
@@ -913,7 +913,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
             
             <div className="w-full bg-gray-100 h-2">
               <div 
-                className="h-full bg-gradient-to-r from-[#97144D] to-[#12877F]"
+                className="h-full bg-gradient-to-r from-[#97144D] to-[#ED1164]"
                 style={{ width: `${timerWidth}%` }}
               ></div>
             </div>
@@ -970,7 +970,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
                           : answerSubmitted && selectedAnswer === index && index !== questions[currentQuestion]?.correctAnswer
                           ? 'bg-red-50 border-red-300 text-red-700'
                           : selectedAnswer === index
-                          ? 'bg-[#EBF9F8] border-[#12877F] text-[#12877F]'
+                          ? 'bg-[#FFF0F6] border-[#ED1164] text-[#ED1164]'
                           : 'bg-white border-gray-200 hover:border-gray-300'
                       }`}
                       onClick={() => handleAnswerSelect(index)}
@@ -983,7 +983,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
                             : answerSubmitted && selectedAnswer === index && index !== questions[currentQuestion]?.correctAnswer
                             ? 'bg-red-100 text-red-700'
                             : selectedAnswer === index
-                            ? 'bg-[#12877F] text-white'
+                            ? 'bg-[#ED1164] text-white'
                             : 'bg-gray-100 text-gray-700'
                         }`}>
                           {String.fromCharCode(65 + index)}
@@ -1054,7 +1054,7 @@ export const BurgundyQuiz: React.FC<BurgundyQuizProps> = ({ userData, onComplete
               ) : (
                 <Button
                   onClick={handleNextQuestion}
-                  className="ml-auto bg-[#12877F] hover:bg-[#0e6e67] text-white"
+                  className="ml-auto bg-[#ED1164] hover:bg-[#C70D53] text-white"
                 >
                   {currentQuestion < questions.length - 1 ? (
                     <span className="flex items-center gap-2">

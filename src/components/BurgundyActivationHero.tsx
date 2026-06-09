@@ -91,7 +91,7 @@ export const BurgundyActivationHero = ({
       title: "Lounge Access",
       value: "12/yr",
       icon: <CreditCard className="h-5 w-5" />,
-      color: "#12877F"
+      color: "#ED1164"
     },
     { 
       title: "Bonus Points",
@@ -141,7 +141,7 @@ export const BurgundyActivationHero = ({
             transition={{ duration: 12, repeat: Infinity }}
           />
           <motion.div 
-            className="absolute bottom-[-150px] left-[-150px] w-[300px] h-[300px] rounded-full bg-[#12877F] opacity-10"
+            className="absolute bottom-[-150px] left-[-150px] w-[300px] h-[300px] rounded-full bg-[#ED1164] opacity-10"
             animate={{ 
               scale: [1, 1.1, 1],
               x: [0, 20, 0]
@@ -388,9 +388,9 @@ export const BurgundyActivationHero = ({
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5, duration: 0.3 }}
-                            className="bg-[#EBF9F8] rounded-lg p-4 flex items-center"
+                            className="bg-[#FFF0F6] rounded-lg p-4 flex items-center"
                           >
-                            <div className="rounded-full bg-[#12877F] p-2 text-white mr-3">
+                            <div className="rounded-full bg-[#ED1164] p-2 text-white mr-3">
                               <Shield className="h-5 w-5" />
                             </div>
                             <div className="flex-1">

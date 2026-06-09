@@ -118,7 +118,7 @@ export const BurgundyRedemptionHero = ({
       label: "Avg. Points Used", 
       value: formatNumber(userData.avgRedemptionValue || 2750), 
       icon: <TrendingUp className="h-4 w-4" />,
-      color: "#12877F"
+      color: "#ED1164"
     },
     { 
       label: "Favorite Category", 
@@ -143,7 +143,7 @@ export const BurgundyRedemptionHero = ({
             transition={{ duration: 12, repeat: Infinity }}
           />
           <motion.div 
-            className="absolute bottom-[-150px] left-[-150px] w-[300px] h-[300px] rounded-full bg-[#12877F] opacity-10"
+            className="absolute bottom-[-150px] left-[-150px] w-[300px] h-[300px] rounded-full bg-[#ED1164] opacity-10"
             animate={{ 
               scale: [1, 1.1, 1],
               x: [0, 20, 0]

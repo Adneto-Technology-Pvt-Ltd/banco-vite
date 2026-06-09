@@ -55,11 +55,11 @@ export const LoginPage = ({ onLogin, onHome }: LoginPageProps) => {
     },
     "CUST789": {
       name: "Alex Chen",
-      segment: "Prime",
+      segment: "Priority",
       persona: "students",
       password: "password789",
       dateOfBirth: "1998-03-30",
-      accountType: "Prime"
+      accountType: "Priority"
     },
     // Add the adneto user with accountType
     "adneto": {
@@ -187,7 +187,7 @@ export const LoginPage = ({ onLogin, onHome }: LoginPageProps) => {
             )}
 
             {/* Default credentials hint */}
-            <div className="mt-4 text-center p-3 bg-[#EBF9F8] rounded-lg border border-[#12877F]/20">
+            <div className="mt-4 text-center p-3 bg-[#FFF0F6] rounded-lg border border-[#ED1164]/20">
               <p className="text-xs text-gray-600">
                 <strong>Default credentials:</strong> Customer ID: adneto | Password: adneto
               </p>

@@ -74,7 +74,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
       name: 'Financial Match',
       description: 'Test your memory by matching financial cards',
       icon: <BrainCircuit className="h-6 w-6" />,
-      color: 'from-[#12877F] to-[#16a096]',
+      color: 'from-[#ED1164] to-[#F04A86]',
       component: FinancialMatch,
       cover: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       points: "10-250",
@@ -135,7 +135,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#97144D', '#12877F']
+        colors: ['#97144D', '#ED1164']
       });
     }
   };
@@ -176,7 +176,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
 
         {/* Hero Section */}
         <div className="relative mb-12 rounded-2xl overflow-hidden shadow-xl">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#97144D]/90 to-[#12877F]/80 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#97144D]/90 to-[#ED1164]/80 z-10"></div>
           <div className="absolute inset-0">
             <ImageWithFallback
               src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop"
@@ -279,7 +279,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
                       <div className="p-5">
                         <div className="flex justify-between items-start mb-3">
                           <h3 className="text-xl font-bold">{game.name}</h3>
-                          <Badge variant="outline" className="bg-[#EBF9F8] text-[#12877F] border-none">
+                          <Badge variant="outline" className="bg-[#FFF0F6] text-[#ED1164] border-none">
                             {game.playtime}
                           </Badge>
                         </div>
@@ -343,7 +343,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
                               key={player.id}
                               className={`border-b hover:bg-gray-50 ${
                                 player.name === (userData.isLoggedIn ? (userData.name || "You") : "Guest")
-                                  ? "bg-[#EBF9F8]"
+                                  ? "bg-[#FFF0F6]"
                                   : ""
                               }`}
                               whileHover={{ scale: 1.01 }}
@@ -375,7 +375,7 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
                               <td className="py-3 px-4">
                                 <Badge className={`
                                   ${player.badge === 'Champion' ? 'bg-yellow-500' :
-                                    player.badge === 'Expert' ? 'bg-[#12877F]' :
+                                    player.badge === 'Expert' ? 'bg-[#ED1164]' :
                                     player.badge === 'Master' ? 'bg-[#97144D]' :
                                     'bg-gray-500'} text-white
                                 `}>
@@ -389,10 +389,10 @@ export const MiniGames: React.FC<MiniGamesProps> = ({ userData, onClose }) => {
                       </table>
                     </div>
                     
-                    <div className="mt-6 p-4 bg-[#EBF9F8] rounded-lg flex items-start gap-3">
-                      <Info className="h-5 w-5 text-[#12877F] mt-0.5 flex-shrink-0" />
+                    <div className="mt-6 p-4 bg-[#FFF0F6] rounded-lg flex items-start gap-3">
+                      <Info className="h-5 w-5 text-[#ED1164] mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-medium text-[#12877F] mb-1">How to Climb the Leaderboard</h4>
+                        <h4 className="font-medium text-[#ED1164] mb-1">How to Climb the Leaderboard</h4>
                         <p className="text-sm text-gray-600">
                           Play games daily to accumulate points. Complete challenges to earn bonus points and special badges. The leaderboard resets every Monday at midnight.
                         </p>

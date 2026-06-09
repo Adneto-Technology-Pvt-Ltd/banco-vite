@@ -24,8 +24,8 @@ export const AxisButton = ({
   type = "button",
   onClick,
 }: AxisButtonProps) => {
-  // Base styles - using Arial font and proper transitions
-  const baseStyles = "relative inline-flex items-center justify-center rounded-lg font-['Arial'] font-semibold text-center transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none";
+  // Base styles follow Axis typography and interaction states.
+  const baseStyles = "relative inline-flex items-center justify-center rounded-lg font-['Lato'] font-semibold text-center transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none";
 
   // Size styles - following global CSS button sizing
   const sizeStyles = {
@@ -37,7 +37,7 @@ export const AxisButton = ({
   // Variant styles - using CSS custom properties for consistency
   const variantStyles = {
     primary: "bg-[#97144D] text-white hover:bg-[#7d1041] active:bg-[#661234] focus:ring-[#97144D]/30 shadow-sm hover:shadow-md",
-    secondary: "bg-[#12877F] text-white hover:bg-[#0e6e67] active:bg-[#0a5550] focus:ring-[#12877F]/30 shadow-sm hover:shadow-md",
+    secondary: "bg-[#ED1164] text-white hover:bg-[#C70D53] active:bg-[#A80A45] focus:ring-[#ED1164]/30 shadow-sm hover:shadow-md",
     outline: "bg-transparent border border-[#97144D] text-[#97144D] hover:bg-[#97144D] hover:text-white active:bg-[#7d1041] focus:ring-[#97144D]/30",
     link: "bg-transparent text-[#97144D] hover:text-[#7d1041] hover:underline focus:ring-[#97144D]/30 focus:ring-offset-0 p-0 min-h-auto shadow-none",
   };

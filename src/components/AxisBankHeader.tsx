@@ -64,8 +64,8 @@ const accountSegments = [
     // tagline: "Rising Professionals",
     // minBalance: "₹2 Lakh",
     icon: Zap,
-    color: "#12877F",
-    bgGradient: "from-[#12877F] to-[#0e6e67]",
+    color: "#ED1164",
+    bgGradient: "from-[#ED1164] to-[#C70D53]",
     description: "For business owners and entrepreneurs."
   },
   {
@@ -393,7 +393,7 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
     ? [
         { text: "Home", key: "home", icon: Home },
         { text: "Benefits", key: "rewards", icon: Gift },
-        { text: "Post Redemption", key: "post-redemption", icon: Gift },
+        { text: "Redemption Status", key: "post-redemption", icon: Gift },
       ]
     : [
         { text: "Home", key: "home", icon: Home }
@@ -467,6 +467,7 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
                 <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Navigation</p>
                 {journeyStages.map((stage) => {
                   const IconComponent = stage.icon;
+
                   return (
                     <motion.button
                       key={stage.key}
@@ -914,24 +915,11 @@ export const AxisBankHeader = ({
     { text: "Support", key: "support", hasDropdown: false }
   ];
 
-  // Define journey stage links - UPDATED NAMES
-  // const journeyStages = [
-  //   { text: "Home", key: "home" },
-  //   // { text: "Discovery", key: "discovery" },
-  //   { text: "Rewards", key: "rewards" },
-  //   // { text: "Redemption", key: "redemption" },
-  //   { text: "Post Redemption", key: "post-redemption" }
-  // ];
-
-  // Define journey stage links - show only "Home" if not logged in,
-  // and "Home", "Rewards", "Post Redemption" if logged in
   const journeyStages = userData.isLoggedIn
     ? [
         { text: "Home", key: "home" },
-        // { text: "Discovery", key: "discovery" },
         { text: "Benefits", key: "rewards" },
-        // { text: "Redemption", key: "redemption" },
-        { text: "Post Redemption", key: "post-redemption" },
+        { text: "Redemption Status", key: "post-redemption" },
       ]
     : [
         { text: "Home", key: "home" }
@@ -980,7 +968,7 @@ export const AxisBankHeader = ({
           <div className="hidden lg:block">
             {/* Enhanced Top navigation links with dropdown */}
             <div className="absolute bottom-3/4 left-[81.667%] right-[4.931%] top-[4.545%]">
-              <div className="box-border content-stretch flex flex-row font-['Arial'] gap-[25px] items-center justify-end leading-[0] p-0 relative size-full text-[#ffffff] text-[12px] text-left text-nowrap tracking-[0.32px]">
+              <div className="box-border content-stretch flex flex-row font-['Lato'] gap-[25px] items-center justify-end leading-[0] p-0 relative size-full text-[#ffffff] text-[12px] text-left text-nowrap tracking-[0.32px]">
                 {topNavLinks.map((link) => (
                   <NavLink
                     key={link.key}
@@ -993,28 +981,8 @@ export const AxisBankHeader = ({
               </div>
             </div>
 
-            {/* Enhanced Journey stage navigation */}
             <div className="absolute bottom-[13.636%] left-[50.833%] right-[4.236%] top-[47.727%]">
               <div className="box-border content-stretch flex flex-row gap-[30px] items-center justify-end p-0 relative size-full">
-                {/* search bar
-                <div className="relative shrink-0 size-5" data-name="Group">
-                  <svg
-                    className="block size-full"
-                    fill="none"
-                    preserveAspectRatio="none"
-                    viewBox="0 0 20 20"
-                  >
-                    <g id="Group">
-                      <g id="Vector"></g>
-                      <path
-                        d={svgPaths.p2c0f3700}
-                        fill="var(--fill-0, #282828)"
-                        id="Vector_2"
-                      />
-                    </g>
-                  </svg>
-                </div> */}
-                {/* Desktop Search */}
                 <DesktopSearch
                   onSearch={onSearch}
                   searchResults={searchResults}
@@ -1027,7 +995,7 @@ export const AxisBankHeader = ({
                     onClick={() => handleStageClick(stage.key)}
                     whileHover={{ y: -1, scale: 1.02 }}
                     whileTap={{ y: 0, scale: 0.98 }}
-                    className={`cursor-pointer font-['Arial'] leading-[0] relative shrink-0 text-left text-nowrap tracking-[0.24px] transition-all duration-200 ${
+                    className={`cursor-pointer font-['Lato'] leading-[0] relative shrink-0 text-left text-nowrap tracking-[0.24px] transition-all duration-200 ${
                       currentStage === stage.key
                         ? "css-6rx6jg text-[#97144d]"
                         : "css-4cnz3l text-[#000000] hover:text-[#97144d]"
@@ -1059,7 +1027,7 @@ export const AxisBankHeader = ({
                     <div className="box-border content-stretch flex flex-row gap-2 items-center justify-center px-4 py-2 relative">
                       <div className="relative shrink-0">
                         <div className="box-border content-stretch flex flex-row gap-1 items-center justify-center overflow-clip p-0 relative">
-                          <div className="flex flex-col font-['Arial'] font-bold justify-center leading-[0] relative shrink-0 text-[#ffffff] text-[12px] text-center text-nowrap tracking-[0.32px]">
+                          <div className="flex flex-col font-['Lato'] font-bold justify-center leading-[0] relative shrink-0 text-[#ffffff] text-[12px] text-center text-nowrap tracking-[0.32px]">
                             <p className="adjustLetterSpacing block leading-[18px] whitespace-pre">
                               {userData.isLoggedIn ? "Logout" : "Login"}
                             </p>

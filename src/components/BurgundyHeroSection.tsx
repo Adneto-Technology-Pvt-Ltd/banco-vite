@@ -93,7 +93,7 @@ export const BurgundyHeroSection = ({
       title: "Airport Lounge Access",
       description: "Complimentary access to 1000+ airport lounges worldwide",
       icon: <Plane className="w-8 h-8 text-white" />,
-      color: "#12877F"
+      color: "#ED1164"
     },
     {
       title: "Fine Dining Experiences",
@@ -131,7 +131,7 @@ export const BurgundyHeroSection = ({
           transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
         />
         <motion.div 
-          className="absolute bottom-0 left-0 w-[200px] h-[200px] rounded-full bg-[#12877F] opacity-10"
+          className="absolute bottom-0 left-0 w-[200px] h-[200px] rounded-full bg-[#ED1164] opacity-10"
           animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
           transition={{ duration: 15, repeat: Infinity, repeatType: "reverse" }}
         />
@@ -274,9 +274,9 @@ export const BurgundyHeroSection = ({
                           <p className="text-sm text-gray-600">Portfolio Value</p>
                           <p className="text-xl font-bold text-[#97144D]">{portfolioData.portfolioValue}</p>
                         </div>
-                        <div className="w-1/2 p-3 bg-[#EBF9F8] rounded-lg">
+                        <div className="w-1/2 p-3 bg-[#FFF0F6] rounded-lg">
                           <p className="text-sm text-gray-600">Next Reward</p>
-                          <p className="text-xl font-bold text-[#12877F]">{portfolioData.nextReward}</p>
+                          <p className="text-xl font-bold text-[#ED1164]">{portfolioData.nextReward}</p>
                           <p className="text-xs text-gray-500">{portfolioData.pointsToNextReward} points needed</p>
                         </div>
                       </div>
