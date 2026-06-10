@@ -1,7 +1,11 @@
 import { ArrowRight, Shield, Gift, CreditCard } from "lucide-react";
 import { motion } from "framer-motion";
+
 import { AxisButton } from "./AxisButton";
+
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+
+import { whyChooseBanner } from "../assets";
 
 type CallToActionProps = {
   isLoggedIn?: boolean;
@@ -90,7 +94,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
         >
           {/* Content Section */}
           <motion.div variants={itemVariants}>
@@ -219,11 +223,11 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
             >
               <div className="relative min-h-[360px] rounded-2xl overflow-hidden shadow-xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  src={whyChooseBanner}
                   alt="Modern banking and financial services"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="w-full h-[360px] object-cover transition-transform duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#97144D]/30 to-transparent"></div>
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-[#97144D]/30 to-transparent"></div> */}
 
                 {/* Enhanced Floating Stats Card */}
                 <motion.div
@@ -232,10 +236,10 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
                   whileHover={{ y: -5, scale: 1.02 }}
-                  className="absolute inset-x-4 bottom-4 bg-white/95 backdrop-blur-md rounded-xl p-5 shadow-lg border border-white/20"
+                  className="absolute inset-x-4 bottom-4 bg-white/95 backdrop-blur-md rounded-xl p-2.5 shadow-lg border border-white/20"
                 >
-                  <div className="font-bold text-base md:text-lg mb-4 text-gray-900">Why Explore Axis Offers?</div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+                  <div className="font-bold text-base md:text-lg px-4 mb-4 text-gray-900">Why Explore Axis Offers?</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {[
                       { value: "Curated for You", label: "", color: "#97144D" },
                       { value: "Trusted Partners", label: "", color: "#ED1164" },
@@ -252,7 +256,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                         <motion.div
                           animate={{ scale: [1, 1.05, 1] }}
                           transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
-                          className="font-bold text-xl md:text-2xl leading-tight"
+                          className="font-bold text-sm md:text-base leading-tight"
                           style={{ color: stat.color }}
                         >
                           {stat.value}
@@ -264,62 +268,61 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                 </motion.div>
               </div>
             </motion.div>
+          </motion.div>
+        </motion.div>
 
-            {/* Enhanced Account Benefits Card */}
-            <motion.div
-              whileHover={{ scale: 1.01, y: -2 }}
-              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-            >
+        {/* Enhanced Account Benefits Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.45 }}
+          className="mt-8 rounded-2xl border border-[#97144D]/10 bg-gradient-to-br from-white via-white to-[#FFF3F8] p-5 shadow-lg md:p-8"
+        >
+          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
               <motion.h3
-                whileInView={{ scale: [0.95, 1.05, 1] }}
-                className="text-xl font-bold mb-4 text-[#97144D]"
+                whileInView={{ opacity: [0.7, 1], y: [8, 0] }}
+                viewport={{ once: true }}
+                className="text-xl font-bold text-[#97144D] md:text-2xl"
               >
                 Unlock Benefits Designed for Every Segment
               </motion.h3>
-              <p className="mb-4 text-gray-700 text-sm leading-relaxed">
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-gray-700 md:text-base">
                 Axis Bank offers different account types to match your unique needs and financial goals.
               </p>
+            </div>
+            {/* <div className="hidden h-1 w-32 rounded-full bg-[#97144D]/20 md:block" /> */}
+          </div>
 
-              <div className="space-y-3">
-                {segments.map((segment, index) => (
-                  <motion.div
-                    key={segment.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ x: 5, backgroundColor: "rgba(249, 250, 251, 0.8)" }}
-                    className="p-3 rounded-lg transition-all duration-200 cursor-pointer"
-                  >
-                    <h4 className="font-bold text-gray-900 flex items-center mb-1">
-                      <motion.span
-                        whileHover={{ scale: 1.3 }}
-                        className="inline-block w-2 h-2 rounded-full mr-3"
-                        style={{ backgroundColor: segment.color }}
-                      />
-                      {segment.name}
-                    </h4>
-                    <p className="text-gray-600 text-xs ml-5 leading-relaxed">
-                      {segment.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-              {/* <div className="mt-4 pt-4 border-t border-gray-100">
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {segments.map((segment, index) => (
+              <motion.div
+                key={segment.name}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                whileHover={{ y: -4 }}
+                className="group flex min-h-[80px] cursor-pointer items-start gap-4 rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300 hover:border-[#97144D]/30 hover:shadow-md"
+              >
+                <motion.span
+                  whileHover={{ scale: 1.08 }}
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#97144D]/10 text-sm font-bold text-[#97144D] transition-colors duration-300 group-hover:bg-[#97144D] group-hover:text-white"
                 >
-                  <AxisButton
-                    variant="outline"
-                    className="w-full btn-micro text-sm"
-                  >
-                    Explore Benefits
-                  </AxisButton>
-                </motion.div>
-              </div> */}
-            </motion.div>
-          </motion.div>
+                  {index + 1}
+                </motion.span>
+                <div>
+                  <h4 className="font-bold text-gray-900 transition-colors duration-300 group-hover:text-[#97144D]">
+                    {segment.name}
+                  </h4>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                    {segment.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

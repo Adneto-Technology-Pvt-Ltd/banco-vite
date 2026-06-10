@@ -294,11 +294,12 @@ interface DateInputProps {
 
 export const AxisDateInput = forwardRef<HTMLInputElement, DateInputProps>(
   ({ name, label, value, onChange, hasTooltip = false, error, required = false }, ref) => {
-    const dateInputRef = useRef<HTMLInputElement>(null);
+    const dateInputRef = useRef<HTMLInputElement | null>(null);
     
     const handleCalendarClick = () => {
-      if (dateInputRef.current) {
-        dateInputRef.current.showPicker();
+      const inputElement = typeof ref === 'function' ? null : (ref?.current || dateInputRef.current);
+      if (inputElement) {
+        inputElement.showPicker();
       }
     };
     

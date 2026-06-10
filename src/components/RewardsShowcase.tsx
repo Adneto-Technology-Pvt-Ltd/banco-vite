@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+
 import { AxisButton } from "./AxisButton";
+
+import { footerBanner } from "../assets";
 
 type RewardsShowcaseProps = {
   onPlayGames: () => void;
@@ -42,7 +46,7 @@ export const RewardsShowcase = ({ onPlayGames, onExploreRewards, onLogin, onRewa
                   <div className="md:w-1/2 h-48 md:h-auto relative">
                     <div className="absolute inset-0 md:relative h-full">
                       <ImageWithFallback
-                        src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        src={footerBanner}
                         alt="Benefits experience"
                         className="w-full h-full object-cover"
                       />

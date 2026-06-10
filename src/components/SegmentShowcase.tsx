@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, BadgeCheck, CheckCircle2, Crown, Gem, Shield, TrendingUp, WalletCards } from "lucide-react";
+
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { AxisBurgandyImage } from "../assets";
+
+import { AxisBurgandyImage, AxisLibertyImage, AxisPrestigeImage, AxisProrityImage, AxisEasyImage, AxisSampannImage } from "../assets";
 
 type Segment = {
   id: string;
@@ -21,7 +23,7 @@ type Segment = {
   icon: typeof Crown;
 };
 
-const gold = "#D4AF5F";
+const brandAccent = "#ED1164";
 
 const segmentData: Segment[] = [
   {
@@ -76,8 +78,7 @@ const segmentData: Segment[] = [
     useCase: "Enjoy a more rewarding everyday banking experience with added privileges and preferential treatment.",
     ctaLabel: "Explore Priority Benefits",
     ctaUrl: "https://www.axis.bank.in/priority-banking-program",
-    // imageUrl: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=1200&q=80",
-    imageUrl: AxisBurgandyImage,
+    imageUrl: AxisProrityImage,
     imageLabel: "Priority Account",
     icon: BadgeCheck
   },
@@ -105,8 +106,7 @@ const segmentData: Segment[] = [
     useCase: "Earn rewards on your everyday spending while enjoying a seamless and feature-rich banking experience.",
     ctaLabel: "Explore Prestige Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/prestige-savings-account",
-    // imageUrl: "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=1200&q=80",
-    imageUrl: AxisBurgandyImage,
+    imageUrl: AxisPrestigeImage,
     imageLabel: "Prestige Account",
     icon: Gem
   },
@@ -134,8 +134,7 @@ const segmentData: Segment[] = [
     useCase: "Meet your everyday financial needs while earning rewards and accessing essential banking benefits.",
     ctaLabel: "Explore Sampann Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/sampann-savings-account",
-    // imageUrl: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=1200&q=80",
-    imageUrl: AxisBurgandyImage,
+    imageUrl: AxisSampannImage,
     imageLabel: "Sampann Account",
     icon: TrendingUp
   },
@@ -163,8 +162,7 @@ const segmentData: Segment[] = [
     useCase: "Enjoy the flexibility to bank your way while earning rewards on your everyday spending.",
     ctaLabel: "Explore Liberty Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/liberty-savings-account",
-    // imageUrl: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=1200&q=80",
-    imageUrl: AxisBurgandyImage,
+    imageUrl: AxisLibertyImage,
     imageLabel: "Liberty Account",
     icon: WalletCards
   },
@@ -192,8 +190,7 @@ const segmentData: Segment[] = [
     useCase: "Manage your daily banking needs easily with a simple and convenient account.",
     ctaLabel: "Explore Easy Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/easy-access-digital-savings-account",
-    // imageUrl: "https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&w=1200&q=80",
-    imageUrl: AxisBurgandyImage,
+    imageUrl: AxisEasyImage,
     imageLabel: "Easy Account",
     icon: Shield
   },
@@ -224,12 +221,12 @@ export const SegmentShowcase = () => {
                       : "bg-white text-[#4b3d43] hover:bg-[#f8f3f5]"
                   }`}
                 >
-                  <div className="flex h-full flex-col items-center justify-center gap-2 text-center">
+                  <div className="flex h-full flex-col items-center justify-center text-center">
                     {/* <TabIcon className={`h-5 w-5 ${isActive ? "text-white" : "text-[#5d4650]"}`} /> */}
-                    <div className="text-sm font-bold">{segment.name}</div>
-                    <div className={`text-[11px] font-medium ${isActive ? "text-white/90" : "text-gray-500"}`}>
+                    <div className="text-lg font-bold">{segment.name}</div>
+                    {/* <div className={`text-sm font-medium ${isActive ? "text-white/90" : "text-gray-500"}`}>
                       {segment.tagline}
-                    </div>
+                    </div> */}
                   </div>
                 </button>
               );
@@ -248,9 +245,9 @@ export const SegmentShowcase = () => {
               className="rounded-2xl bg-gradient-to-br from-[#97144D] to-[#7d1041] text-white shadow-xl p-8 md:p-10 min-h-[640px]"
             >
               <div className="flex items-start gap-4">
-                <div className="rounded-full bg-white/15 p-3">
+                {/* <div className="rounded-full bg-white/15 p-3">
                   <IconComponent className="h-7 w-7" />
-                </div>
+                </div> */}
                 <div>
                   <h2 className="text-3xl font-bold leading-tight">{activeData.name}</h2>
                 </div>
@@ -264,9 +261,9 @@ export const SegmentShowcase = () => {
               </div>
 
               <div className="mt-8 space-y-7">
-                <FeatureList title="Top Highlights" items={activeData.topHighlights} iconColor={gold} />
-                <FeatureList title="Key Benefits" items={activeData.keyBenefits} iconColor={gold} />
-                <FeatureList title="Exclusive Features" items={activeData.exclusiveFeatures} iconColor={gold} />
+                <FeatureList title="Top Highlights" items={activeData.topHighlights} iconColor={brandAccent} />
+                <FeatureList title="Key Benefits" items={activeData.keyBenefits} iconColor={brandAccent} />
+                <FeatureList title="Exclusive Features" items={activeData.exclusiveFeatures} iconColor={brandAccent} />
               </div>
 
               <div className="mt-8 rounded-xl bg-white/10 p-4">
@@ -278,7 +275,7 @@ export const SegmentShowcase = () => {
                 href={activeData.ctaUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-7 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#D4AF5F] px-6 py-4 font-bold text-[#2b1b0d] hover:bg-[#e3c474] transition-colors"
+                className="mt-7 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-bold text-[#97144D] shadow-sm transition-colors hover:bg-[#FFF3F8]"
               >
                 {activeData.ctaLabel}
                 <ArrowRight className="h-4 w-4" />
@@ -289,10 +286,10 @@ export const SegmentShowcase = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activeSegment}-image`}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.25 }}
+              initial={{ opacity: 0, x: 24, scale: 0.98 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -24, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative min-h-[460px] lg:min-h-[640px] rounded-2xl overflow-hidden shadow-xl bg-gray-100"
             >
               <ImageWithFallback
@@ -305,11 +302,11 @@ export const SegmentShowcase = () => {
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <div className="text-xl font-bold text-gray-900">{activeData.imageLabel}</div>
-                    <div className="text-sm font-medium text-gray-600">{activeData.tagline} Banking</div>
+                    {/* <div className="text-sm font-medium text-gray-600">{activeData.tagline} Banking</div> */}
                   </div>
-                  <div className="rounded-full bg-[#97144D] p-3 text-white">
+                  {/* <div className="rounded-full bg-[#97144D] p-3 text-white">
                     <IconComponent className="h-5 w-5" />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </motion.div>

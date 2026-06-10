@@ -540,7 +540,7 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
                               whileHover={{ x: 4 }}
                               whileTap={{ scale: 0.98 }}
                             >
-                              <div
+                              {/* <div
                                 className="p-2 rounded-lg flex-shrink-0"
                                 style={{ backgroundColor: `${segment.color}20` }}
                               >
@@ -548,7 +548,7 @@ function MobileMenu({ isOpen, onClose, userData, currentStage, onStageChange, on
                                   className="h-4 w-4"
                                   style={{ color: segment.color }}
                                 />
-                              </div>
+                              </div> */}
                               <div className="flex-1 min-w-0">
                                 <p className="font-medium text-sm text-gray-900">{segment.name}</p>
                                 <p className="text-xs text-gray-600 line-clamp-2">{segment.description}</p>
@@ -667,13 +667,11 @@ function AccountsDropdown({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   whileHover={{ backgroundColor: "rgba(249, 250, 251, 0.8)", x: 4 }}
                   className="p-4 border-b border-gray-100 last:border-b-0 cursor-pointer transition-all duration-200 group"
                   onClick={() => {
-                    // Handle account selection
-                    console.log('Selected account:', segment.id);
                     onClose();
                   }}
                 >
                   <div className="flex items-start gap-3">
-                    <motion.div
+                    {/* <motion.div
                       whileHover={{ scale: 1.1, rotate: 360 }}
                       transition={{ duration: 0.3 }}
                       className="p-2 rounded-xl"
@@ -683,7 +681,7 @@ function AccountsDropdown({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                         className="h-5 w-5"
                         style={{ color: segment.color }}
                       />
-                    </motion.div>
+                    </motion.div> */}
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-1">

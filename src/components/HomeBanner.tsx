@@ -1,4 +1,7 @@
+import { AxisHeaderBanner } from "../assets";
+
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+
 import { Gift } from "lucide-react";
 
 type HomeBannerProps = {
@@ -30,7 +33,7 @@ export const HomeBanner = ({
         {/* Background Image - Updated with more reliable banking image */}
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+            src={AxisHeaderBanner}
             alt="Axis Bank Rewards and Banking Services"
             className="w-full h-full object-cover"
           />
