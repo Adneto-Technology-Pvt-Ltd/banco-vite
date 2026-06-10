@@ -129,10 +129,9 @@ export const LoginPage = ({ onLogin, onHome }: LoginPageProps) => {
         <div className={`${isMobile ? 'fixed inset-0 z-0 top-[88px]' : 'hidden md:block md:w-3/5 relative'}`}>
           <div className={`absolute inset-0 ${isMobile ? 'bg-black/40' : 'bg-gradient-to-r from-black/50 to-transparent'}`}></div>
           <ImageWithFallback
-            // src="https://images.unsplash.com/photo-1614957004130-7b7dbc14f11d?q=80&w=2000&auto=format&fit=crop"
             src={LoginBgImage}
             alt="Axis Bank Banking Services"
-            className="w-full h-full object-cover"
+            className="w-full max-h-[calc(100dvh-88px)] object-cover"
           />
 
           {/* Bank logo watermark and text */}
@@ -146,7 +145,7 @@ export const LoginPage = ({ onLogin, onHome }: LoginPageProps) => {
           </div> */}
           {/* Value proposition */}
           {!isMobile && (
-            <div className="absolute top-60 left-12 max-w-md text-white">
+            <div className="absolute top-36 left-12 max-w-md text-white">
               <h2 className="text-3xl font-bold mb-4">Exclusive benefits await you</h2>
               <p className="text-lg opacity-90 mb-6">
                 Access tailored benefits designed specifically for your financial journey.
