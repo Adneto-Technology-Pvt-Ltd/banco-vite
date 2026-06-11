@@ -298,17 +298,17 @@ export const SegmentShowcase = () => {
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-              <div className="absolute left-6 right-6 bottom-6 rounded-xl bg-white/90 backdrop-blur-md p-5 shadow-lg">
+              {/* <div className="absolute left-6 right-6 bottom-6 rounded-xl bg-white/90 backdrop-blur-md p-5 shadow-lg">
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <div className="text-xl font-bold text-gray-900">{activeData.imageLabel}</div>
-                    {/* <div className="text-sm font-medium text-gray-600">{activeData.tagline} Banking</div> */}
+                    <div className="text-sm font-medium text-gray-600">{activeData.tagline} Banking</div>
                   </div>
-                  {/* <div className="rounded-full bg-[#97144D] p-3 text-white">
+                  <div className="rounded-full bg-[#97144D] p-3 text-white">
                     <IconComponent className="h-5 w-5" />
-                  </div> */}
+                  </div>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
           </AnimatePresence>
         </div>
