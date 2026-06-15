@@ -161,7 +161,7 @@ const segmentData: Segment[] = [
     ],
     useCase: "Enjoy the flexibility to bank your way while earning rewards on your everyday spending.",
     ctaLabel: "Explore Liberty Benefits",
-    ctaUrl: "https://www.axis.bank.in/accounts/savings-account/liberty-savings-account",
+    ctaUrl: "https://www.axis.bank.in/accounts/savings-account/liberty-digital-savings-account",
     imageUrl: AxisLibertyImage,
     imageLabel: "Liberty Account",
     icon: WalletCards

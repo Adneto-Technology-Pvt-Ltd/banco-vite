@@ -85,6 +85,12 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
     },
   ];
 
+  const handleExploreBenefits = () => {
+    if (typeof window !== "undefined") {
+      window.open("https://www.axis.bank.in/", "_blank");
+    }
+  };
+
   return (
     <section className="py-8 px-4 bg-white">
       {/* Reduced padding from py-16 to py-8 */}
@@ -159,7 +165,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                   className="flex-1"
                 >
                   <AxisButton
-                    onClick={onExploreRewards}
+                    onClick={handleExploreBenefits}
                     variant="primary"
                     className="w-full btn-micro"
                   >
@@ -180,7 +186,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                     className="flex-1"
                   >
                     <AxisButton
-                      onClick={onExploreRewards}
+                      onClick={handleExploreBenefits}
                       variant="outline"
                       className="w-full btn-micro"
                     >
@@ -272,7 +278,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
         </motion.div>
 
         {/* Enhanced Account Benefits Card */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -292,7 +298,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
                 Axis Bank offers different account types to match your unique needs and financial goals.
               </p>
             </div>
-            {/* <div className="hidden h-1 w-32 rounded-full bg-[#97144D]/20 md:block" /> */}
+            <div className="hidden h-1 w-32 rounded-full bg-[#97144D]/20 md:block" />
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -323,7 +329,7 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
