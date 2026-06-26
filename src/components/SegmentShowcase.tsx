@@ -4,7 +4,10 @@ import { ArrowRight, BadgeCheck, CheckCircle2, Crown, Gem, Shield, TrendingUp, W
 
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-import { AxisBurgandyImage, AxisLibertyImage, AxisPrestigeImage, AxisProrityImage, AxisEasyImage, AxisSampannImage } from "../assets";
+import {
+  AxisBurgandyImage, AxisBurgandyMobileImage, AxisLibertyImage, AxisLibertyMobileImage, AxisPrestigeImage, 
+  AxisPrestigeMobileImage, AxisProrityImage, AxisProrityMobileImage, AxisEasyImage, AxisEasyMobileImage, AxisSampannImage
+} from "../assets";
 
 type Segment = {
   id: string;
@@ -19,6 +22,7 @@ type Segment = {
   ctaLabel: string;
   ctaUrl: string;
   imageUrl: string;
+  mobileImageUrl?: string;
   imageLabel: string;
   icon: typeof Crown;
 };
@@ -51,6 +55,7 @@ const segmentData: Segment[] = [
     ctaLabel: "Explore Burgundy Benefits",
     ctaUrl: "https://www.axis.bank.in/burgundy",
     imageUrl: AxisBurgandyImage,
+    mobileImageUrl: AxisBurgandyMobileImage,
     imageLabel: "Burgundy Account",
     icon: Crown
   },
@@ -79,6 +84,7 @@ const segmentData: Segment[] = [
     ctaLabel: "Explore Priority Benefits",
     ctaUrl: "https://www.axis.bank.in/priority-banking-program",
     imageUrl: AxisProrityImage,
+    mobileImageUrl: AxisProrityMobileImage,
     imageLabel: "Priority Account",
     icon: BadgeCheck
   },
@@ -107,6 +113,7 @@ const segmentData: Segment[] = [
     ctaLabel: "Explore Prestige Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/prestige-savings-account",
     imageUrl: AxisPrestigeImage,
+    mobileImageUrl: AxisPrestigeMobileImage,
     imageLabel: "Prestige Account",
     icon: Gem
   },
@@ -163,6 +170,7 @@ const segmentData: Segment[] = [
     ctaLabel: "Explore Liberty Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/liberty-digital-savings-account",
     imageUrl: AxisLibertyImage,
+    mobileImageUrl: AxisLibertyMobileImage,
     imageLabel: "Liberty Account",
     icon: WalletCards
   },
@@ -191,6 +199,7 @@ const segmentData: Segment[] = [
     ctaLabel: "Explore Easy Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/easy-access-digital-savings-account",
     imageUrl: AxisEasyImage,
+    mobileImageUrl: AxisEasyMobileImage,
     imageLabel: "Easy Account",
     icon: Shield
   },
@@ -202,10 +211,10 @@ export const SegmentShowcase = () => {
   const IconComponent = activeData.icon;
 
   return (
-    <section className="px-4 py-10 bg-white">
+    <section className="px-4 py-6 md:py-10 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="rounded-2xl border border-gray-200 bg-white p-3 shadow-sm mb-10">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+        <div className="rounded-xl border border-gray-200 bg-white p-2 shadow-sm mb-6 md:mb-10 md:rounded-2xl md:p-3">
+          <div className="grid grid-cols-3 gap-2 lg:grid-cols-6">
             {segmentData.map((segment) => {
               const TabIcon = segment.icon;
               const isActive = activeSegment === segment.id;
@@ -215,15 +224,15 @@ export const SegmentShowcase = () => {
                   key={segment.id}
                   type="button"
                   onClick={() => setActiveSegment(segment.id)}
-                  className={`min-h-[104px] rounded-xl px-4 py-4 transition-all duration-200 ${
+                  className={`min-h-[58px] rounded-lg px-2 py-2 transition-all duration-200 sm:min-h-[72px] md:rounded-xl md:px-4 md:py-4 lg:min-h-[104px] ${
                     isActive
-                      ? "bg-[#97144D] text-white shadow-md"
+                      ? "bg-[#97144D] text-white shadow-md ring-2 ring-[#97144D]/20"
                       : "bg-white text-[#4b3d43] hover:bg-[#f8f3f5]"
                   }`}
                 >
                   <div className="flex h-full flex-col items-center justify-center text-center">
                     {/* <TabIcon className={`h-5 w-5 ${isActive ? "text-white" : "text-[#5d4650]"}`} /> */}
-                    <div className="text-lg font-bold">{segment.name}</div>
+                    <div className="text-sm font-bold leading-tight sm:text-base lg:text-lg">{segment.name}</div>
                     {/* <div className={`text-sm font-medium ${isActive ? "text-white/90" : "text-gray-500"}`}>
                       {segment.tagline}
                     </div> */}
@@ -292,11 +301,14 @@ export const SegmentShowcase = () => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative min-h-[460px] lg:min-h-[640px] rounded-2xl overflow-hidden shadow-xl bg-gray-100"
             >
-              <ImageWithFallback
-                src={activeData.imageUrl}
-                alt={`${activeData.name} banking experience`}
-                className="h-full w-full object-cover"
-              />
+              <picture>
+                {activeData.mobileImageUrl && <source media="(max-width: 767px)" srcSet={activeData.mobileImageUrl} />}
+                <ImageWithFallback
+                  src={activeData.imageUrl}
+                  alt={`${activeData.name} banking experience`}
+                  className="h-full w-full object-cover"
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
               {/* <div className="absolute left-6 right-6 bottom-6 rounded-xl bg-white/90 backdrop-blur-md p-5 shadow-lg">
                 <div className="flex items-center justify-between gap-4">

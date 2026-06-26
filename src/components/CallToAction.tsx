@@ -5,7 +5,7 @@ import { AxisButton } from "./AxisButton";
 
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-import { whyChooseBanner } from "../assets";
+import { whyChooseBanner, whyChooseBannerMobile } from "../assets";
 
 type CallToActionProps = {
   isLoggedIn?: boolean;
@@ -228,11 +228,14 @@ export const CallToAction = ({ isLoggedIn, onOpenAccount, onExploreRewards }: Ca
               className="relative mb-6"
             >
               <div className="relative min-h-[360px] rounded-2xl overflow-hidden shadow-xl">
-                <ImageWithFallback
-                  src={whyChooseBanner}
-                  alt="Modern banking and financial services"
-                  className="w-full h-[360px] object-cover transition-transform duration-700 hover:scale-105"
-                />
+                <picture>
+                  <source media="(max-width: 767px)" srcSet={whyChooseBannerMobile} />
+                  <ImageWithFallback
+                    src={whyChooseBanner}
+                    alt="Modern banking and financial services"
+                    className="w-full h-[360px] object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </picture>
                 {/* <div className="absolute inset-0 bg-gradient-to-t from-[#97144D]/30 to-transparent"></div> */}
 
                 {/* Enhanced Floating Stats Card */}

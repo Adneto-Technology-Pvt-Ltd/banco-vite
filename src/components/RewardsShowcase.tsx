@@ -5,7 +5,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 import { AxisButton } from "./AxisButton";
 
-import { footerBanner } from "../assets";
+import { footerBanner, footerBannerMobile } from "../assets";
 
 type RewardsShowcaseProps = {
   onPlayGames: () => void;
@@ -45,11 +45,14 @@ export const RewardsShowcase = ({ onPlayGames, onExploreRewards, onLogin, onRewa
 
                   <div className="md:w-1/2 h-48 md:h-auto relative">
                     <div className="absolute inset-0 md:relative h-full">
-                      <ImageWithFallback
-                        src={footerBanner}
-                        alt="Benefits experience"
-                        className="w-full h-full object-cover"
-                      />
+                      <picture>
+                        <source media="(max-width: 767px)" srcSet={footerBannerMobile} />
+                        <ImageWithFallback
+                          src={footerBanner}
+                          alt="Benefits experience"
+                          className="w-full h-full object-cover"
+                        />
+                      </picture>
                       <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent md:hidden"></div>
                     </div>
                   </div>
