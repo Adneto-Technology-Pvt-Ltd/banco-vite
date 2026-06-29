@@ -6,7 +6,8 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 import {
   AxisBurgandyImage, AxisBurgandyMobileImage, AxisLibertyImage, AxisLibertyMobileImage, AxisPrestigeImage, 
-  AxisPrestigeMobileImage, AxisProrityImage, AxisProrityMobileImage, AxisEasyImage, AxisEasyMobileImage, AxisSampannImage
+  AxisPrestigeMobileImage, AxisProrityImage, AxisProrityMobileImage, AxisEasyImage, AxisEasyMobileImage, AxisSampannImage,
+  AxisSampannMobileImage
 } from "../assets";
 
 type Segment = {
@@ -142,6 +143,7 @@ const segmentData: Segment[] = [
     ctaLabel: "Explore Sampann Benefits",
     ctaUrl: "https://www.axis.bank.in/accounts/savings-account/sampann-savings-account",
     imageUrl: AxisSampannImage,
+    mobileImageUrl: AxisSampannMobileImage,
     imageLabel: "Sampann Account",
     icon: TrendingUp
   },

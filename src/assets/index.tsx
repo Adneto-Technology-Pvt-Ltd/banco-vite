@@ -12,6 +12,7 @@ import AxisBurgandyMobileImage from './BurgundyMobile.jpg';
 import AxisProrityMobileImage from './PriorityMobile.jpg';
 import AxisPrestigeMobileImage from './PrestigeMoblie.jpg';
 import AxisLibertyMobileImage from './LibertyMobile.jpg';
+import AxisSampannMobileImage from './SampannMobile.jpg';
 import AxisEasyMobileImage from './EasyMobile.jpg';
 import footerBanner from './footerBanner.jpg';
 import footerBannerMobile from './footerBannerMobile.jpg';
@@ -21,5 +22,5 @@ import AxisHeaderBanner from './axisHeaderBanner.png';
 export {
   LoginBgImage, AxisBurgandyImage, AxisBurgandyMobileImage, whyChooseBanner, whyChooseBannerMobile, AxisHeaderBanner, 
   AxisProrityImage, AxisProrityMobileImage, AxisPrestigeImage, AxisPrestigeMobileImage, AxisSampannImage, AxisLibertyImage, 
-  AxisLibertyMobileImage, AxisEasyImage, AxisEasyMobileImage, footerBanner, footerBannerMobile
+  AxisLibertyMobileImage, AxisEasyImage, AxisEasyMobileImage, footerBanner, footerBannerMobile, AxisSampannMobileImage
 };
