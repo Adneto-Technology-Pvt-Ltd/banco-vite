@@ -1,6 +1,9 @@
 import { AxisHeaderBanner } from "../assets";
+import { useState } from "react";
 
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+
+import { LoginInfoModal } from "./LoginInfoModal";
 
 import { Gift } from "lucide-react";
 
@@ -20,11 +23,10 @@ export const HomeBanner = ({
   userData, 
   onExploreRewards
 }: HomeBannerProps) => {
-  
+  const [showLoginInfo, setShowLoginInfo] = useState(false);
+
   const handleExploreRewards = () => {
-    if (onExploreRewards) {
-      onExploreRewards();
-    }
+    setShowLoginInfo(true);
   };
 
   return (
@@ -129,6 +131,7 @@ export const HomeBanner = ({
           </div>
         </div>
       </div>
+      <LoginInfoModal isOpen={showLoginInfo} onClose={() => setShowLoginInfo(false)} />
     </div>
   );
 };

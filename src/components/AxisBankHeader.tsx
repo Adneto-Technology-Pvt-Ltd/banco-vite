@@ -904,10 +904,10 @@ export const AxisBankHeader = ({
 }: AxisBankHeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   // Define top navigation links with dropdown support
-  const topNavLinks = [
-    { text: "Persona Type", key: "accounts", hasDropdown: true },
+  const topNavLinks: Array<{ text: string; key: string; hasDropdown: boolean }> = [
+    // { text: "Persona Type", key: "accounts", hasDropdown: true },
     // { text: "Benefit", key: "rewards", hasDropdown: false },
-    { text: "Support", key: "support", hasDropdown: false }
+    // { text: "Support", key: "support", hasDropdown: false }
   ];
 
   const journeyStages = userData.isLoggedIn
@@ -916,9 +916,7 @@ export const AxisBankHeader = ({
         { text: "Benefits", key: "rewards" },
         { text: "Redemption Status", key: "post-redemption" },
       ]
-    : [
-        { text: "Home", key: "home" }
-      ];
+    : [];
 
   const handleStageClick = (stage: string) => {
     onStageChange(stage);
@@ -978,11 +976,11 @@ export const AxisBankHeader = ({
 
             <div className="absolute bottom-[13.636%] left-[50.833%] right-[4.236%] top-[47.727%]">
               <div className="box-border content-stretch flex flex-row gap-[30px] items-center justify-end p-0 relative size-full">
-                <DesktopSearch
+                {/* <DesktopSearch
                   onSearch={onSearch}
                   searchResults={searchResults}
                   onSearchResultSelect={onSearchResultSelect}
-                />
+                /> */}
 
                 {journeyStages.map((stage) => (
                   <motion.div
@@ -1010,7 +1008,7 @@ export const AxisBankHeader = ({
                   </motion.div>
                 ))}
                 {/* Enhanced Login/Logout Button */}
-                <motion.div
+                {/* <motion.div
                   className="bg-[#97144d] relative rounded shrink-0 cursor-pointer"
                   onClick={userData.isLoggedIn ? onLogout : onLogin}
                   whileHover={{ scale: 1.05, backgroundColor: "#7d1041" }}
@@ -1030,13 +1028,13 @@ export const AxisBankHeader = ({
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </motion.div> */}
               </div>
             </div>
           </div>
 
           {/* Mobile Hamburger Menu Button */}
-          <div className="lg:hidden absolute right-4 top-[54px] transform -translate-y-1/2">
+          {/* <div className="lg:hidden absolute right-4 top-[54px] transform -translate-y-1/2">
             <motion.button
               onClick={() => setIsMobileMenuOpen(true)}
               className="p-2 rounded-lg bg-[#97144D] text-white hover:bg-[#7d1041] transition-colors"
@@ -1045,7 +1043,7 @@ export const AxisBankHeader = ({
             >
               <Menu className="h-6 w-6" />
             </motion.button>
-          </div>
+          </div> */}
         </div>
       </div>
 

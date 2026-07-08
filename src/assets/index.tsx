@@ -18,9 +18,13 @@ import footerBanner from './footerBanner.jpg';
 import footerBannerMobile from './footerBannerMobile.jpg';
 
 import AxisHeaderBanner from './axisHeaderBanner.png';
+import AdnetoLogo from './AdnetoWhiteLogo.png';
+import AxisBannerfooter1 from "./axissalandingcarousal1.png";
+import AxisBannerfooter2 from "./axissalandingcarousal2.png";
 
 export {
-  LoginBgImage, AxisBurgandyImage, AxisBurgandyMobileImage, whyChooseBanner, whyChooseBannerMobile, AxisHeaderBanner, 
+  LoginBgImage, AxisBurgandyImage, AxisBurgandyMobileImage, whyChooseBanner, whyChooseBannerMobile, AxisHeaderBanner, AdnetoLogo,
   AxisProrityImage, AxisProrityMobileImage, AxisPrestigeImage, AxisPrestigeMobileImage, AxisSampannImage, AxisLibertyImage, 
-  AxisLibertyMobileImage, AxisEasyImage, AxisEasyMobileImage, footerBanner, footerBannerMobile, AxisSampannMobileImage
+  AxisLibertyMobileImage, AxisEasyImage, AxisEasyMobileImage, footerBanner, footerBannerMobile, AxisSampannMobileImage, 
+  AxisBannerfooter1, AxisBannerfooter2
 };
