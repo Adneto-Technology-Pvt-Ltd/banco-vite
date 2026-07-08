@@ -50,7 +50,7 @@ export const LoginInfoModal = ({ isOpen, onClose }: LoginInfoModalProps) => (
             onClick={onClose}
             className="mt-8 inline-flex min-h-[48px] w-full max-w-[220px] items-center justify-center rounded-full border-2 border-[#97144D]/60 px-8 font-bold text-[#97144D] transition-colors hover:bg-[#FFF0F6]"
           >
-            Got it
+            Close
           </button>
         </motion.div>
       </motion.div>

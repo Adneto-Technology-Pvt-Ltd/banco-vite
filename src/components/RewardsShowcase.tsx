@@ -103,7 +103,7 @@ export const RewardsShowcase = ({ onPlayGames, onExploreRewards, onLogin, onRewa
                       </AnimatePresence>
 
                       <div className="absolute bottom-4 left-0 right-0 z-10 flex justify-center">
-                        <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 shadow-md backdrop-blur-sm">
+                        <div className="flex items-center gap-2">
                           {carouselImages.map((image, index) => (
                             <button
                               key={image.alt}
